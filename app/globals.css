@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+/*
+  Leifer Studio — cinematic dark theme.
+  The site commits to a single dark, premium aesthetic (not light/dark toggled),
+  so tokens are defined once. Accent is a warm, restrained gold — premium, never loud.
+*/
+@theme {
+  --color-background: #0a0a0b;
+  --color-foreground: #f4f2ee;
+
+  --color-card: #131315;
+  --color-muted: #16161a;
+  --color-muted-foreground: #9d9a93;
+
+  --color-border: rgba(244, 242, 238, 0.08);
+  --color-input: rgba(244, 242, 238, 0.12);
+  --color-ring: #c2a06a;
+
+  --color-accent: #c2a06a;
+  --color-accent-foreground: #0a0a0b;
+  --color-accent-muted: rgba(194, 160, 106, 0.14);
+
+  --font-sans: var(--font-body), "Segoe UI", system-ui, sans-serif;
+  --font-display: var(--font-display), Georgia, serif;
+
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Let Lenis own scrolling; disable native smooth to avoid double-easing. */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-background);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a2e;
+    border-radius: 9999px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  /* Balanced, cinematic headline wrapping. */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Gradient text used for accent words in headlines. */
+  .text-gradient {
+    background: linear-gradient(120deg, #f4f2ee 0%, #c2a06a 60%, #e6cfa1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Vignette overlay for hero/media so text stays legible over video. */
+  .cinematic-overlay {
+    background: radial-gradient(
+        120% 120% at 50% 0%,
+        transparent 0%,
+        rgba(10, 10, 11, 0.35) 55%,
+        rgba(10, 10, 11, 0.92) 100%
+      ),
+      linear-gradient(to bottom, rgba(10, 10, 11, 0.35), rgba(10, 10, 11, 0.75));
+  }
+
+  /* Subtle film-grain / noise texture layer. */
+  .noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .section-padding {
+    padding-block: clamp(5rem, 12vh, 9rem);
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "metadata": {
+    "title": "Netanel Laifer — Creative Director & Storyteller",
+    "description": "Netanel Laifer crafts cinematic experiences for singers, artists and brands. Every project starts with a story — technology is only the tool.",
+    "ogAlt": "Leifer Studio — cinematic, story-driven filmmaking"
+  },
+  "nav": {
+    "brand": "Leifer Studio",
+    "work": "Work",
+    "about": "About",
+    "services": "Services",
+    "process": "Process",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "cta": "Let's Talk"
+  },
+  "hero": {
+    "eyebrow": "Creative Director · Storyteller",
+    "title": "Every film begins with a story",
+    "subtitle": "I begin by listening — to you and your audience — then build the story worth telling. Camera, edit and AI are only tools; the story is the work itself.",
+    "ctaPrimary": "Selected Work",
+    "ctaSecondary": "Let's Talk",
+    "scroll": "Scroll to explore",
+    "reel": "Showreel",
+    "muted": "Muted video"
+  },
+  "projects": {
+    "eyebrow": "Featured Work",
+    "title": "Stories turned into image",
+    "subtitle": "A selection of recent projects — each one a world of its own.",
+    "viewProject": "View project",
+    "items": {
+      "balkan-wedding": {
+        "title": "Balkan Wedding",
+        "category": "Music Video",
+        "description": "A cinematic celebration of color, motion and tradition woven into a single story."
+      },
+      "air-mevorach": {
+        "title": "Avir Mevorach",
+        "category": "Music Video",
+        "description": "A music video for Zvulun Natanob, crafted entirely with AI tools — proof that emotion and story come before the technology."
+      },
+      "jerusalem-walls": {
+        "title": "Jerusalem Walls",
+        "category": "Documentary",
+        "description": "A journey between stone and light, past and present, in a city that never stops telling."
+      }
+    }
+  },
+  "about": {
+    "eyebrow": "Who I Am",
+    "title": "Creativity comes before technology",
+    "paragraphs": [
+      "Netanel Laifer, born in Jerusalem (1983). A journalist and music critic, a researcher of Jewish music and a composer — for over a decade I've lived inside the world of music: writing about it, researching it, and creating it.",
+      "Years as a writer and critic taught me one thing above all: before the technique, there's a story. Lately I translate that same eye into video and music clips, using AI as a new creative tool that lets me tell stories in ways that weren't possible before.",
+      "Alongside the work I occasionally host programs across various media, and I guide artists and projects from concept to final cut — with an ear for music, an eye for cinema and the mind of a storyteller."
+    ],
+    "quote": "Technology creates pixels. Story creates emotion.",
+    "wiki": "Read more on Wikipedia",
+    "stats": {
+      "since": { "value": "2012", "label": "In music since" },
+      "research": { "value": "M.A.", "label": "Jewish-music researcher" },
+      "ai": { "value": "AI", "label": "Films & music, AI-crafted" }
+    }
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "From idea to screen",
+    "subtitle": "Full production capabilities under one creative roof.",
+    "items": {
+      "music-videos": {
+        "title": "Music Videos",
+        "description": "Cinematic videos that translate music into a visual language."
+      },
+      "commercials": {
+        "title": "Commercials",
+        "description": "Short brand stories that connect emotion to a business message."
+      },
+      "corporate": {
+        "title": "Corporate Videos",
+        "description": "Corporate video that conveys value and trust with precision."
+      },
+      "animation": {
+        "title": "Animation",
+        "description": "Animation and effects that bring any idea to life."
+      },
+      "voice-over": {
+        "title": "Voice Over",
+        "description": "Voice, tone and breath that give a story its presence."
+      },
+      "music-production": {
+        "title": "Music Production",
+        "description": "Original score built around the emotion of the project."
+      }
+    }
+  },
+  "process": {
+    "eyebrow": "The Creative Process",
+    "title": "How a story becomes a project",
+    "subtitle": "A clear, transparent process that reduces uncertainty and ensures a precise result.",
+    "steps": {
+      "listen": { "title": "Listen", "description": "Understand you, your audience and the goal." },
+      "research": { "title": "Research", "description": "Gather inspiration, references and direction." },
+      "story": { "title": "Story", "description": "Build the narrative that holds it all together." },
+      "direction": { "title": "Creative Direction", "description": "Define a visual language and tone." },
+      "production": { "title": "Production", "description": "Produce, create and refine." },
+      "delivery": { "title": "Delivery", "description": "Deliver a polished result, ready for the world." }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "title": "What people say",
+    "items": {
+      "t1": {
+        "quote": "Netanel understood my story before I finished explaining it. The result exceeded every expectation.",
+        "name": "Maya Levi",
+        "role": "Singer & Creator"
+      },
+      "t2": {
+        "quote": "We've worked with many creators. None combined creative vision with professional precision like Netanel.",
+        "name": "Daniel Cohen",
+        "role": "Music Producer"
+      },
+      "t3": {
+        "quote": "The campaign Netanel created for us felt like a film. Our clients still talk about it.",
+        "name": "Ronit Barak",
+        "role": "Marketing Director"
+      }
+    }
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Let's create your next project",
+    "subtitle": "Tell me about your idea — and I'll come back with a direction.",
+    "form": {
+      "name": "Full name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "you@example.com",
+      "phone": "Phone",
+      "phonePlaceholder": "+972 50 000 0000",
+      "company": "Company / Project",
+      "companyPlaceholder": "Optional",
+      "message": "Message",
+      "messagePlaceholder": "Tell me about your project...",
+      "submit": "Send message",
+      "sending": "Sending...",
+      "success": "Message sent! I'll get back to you soon.",
+      "error": "Something went wrong. Try again or reach out directly.",
+      "errors": {
+        "name": "Please enter your name (at least 2 characters)",
+        "email": "Please enter a valid email address",
+        "phone": "Please enter a valid phone number",
+        "message": "Please enter a message (at least 10 characters)"
+      }
+    }
+  },
+  "footer": {
+    "tagline": "Every great project starts with a story.",
+    "rights": "All rights reserved.",
+    "madeWith": "Crafted with care for every frame.",
+    "navTitle": "Navigation",
+    "socialTitle": "Follow me"
+  },
+  "languageToggle": {
+    "label": "Language",
+    "he": "עברית",
+    "en": "English"
+  }
+}
