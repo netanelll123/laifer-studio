@@ -38,7 +38,9 @@ export function LanguageToggle({ className }: { className?: string }) {
           onClick={() => switchTo(code)}
           aria-pressed={code === locale}
           className={cn(
-            "rounded-full px-3 py-1 uppercase transition-colors duration-300 ease-cinematic",
+            // Bigger tap target on touch/mobile (~44px) than on desktop,
+            // where a mouse cursor doesn't need the extra padding.
+            "rounded-full px-3.5 py-2.5 uppercase transition-colors duration-300 ease-cinematic sm:px-3 sm:py-1",
             code === locale
               ? "bg-accent text-accent-foreground"
               : "text-muted-foreground hover:text-foreground"

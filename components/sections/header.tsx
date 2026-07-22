@@ -73,7 +73,7 @@ export function Header() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? t("closeMenu") : t("openMenu")}
             aria-expanded={open}
-            className="inline-flex size-10 items-center justify-center rounded-full border border-border text-foreground"
+            className="inline-flex size-11 items-center justify-center rounded-full border border-border text-foreground"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
