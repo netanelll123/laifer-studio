@@ -43,7 +43,10 @@ export function CaseStudyHero({ hero }: { hero: CaseStudy["hero"] }) {
             muted
             loop
             playsInline
-            preload="metadata"
+            // Immediate autoplay hero — start latency matters more than the
+            // bandwidth saved by a lazier hint (contrast the hover-triggered
+            // project previews, which correctly use preload="none").
+            preload="auto"
             aria-hidden
           >
             <source src={hero.video} type="video/mp4" />

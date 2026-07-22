@@ -88,7 +88,10 @@ export function HeroBackground() {
           muted
           loop
           playsInline
-          preload="metadata"
+          // Unlike a hover-triggered preview (preload="none"), this plays
+          // immediately on load — minimizing start latency matters more here
+          // than the bandwidth saved by a lazier hint.
+          preload="auto"
           aria-hidden
           onCanPlay={(e) => {
             // Empty placeholder files never reach a real duration.
