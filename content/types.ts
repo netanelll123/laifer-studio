@@ -28,9 +28,11 @@ export interface Project {
   poster: string;
   /** Optional looping preview clip revealed on hover (omit until a real clip exists). */
   video?: string;
-  /** Optional external link (e.g. YouTube) opened from the card, until
-   *  dedicated case-study pages exist. */
+  /** Optional external link (e.g. YouTube), opened in a new tab. */
   url?: string;
+  /** Optional slug of an internal case-study page (see `content/case-studies/`).
+   *  Takes precedence over `url` when both are set. */
+  caseStudySlug?: string;
 }
 
 /** A service offering. Title/description resolved from i18n via `slug`. */
@@ -59,4 +61,54 @@ export interface ContactPayload {
   phone: string;
   company: string;
   message: string;
+}
+
+/*
+ * Case studies — long-form editorial articles behind a project. Unlike the
+ * short, repeated strings in `content/messages/*.json`, this copy is unique
+ * per page, so it lives in its own per-locale content module (see
+ * `content/case-studies/`) rather than the shared message catalogs.
+ *
+ * `blocks` is the reusable part of the template: an ordered list of content
+ * units a future case study can mix and match freely. Hero, opening quote,
+ * closing film embed, reflection, credits and CTA are modeled as fixed
+ * top-level fields because every case study has exactly one of each.
+ */
+export type CaseStudyBlock =
+  | { type: "text"; title?: string; paragraphs: string[] }
+  | { type: "image"; src: string; alt: string; caption?: string }
+  | {
+      type: "gallery";
+      items: { src: string; alt: string; caption?: string }[];
+    }
+  /** `lines` renders as short, separately-paced dramatic statements (the
+   *  brief's quotes are broken by blank lines, not single paragraphs). */
+  | { type: "quote"; lines: string[] };
+
+export interface CaseStudy {
+  slug: string;
+  hero: {
+    title: string;
+    subtitle: string;
+    tags: string[];
+    video: string;
+    poster: string;
+  };
+  openingQuote: string[];
+  /** The body of the article — sections 1 through 8 of the brief, in order. */
+  blocks: CaseStudyBlock[];
+  film: {
+    title: string;
+    youtubeId: string;
+  };
+  reflection: {
+    title?: string;
+    paragraphs: string[];
+  };
+  credits: { role: string; name: string }[];
+  cta: {
+    title: string;
+    text: string;
+    buttonLabel: string;
+  };
 }

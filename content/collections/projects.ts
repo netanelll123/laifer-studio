@@ -12,6 +12,7 @@ export const projects: Project[] = [
   {
     slug: "balkan-wedding",
     poster: "/projects/balkan-wedding.svg",
+    caseStudySlug: "od-yishama",
   },
   {
     slug: "air-mevorach",

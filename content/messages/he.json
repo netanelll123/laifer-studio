@@ -166,6 +166,10 @@
     "navTitle": "ניווט",
     "socialTitle": "עקבו אחריי"
   },
+  "caseStudy": {
+    "playVideo": "הפעלת הסרט",
+    "watchOn": "צפו ב"
+  },
   "languageToggle": {
     "label": "שפה",
     "he": "עברית",

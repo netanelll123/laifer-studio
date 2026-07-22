@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { LogoFull } from "@/components/logo";
 import { navItems, sectionIds, siteConfig } from "@/content/site";
 
@@ -6,6 +6,7 @@ import { navItems, sectionIds, siteConfig } from "@/content/site";
 export function Footer() {
   const t = useTranslations("nav");
   const tf = useTranslations("footer");
+  const locale = useLocale();
   const year = new Date().getFullYear();
 
   return (
@@ -14,7 +15,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr]">
           <div>
             <a
-              href={`#${sectionIds.hero}`}
+              href={`/${locale}#${sectionIds.hero}`}
               aria-label={t("brand")}
               className="inline-block"
             >
@@ -33,7 +34,7 @@ export function Footer() {
               {navItems.map((item) => (
                 <li key={item.key}>
                   <a
-                    href={item.href}
+                    href={`/${locale}${item.href}`}
                     className="text-sm text-foreground/70 transition-colors duration-300 ease-cinematic hover:text-foreground"
                   >
                     {t(item.key)}

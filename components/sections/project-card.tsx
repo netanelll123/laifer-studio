@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { sectionIds } from "@/content/site";
@@ -22,14 +22,18 @@ export function ProjectCard({
   reversed: boolean;
 }) {
   const t = useTranslations("projects");
+  const locale = useLocale();
   const prefersReduced = usePrefersReducedMotion();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [active, setActive] = useState(false);
 
   const hasVideo = Boolean(project.video);
-  // External links (e.g. YouTube) open in a new tab; otherwise fall back to contact.
-  const href = project.url ?? `#${sectionIds.contact}`;
-  const external = Boolean(project.url);
+  // Internal case-study pages take priority over an external link; falls
+  // back to the contact section if neither is set yet.
+  const href = project.caseStudySlug
+    ? `/${locale}/work/${project.caseStudySlug}`
+    : (project.url ?? `/${locale}#${sectionIds.contact}`);
+  const external = Boolean(project.url) && !project.caseStudySlug;
   const linkProps = external
     ? { target: "_blank" as const, rel: "noopener noreferrer" }
     : {};

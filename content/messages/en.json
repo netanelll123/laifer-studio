@@ -166,6 +166,10 @@
     "navTitle": "Navigation",
     "socialTitle": "Follow me"
   },
+  "caseStudy": {
+    "playVideo": "Play the film",
+    "watchOn": "Watch on"
+  },
   "languageToggle": {
     "label": "Language",
     "he": "עברית",

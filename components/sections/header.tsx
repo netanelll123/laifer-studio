@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/logo";
@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
  *  mobile drawer, language toggle and primary CTA. */
 export function Header() {
   const t = useTranslations("nav");
+  const locale = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -41,7 +42,7 @@ export function Header() {
       )}
     >
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-5 sm:h-24 sm:px-8">
-        <a href={`#${sectionIds.hero}`} aria-label={t("brand")}>
+        <a href={`/${locale}#${sectionIds.hero}`} aria-label={t("brand")}>
           <Logo brand={t("brand")} />
         </a>
 
@@ -49,7 +50,7 @@ export function Header() {
           {navItems.map((item) => (
             <li key={item.key}>
               <a
-                href={item.href}
+                href={`/${locale}${item.href}`}
                 className="text-[15px] text-foreground/70 transition-colors duration-300 ease-cinematic hover:text-foreground"
               >
                 {t(item.key)}
@@ -61,7 +62,7 @@ export function Header() {
         <div className="hidden items-center gap-4 lg:flex">
           <LanguageToggle />
           <Button asChild size="md">
-            <a href={`#${sectionIds.contact}`}>{t("cta")}</a>
+            <a href={`/${locale}#${sectionIds.contact}`}>{t("cta")}</a>
           </Button>
         </div>
 
@@ -90,7 +91,7 @@ export function Header() {
           {navItems.map((item) => (
             <li key={item.key}>
               <a
-                href={item.href}
+                href={`/${locale}${item.href}`}
                 onClick={() => setOpen(false)}
                 className="block rounded-lg px-3 py-3 text-base text-foreground/80 transition-colors duration-300 ease-cinematic hover:bg-white/5 hover:text-foreground"
               >
@@ -100,7 +101,7 @@ export function Header() {
           ))}
           <li className="mt-2">
             <Button asChild size="lg" className="w-full">
-              <a href={`#${sectionIds.contact}`} onClick={() => setOpen(false)}>
+              <a href={`/${locale}#${sectionIds.contact}`} onClick={() => setOpen(false)}>
                 {t("cta")}
               </a>
             </Button>
