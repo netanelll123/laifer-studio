@@ -2,11 +2,14 @@ import { useTranslations } from "next-intl";
 import { Mail } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { ContactForm } from "@/components/sections/contact-form";
+import { WhatsAppIcon } from "@/components/icons/whatsapp-icon";
 import { sectionIds, siteConfig } from "@/content/site";
 
 /** Contact section: minimal intro + the form. */
 export function Contact() {
   const t = useTranslations("contact");
+  const tCommon = useTranslations("common");
+  const whatsappHref = `https://wa.me/${siteConfig.person.whatsapp}?text=${encodeURIComponent(t("whatsappMessage"))}`;
 
   return (
     <section id={sectionIds.contact} className="section-padding">
@@ -22,15 +25,29 @@ export function Contact() {
           <p className="max-w-md text-base text-muted-foreground sm:text-lg">
             {t("subtitle")}
           </p>
-          <a
-            href={`mailto:${siteConfig.person.email}`}
-            className="inline-flex items-center gap-3 text-sm text-foreground/80 transition-colors duration-300 ease-cinematic hover:text-accent"
-          >
-            <span className="inline-flex size-10 items-center justify-center rounded-full border border-border">
-              <Mail className="size-5" aria-hidden />
-            </span>
-            {siteConfig.person.email}
-          </a>
+          <div className="flex flex-col gap-4">
+            <a
+              href={`mailto:${siteConfig.person.email}`}
+              className="inline-flex items-center gap-3 text-sm text-foreground/80 transition-colors duration-300 ease-cinematic hover:text-accent"
+            >
+              <span className="inline-flex size-10 items-center justify-center rounded-full border border-border">
+                <Mail className="size-5" aria-hidden />
+              </span>
+              {siteConfig.person.email}
+            </a>
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 text-sm text-foreground/80 transition-colors duration-300 ease-cinematic hover:text-accent"
+            >
+              <span className="inline-flex size-10 items-center justify-center rounded-full border border-border">
+                <WhatsAppIcon className="size-5" />
+              </span>
+              {t("whatsapp")}
+              <span className="sr-only"> — {tCommon("opensInNewTab")}</span>
+            </a>
+          </div>
         </Reveal>
 
         <Reveal delay={0.1}>

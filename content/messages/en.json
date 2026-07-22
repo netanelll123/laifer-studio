@@ -140,6 +140,8 @@
     "eyebrow": "Contact",
     "title": "Let's create your next project",
     "subtitle": "Tell me about your idea — and I'll come back with a direction.",
+    "whatsapp": "WhatsApp",
+    "whatsappMessage": "Hi Netanel, I'd love to hear more about creating a film.",
     "form": {
       "name": "Full name",
       "namePlaceholder": "Your name",
