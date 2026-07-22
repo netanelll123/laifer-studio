@@ -34,8 +34,18 @@ export async function POST(request: Request) {
   try {
     const upstream = await fetch(endpoint, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(parsed.data),
+      headers: {
+        // Explicit charset guards against any intermediary defaulting to a
+        // non-UTF-8 encoding (matters for Hebrew/non-ASCII submissions).
+        "Content-Type": "application/json; charset=utf-8",
+        // Required by Formspree (and most form backends) to get a JSON
+        // response back instead of an HTML redirect.
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        ...parsed.data,
+        _subject: `New inquiry from ${parsed.data.name} — Leifer Studio`,
+      }),
     });
 
     if (!upstream.ok) {

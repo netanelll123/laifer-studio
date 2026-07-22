@@ -13,32 +13,36 @@ export function About() {
   return (
     <section id={sectionIds.about} className="section-padding">
       <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_1.1fr] lg:items-center">
-        {/* Quote panel */}
+        {/* Portrait + pull-quote */}
         <Reveal className="order-2 lg:order-1">
-          <figure className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 sm:p-12 noise">
+          <figure className="relative overflow-hidden rounded-3xl border border-border">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/about-portrait.jpg"
+              alt={siteConfig.person.name}
+              className="aspect-[4/5] w-full object-cover"
+            />
             <div
-              className="absolute inset-0 opacity-[0.06]"
-              style={{
-                background:
-                  "radial-gradient(60% 60% at 30% 20%, var(--color-accent), transparent 70%)",
-              }}
+              className="absolute inset-0 bg-gradient-to-t from-background via-background/45 to-transparent"
               aria-hidden
             />
-            <blockquote className="relative font-display text-2xl font-medium leading-snug text-balance sm:text-3xl">
-              “{t("quote")}”
-            </blockquote>
-            <dl className="relative mt-10 grid grid-cols-3 gap-4 border-t border-border pt-8">
-              {stats.map((key) => (
-                <div key={key}>
-                  <dt className="font-display text-3xl text-accent sm:text-4xl">
-                    {t(`stats.${key}.value`)}
-                  </dt>
-                  <dd className="mt-1 text-xs text-muted-foreground sm:text-sm">
-                    {t(`stats.${key}.label`)}
-                  </dd>
-                </div>
-              ))}
-            </dl>
+            <div className="absolute inset-x-0 bottom-0 p-8 sm:p-12">
+              <blockquote className="font-display text-2xl font-medium leading-snug text-balance [text-shadow:0_2px_24px_rgba(0,0,0,0.6)] sm:text-3xl">
+                “{t("quote")}”
+              </blockquote>
+              <dl className="mt-8 grid grid-cols-3 gap-4 border-t border-white/15 pt-6">
+                {stats.map((key) => (
+                  <div key={key}>
+                    <dt className="font-display text-2xl text-accent sm:text-3xl">
+                      {t(`stats.${key}.value`)}
+                    </dt>
+                    <dd className="mt-1 text-xs text-foreground/75 sm:text-sm">
+                      {t(`stats.${key}.label`)}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
           </figure>
         </Reveal>
 
