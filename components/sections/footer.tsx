@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { LogoFull } from "@/components/logo";
 import { navItems, sectionIds, siteConfig } from "@/lib/site";
 
 /** Footer: brand, tagline, in-page nav, social links and legal line. */
@@ -14,9 +15,10 @@ export function Footer() {
           <div>
             <a
               href={`#${sectionIds.hero}`}
-              className="font-display text-xl font-medium"
+              aria-label={t("brand")}
+              className="inline-block"
             >
-              {t("brand")}
+              <LogoFull brand={t("brand")} className="-ms-2" />
             </a>
             <p className="mt-4 max-w-xs font-display text-lg text-foreground/80">
               {tf("tagline")}

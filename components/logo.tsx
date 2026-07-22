@@ -1,41 +1,50 @@
 import { cn } from "@/lib/utils";
 
 /**
- * Brand lockup. Renders the real logo artwork when available at
- * `/logo.png` (a transparent PNG placed in `public/`); otherwise falls back to
- * a clean wordmark. `brand` comes from i18n so it localizes.
- *
- * NOTE: drop a transparent-background logo at `public/logo.png` to activate the
- * image lockup (see `withImage`).
+ * Header brand lockup: the crown mark (off-white, transparent) beside the
+ * localized wordmark. On hover the wordmark warms to the accent gold.
+ * Assets are derived from the real logo art (`public/logo-mark.png`).
  */
 export function Logo({
   brand,
   className,
-  withImage = false,
 }: {
   brand: string;
   className?: string;
-  withImage?: boolean;
 }) {
-  if (withImage) {
-    return (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img
-        src="/logo.png"
-        alt={brand}
-        className={cn("h-9 w-auto sm:h-10", className)}
-      />
-    );
-  }
-
   return (
-    <span
-      className={cn(
-        "font-display text-xl font-medium tracking-tight sm:text-2xl",
-        className
-      )}
-    >
-      {brand}
+    <span className={cn("group/logo inline-flex items-center gap-2.5", className)}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/logo-mark.png"
+        alt=""
+        aria-hidden
+        className="h-8 w-auto transition-opacity duration-300 group-hover/logo:opacity-80 sm:h-9"
+      />
+      <span className="font-display text-xl font-medium tracking-tight transition-colors duration-300 group-hover/logo:text-accent sm:text-2xl">
+        {brand}
+      </span>
     </span>
+  );
+}
+
+/**
+ * Full stacked lockup (crown + wordmark + "Creative Video") for the footer,
+ * used as a cinematic brand sign-off. Text is baked into the artwork.
+ */
+export function LogoFull({
+  brand,
+  className,
+}: {
+  brand: string;
+  className?: string;
+}) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/logo-full.png"
+      alt={brand}
+      className={cn("h-24 w-auto sm:h-28", className)}
+    />
   );
 }
