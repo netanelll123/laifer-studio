@@ -1,9 +1,10 @@
 import { cn } from "@/lib/utils";
 
 /**
- * Header brand lockup: the crown mark (off-white, transparent) beside the
- * localized wordmark. On hover the wordmark warms to the accent gold.
- * Assets are derived from the real logo art (`public/logo-mark.png`).
+ * Header brand lockup: the crown stacked above the wordmark, matching the
+ * footer's full lockup treatment. Text is baked into the artwork (the fixed
+ * brand mark, unchanged per locale — only the accessible name localizes).
+ * Derived from the real logo art (`public/logo-header.png`).
  */
 export function Logo({
   brand,
@@ -13,24 +14,21 @@ export function Logo({
   className?: string;
 }) {
   return (
-    <span className={cn("group/logo inline-flex items-center gap-2.5", className)}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/logo-mark.png"
-        alt=""
-        aria-hidden
-        className="h-8 w-auto transition-opacity duration-300 group-hover/logo:opacity-80 sm:h-9"
-      />
-      <span className="font-display text-xl font-medium tracking-tight transition-colors duration-300 group-hover/logo:text-accent sm:text-2xl">
-        {brand}
-      </span>
-    </span>
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/logo-header.png"
+      alt={brand}
+      className={cn(
+        "h-14 w-auto transition-opacity duration-300 hover:opacity-80 sm:h-16",
+        className
+      )}
+    />
   );
 }
 
 /**
  * Full stacked lockup (crown + wordmark + "Creative Video") for the footer,
- * used as a cinematic brand sign-off. Text is baked into the artwork.
+ * used as a cinematic brand sign-off. Same artwork, larger size.
  */
 export function LogoFull({
   brand,
