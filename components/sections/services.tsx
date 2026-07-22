@@ -2,8 +2,8 @@ import { useTranslations } from "next-intl";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { scaleIn, stagger } from "@/lib/motion";
-import { services } from "@/lib/data/services";
-import { sectionIds } from "@/lib/site";
+import { services } from "@/content/collections/services";
+import { sectionIds } from "@/content/site";
 
 /** Services grid: six offerings, each an icon + title + short description. */
 export function Services() {

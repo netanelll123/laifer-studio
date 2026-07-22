@@ -1,4 +1,4 @@
-import type { Testimonial } from "@/types";
+import type { Testimonial } from "@/content/types";
 
 /**
  * Client testimonials. Quote/name/role localized via `testimonials.items.<slug>`.

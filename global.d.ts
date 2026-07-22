@@ -1,5 +1,5 @@
 import type { routing } from "@/i18n/routing";
-import type messages from "@/messages/he.json";
+import type messages from "@/content/messages/he.json";
 
 // Strongly-types `useTranslations`, `useLocale`, etc. against our catalog.
 declare module "next-intl" {

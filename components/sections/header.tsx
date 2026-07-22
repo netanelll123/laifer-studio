@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/logo";
 import { LanguageToggle } from "@/components/language-toggle";
-import { navItems, sectionIds } from "@/lib/site";
+import { navItems, sectionIds } from "@/content/site";
 import { cn } from "@/lib/utils";
 
 /** Fixed header: transparent over the hero, frosted after scroll. Includes a
@@ -70,7 +70,7 @@ export function Header() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? t("closeMenu") : t("openMenu")}
             aria-expanded={open}
             className="inline-flex size-10 items-center justify-center rounded-full border border-border text-foreground"
           >

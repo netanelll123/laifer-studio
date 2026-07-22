@@ -6,7 +6,7 @@ import {
   Mic,
   Music,
 } from "lucide-react";
-import type { Service } from "@/types";
+import type { Service } from "@/content/types";
 
 /**
  * Service offerings. Title/description localized via `services.items.<slug>`.

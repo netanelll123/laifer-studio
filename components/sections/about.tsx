@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { fadeUp, stagger } from "@/lib/motion";
-import { sectionIds, siteConfig } from "@/lib/site";
+import { sectionIds, siteConfig } from "@/content/site";
 
 /** About section: real bio, a pull-quote, credentials and a Wikipedia link. */
 export function About() {

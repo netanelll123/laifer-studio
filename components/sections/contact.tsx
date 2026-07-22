@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import { Mail } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { ContactForm } from "@/components/sections/contact-form";
-import { sectionIds, siteConfig } from "@/lib/site";
+import { sectionIds, siteConfig } from "@/content/site";
 
 /** Contact section: minimal intro + the form. */
 export function Contact() {

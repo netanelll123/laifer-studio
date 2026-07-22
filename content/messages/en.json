@@ -12,7 +12,9 @@
     "process": "Process",
     "testimonials": "Testimonials",
     "contact": "Contact",
-    "cta": "Let's Talk"
+    "cta": "Let's Talk",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "hero": {
     "eyebrow": "Creative Director · Storyteller",

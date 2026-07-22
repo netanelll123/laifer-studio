@@ -2,8 +2,8 @@ import { useTranslations } from "next-intl";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { fadeUp, stagger } from "@/lib/motion";
-import { processSteps } from "@/lib/data/process";
-import { sectionIds } from "@/lib/site";
+import { processSteps } from "@/content/collections/process";
+import { sectionIds } from "@/content/site";
 
 /** Creative process as a vertical timeline of six ordered steps. */
 export function CreativeProcess() {

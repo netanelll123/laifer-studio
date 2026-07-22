@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HeroBackground } from "@/components/sections/hero-background";
-import { sectionIds } from "@/lib/site";
+import { sectionIds } from "@/content/site";
 import { maskReveal, fadeUp, stagger, transitions } from "@/lib/motion";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 

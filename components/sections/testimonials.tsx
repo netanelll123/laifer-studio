@@ -3,8 +3,8 @@ import { Quote } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { scaleIn, stagger } from "@/lib/motion";
-import { testimonials } from "@/lib/data/testimonials";
-import { sectionIds } from "@/lib/site";
+import { testimonials } from "@/content/collections/testimonials";
+import { sectionIds } from "@/content/site";
 
 /** Client testimonials as a responsive card grid. Ready for future video
  *  testimonials (add a source per item in the data + render conditionally). */

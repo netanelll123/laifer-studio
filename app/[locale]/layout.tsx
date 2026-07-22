@@ -5,7 +5,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Frank_Ruhl_Libre, Assistant } from "next/font/google";
 import { Toaster } from "sonner";
 import { routing, localeDirection, type Locale } from "@/i18n/routing";
-import { siteConfig } from "@/lib/site";
+import { siteConfig } from "@/content/site";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
 import "../globals.css";
 

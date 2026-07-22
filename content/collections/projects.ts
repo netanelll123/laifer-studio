@@ -1,4 +1,4 @@
-import type { Project } from "@/types";
+import type { Project } from "@/content/types";
 
 /**
  * Featured projects (exactly three). Text is localized via `projects.items.<slug>`

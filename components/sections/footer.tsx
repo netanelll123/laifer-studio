@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import { LogoFull } from "@/components/logo";
-import { navItems, sectionIds, siteConfig } from "@/lib/site";
+import { navItems, sectionIds, siteConfig } from "@/content/site";
 
 /** Footer: brand, tagline, in-page nav, social links and legal line. */
 export function Footer() {

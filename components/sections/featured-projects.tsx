@@ -5,10 +5,10 @@ import { useTranslations } from "next-intl";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { projects } from "@/lib/data/projects";
-import { sectionIds } from "@/lib/site";
+import { projects } from "@/content/collections/projects";
+import { sectionIds } from "@/content/site";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
-import type { Project } from "@/types";
+import type { Project } from "@/content/types";
 import { cn } from "@/lib/utils";
 
 /** Exactly three featured projects as large cinematic rows. Hover reveals a
