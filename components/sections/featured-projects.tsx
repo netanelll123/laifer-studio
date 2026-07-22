@@ -78,13 +78,9 @@ function ProjectCard({
   };
 
   return (
-    <Reveal
-      className={cn(
-        "grid items-center gap-8 lg:grid-cols-2 lg:gap-14",
-        reversed && "lg:[direction:rtl]"
-      )}
-    >
-      {/* Media */}
+    <Reveal className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+      {/* Media — visual position alternates via `order`, independent of text
+          direction, so RTL/LTR content is never affected by the layout. */}
       <a
         href={href}
         {...linkProps}
@@ -92,7 +88,10 @@ function ProjectCard({
         onMouseLeave={onLeave}
         onFocus={onEnter}
         onBlur={onLeave}
-        className="group relative block aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-card [direction:ltr]"
+        className={cn(
+          "group relative block aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-card [direction:ltr]",
+          reversed ? "lg:order-2" : "lg:order-1"
+        )}
         aria-label={t(`items.${project.slug}.title`)}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -127,8 +126,9 @@ function ProjectCard({
         </span>
       </a>
 
-      {/* Text */}
-      <div className={cn("[direction:inherit]", reversed && "[direction:ltr]")}>
+      {/* Text — always renders in the page's real direction (RTL for Hebrew,
+          LTR for English); only its position swaps for reversed cards. */}
+      <div className={cn(reversed ? "lg:order-1" : "lg:order-2")}>
         <div className="flex items-center gap-4">
           <span className="font-display text-sm text-accent">
             {String(index + 1).padStart(2, "0")}
