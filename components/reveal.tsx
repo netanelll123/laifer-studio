@@ -10,7 +10,7 @@ interface RevealProps {
   variants?: Variants;
   /** Delay before this element's entrance, in seconds. */
   delay?: number;
-  as?: "div" | "section" | "li" | "span";
+  as?: "div" | "section" | "li" | "span" | "dl";
 }
 
 /**

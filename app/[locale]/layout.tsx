@@ -74,6 +74,7 @@ export default async function LocaleLayout({
   // Enable static rendering for this locale.
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "metadata" });
+  const tCommon = await getTranslations({ locale, namespace: "common" });
 
   const personJsonLd = {
     "@context": "https://schema.org",
@@ -94,6 +95,12 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-accent focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-accent-foreground"
+        >
+          {tCommon("skipToContent")}
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}

@@ -58,7 +58,9 @@ export function ContactForm() {
             id="name"
             placeholder={t("namePlaceholder")}
             autoComplete="name"
+            required
             aria-invalid={!!errors.name}
+            aria-describedby={errors.name ? "name-error" : undefined}
             {...register("name")}
           />
         </Field>
@@ -74,7 +76,9 @@ export function ContactForm() {
             dir="ltr"
             placeholder={t("emailPlaceholder")}
             autoComplete="email"
+            required
             aria-invalid={!!errors.email}
+            aria-describedby={errors.email ? "email-error" : undefined}
             {...register("email")}
           />
         </Field>
@@ -90,7 +94,9 @@ export function ContactForm() {
             dir="ltr"
             placeholder={t("phonePlaceholder")}
             autoComplete="tel"
+            required
             aria-invalid={!!errors.phone}
+            aria-describedby={errors.phone ? "phone-error" : undefined}
             {...register("phone")}
           />
         </Field>
@@ -113,7 +119,9 @@ export function ContactForm() {
         <Textarea
           id="message"
           placeholder={t("messagePlaceholder")}
+          required
           aria-invalid={!!errors.message}
+          aria-describedby={errors.message ? "message-error" : undefined}
           {...register("message")}
         />
       </Field>
@@ -151,7 +159,7 @@ function Field({
       <Label htmlFor={id}>{label}</Label>
       {children}
       {error ? (
-        <p role="alert" className="text-xs text-red-400">
+        <p id={`${id}-error`} role="alert" className="text-xs text-red-400">
           {error}
         </p>
       ) : null}

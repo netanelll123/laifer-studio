@@ -80,12 +80,15 @@ export function Header() {
         </div>
       </nav>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer. `inert` when closed: the links stay in the DOM for the
+          collapse transition, but must not be keyboard-tabbable or exposed to
+          screen readers while visually hidden. */}
       <div
         className={cn(
           "overflow-hidden border-t border-border bg-background/95 backdrop-blur-xl transition-[max-height,opacity] duration-500 ease-cinematic lg:hidden",
           open ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"
         )}
+        {...(!open ? { inert: true } : {})}
       >
         <ul className="flex flex-col gap-1 px-5 py-4">
           {navItems.map((item) => (

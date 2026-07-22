@@ -76,7 +76,7 @@ export default async function CaseStudyPage({
   return (
     <>
       <Header />
-      <main className="overflow-hidden">
+      <main id="main-content" className="overflow-hidden">
         <CaseStudyHero hero={study.hero} />
 
         <div className="flex flex-col gap-20 py-20 sm:gap-28 sm:py-28">

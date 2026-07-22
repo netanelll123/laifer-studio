@@ -7,6 +7,7 @@ import { sectionIds, siteConfig } from "@/content/site";
 /** About section: real bio, a pull-quote, credentials and a Wikipedia link. */
 export function About() {
   const t = useTranslations("about");
+  const tCommon = useTranslations("common");
   const paragraphs = t.raw("paragraphs") as string[];
   const stats = ["since", "research", "ai"] as const;
 
@@ -74,6 +75,7 @@ export function About() {
               className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors duration-300 ease-cinematic hover:text-accent"
             >
               {t("wiki")}
+              <span className="sr-only"> — {tCommon("opensInNewTab")}</span>
               <ArrowUpRight className="size-4" />
             </a>
           </Reveal>

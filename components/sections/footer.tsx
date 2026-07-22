@@ -6,6 +6,7 @@ import { navItems, sectionIds, siteConfig } from "@/content/site";
 export function Footer() {
   const t = useTranslations("nav");
   const tf = useTranslations("footer");
+  const tCommon = useTranslations("common");
   const locale = useLocale();
   const year = new Date().getFullYear();
 
@@ -58,6 +59,7 @@ export function Footer() {
                     className="text-sm text-foreground/70 transition-colors duration-300 ease-cinematic hover:text-foreground"
                   >
                     {social.label}
+                    <span className="sr-only"> — {tCommon("opensInNewTab")}</span>
                   </a>
                 </li>
               ))}

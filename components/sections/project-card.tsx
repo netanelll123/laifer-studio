@@ -22,6 +22,7 @@ export function ProjectCard({
   reversed: boolean;
 }) {
   const t = useTranslations("projects");
+  const tCommon = useTranslations("common");
   const locale = useLocale();
   const prefersReduced = usePrefersReducedMotion();
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -68,7 +69,11 @@ export function ProjectCard({
           "group relative block aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-card [direction:ltr]",
           reversed ? "lg:order-2" : "lg:order-1"
         )}
-        aria-label={t(`items.${project.slug}.title`)}
+        aria-label={
+          external
+            ? `${t(`items.${project.slug}.title`)} — ${tCommon("opensInNewTab")}`
+            : t(`items.${project.slug}.title`)
+        }
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -125,6 +130,7 @@ export function ProjectCard({
           className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors duration-300 ease-cinematic hover:text-accent"
         >
           {t("viewProject")}
+          {external ? <span className="sr-only"> — {tCommon("opensInNewTab")}</span> : null}
           <ArrowUpRight className="size-4" />
         </a>
       </div>

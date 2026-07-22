@@ -21,7 +21,7 @@ export default async function HomePage({
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content">
         <Hero />
         <FeaturedProjects />
         <About />
