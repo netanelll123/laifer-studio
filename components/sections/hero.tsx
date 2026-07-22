@@ -105,9 +105,11 @@ export function Hero() {
         animate={prefersReduced ? undefined : { opacity: 1 }}
         transition={{ delay: 1.2, ...transitions.slow }}
       >
+        {/* A gentle opacity pulse, not a bounce — the brief forbids bounce/spin/
+            elastic motion; a fade breathes calmly instead of jumping. */}
         <motion.span
           className="flex items-center justify-center"
-          animate={prefersReduced ? undefined : { y: [0, 7, 0] }}
+          animate={prefersReduced ? undefined : { opacity: [1, 0.4, 1] }}
           transition={
             prefersReduced
               ? undefined

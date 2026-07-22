@@ -20,12 +20,6 @@ export const fadeUp: Variants = {
   show: { opacity: 1, y: 0, transition: transitions.base },
 };
 
-/** Plain fade — for media and overlays where movement would distract. */
-export const fadeIn: Variants = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: transitions.slow },
-};
-
 /** Gentle scale-in — for cards and imagery. */
 export const scaleIn: Variants = {
   hidden: { opacity: 0, scale: 0.96 },

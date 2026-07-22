@@ -25,7 +25,9 @@ npm run lint     # ESLint (flat config, eslint-config-next)
 
 ## Stack
 
-Next.js 16 (App Router, Turbopack) · React 19 · TypeScript · Tailwind CSS v4 · next-intl 4 · Motion (framer-motion) + GSAP + Lenis · React Hook Form + Zod · shadcn-style UI · Sonner. Deploy target: Vercel. No DB/CMS/auth — static, plus one Route Handler.
+Next.js 16 (App Router, Turbopack) · React 19 · TypeScript · Tailwind CSS v4 · next-intl 4 · Motion (framer-motion) + Lenis · React Hook Form + Zod · shadcn-style UI · Sonner. Deploy target: Vercel. No DB/CMS/auth — static, plus one Route Handler.
+
+> GSAP was removed (2026-07-23): it was a listed dependency with zero imports anywhere in the codebase. Motion has covered every animation need so far. Re-add it only if a specific effect genuinely can't be done with Motion.
 
 > **Next.js 16 note:** `create-next-app@latest` produced Next 16, not 15 (the original spec). Key deltas from older knowledge: Middleware is now **Proxy** (`proxy.ts`), Tailwind is **v4** (CSS-based config, no `tailwind.config.js`), and route `params` are async (`await params`). See `node_modules/next/dist/docs/` for the bundled version-accurate docs.
 
@@ -44,7 +46,7 @@ Next.js 16 (App Router, Turbopack) · React 19 · TypeScript · Tailwind CSS v4 
 
 **Server-first components.** Sections are Server Components using `useTranslations` (works server-side in next-intl). `"use client"` is reserved for interactivity/animation: `header`, `hero`, `featured-projects`, `contact-form`, `language-toggle`, and the shared `reveal`/`video-background`/`smooth-scroll-provider`. The page (`app/[locale]/page.tsx`) just composes sections in order.
 
-**`lib/` is code, not content** — utilities and systems components rely on, never user-facing copy: `lib/motion.ts` (shared cinematic vocabulary — fadeUp, fadeIn, scaleIn, maskReveal, stagger; allowed feel is fade/reveal/scale/mask/parallax, never bounce/spin/elastic), `lib/utils.ts` (`cn()` class merging), `lib/validations/contact.ts` (Zod schema for the contact form). Every animated path is gated by `usePrefersReducedMotion()` (`hooks/`), which uses `useSyncExternalStore` and defaults to reduced (calm) on SSR. The `<Reveal>` wrapper renders statically under reduced motion. GSAP is installed for future advanced moments but not yet used.
+**`lib/` is code, not content** — utilities and systems components rely on, never user-facing copy: `lib/motion.ts` (shared cinematic vocabulary — fadeUp, scaleIn, maskReveal, stagger, plus the `transitions.base`/`transitions.slow` timing tokens; allowed feel is fade/reveal/scale/mask/parallax, never bounce/spin/elastic), `lib/utils.ts` (`cn()` class merging), `lib/validations/contact.ts` (Zod schema for the contact form). Every animated path is gated by `usePrefersReducedMotion()` (`hooks/`), which uses `useSyncExternalStore` and defaults to reduced (calm) on SSR. The `<Reveal>` wrapper renders statically under reduced motion. **CSS-only transitions** (hover states, header chrome) share the same easing via the `ease-cinematic` Tailwind utility (from `--ease-cinematic` in `app/globals.css`) — never repeat the raw `cubic-bezier(...)` inline; reference the token. Duration scale: 300ms (micro/hover), 500ms (cards, chrome, crossfades), 700ms (larger movement) — see the comment above `--ease-cinematic` in `globals.css`.
 
 **Contact flow.** `contact-form.tsx` (RHF + `lib/validations/contact.ts` Zod schema; error `message`s are i18n keys resolved at render) → POSTs to `app/api/contact/route.ts`, which re-validates and forwards to `CONTACT_ENDPOINT_URL` (currently a Formspree endpoint) with an explicit `charset=utf-8` and a generated `_subject`. Unset endpoint → 501 so the UI degrades gracefully. Payload: `{ name, email, phone, company, message }`.
 
