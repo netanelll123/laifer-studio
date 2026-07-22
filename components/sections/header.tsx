@@ -34,7 +34,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+        "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500 ease-cinematic",
         scrolled
           ? "border-b border-border bg-background/70 backdrop-blur-xl"
           : "border-b border-transparent"
@@ -50,7 +50,7 @@ export function Header() {
             <li key={item.key}>
               <a
                 href={item.href}
-                className="text-[15px] text-foreground/70 transition-colors hover:text-foreground"
+                className="text-[15px] text-foreground/70 transition-colors duration-300 ease-cinematic hover:text-foreground"
               >
                 {t(item.key)}
               </a>
@@ -82,7 +82,7 @@ export function Header() {
       {/* Mobile drawer */}
       <div
         className={cn(
-          "overflow-hidden border-t border-border bg-background/95 backdrop-blur-xl transition-[max-height,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] lg:hidden",
+          "overflow-hidden border-t border-border bg-background/95 backdrop-blur-xl transition-[max-height,opacity] duration-500 ease-cinematic lg:hidden",
           open ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"
         )}
       >
@@ -92,7 +92,7 @@ export function Header() {
               <a
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="block rounded-lg px-3 py-3 text-base text-foreground/80 transition-colors hover:bg-white/5 hover:text-foreground"
+                className="block rounded-lg px-3 py-3 text-base text-foreground/80 transition-colors duration-300 ease-cinematic hover:bg-white/5 hover:text-foreground"
               >
                 {t(item.key)}
               </a>

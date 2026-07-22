@@ -24,9 +24,15 @@
   --font-sans: var(--font-body), "Segoe UI", system-ui, sans-serif;
   --font-display: var(--font-display), Georgia, serif;
 
+  /*
+    Single easing curve for every transition site-wide — reference it as
+    `ease-cinematic`, never repeat the raw cubic-bezier. Duration scale used
+    consistently alongside it: 300ms (text/icon hover, small opacity swaps),
+    500ms (cards, header chrome, media crossfades), 700ms (larger movement,
+    e.g. image zoom-on-hover). The hero's Ken Burns pan is intentionally
+    slower (1500ms/6000ms) — a deliberate exception, not part of this scale.
+  */
   --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
-
-  --radius: 0.75rem;
 }
 
 @layer base {

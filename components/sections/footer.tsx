@@ -34,7 +34,7 @@ export function Footer() {
                 <li key={item.key}>
                   <a
                     href={item.href}
-                    className="text-sm text-foreground/70 transition-colors hover:text-foreground"
+                    className="text-sm text-foreground/70 transition-colors duration-300 ease-cinematic hover:text-foreground"
                   >
                     {t(item.key)}
                   </a>
@@ -54,7 +54,7 @@ export function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-foreground/70 transition-colors hover:text-foreground"
+                    className="text-sm text-foreground/70 transition-colors duration-300 ease-cinematic hover:text-foreground"
                   >
                     {social.label}
                   </a>

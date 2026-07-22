@@ -100,7 +100,7 @@ function ProjectCard({
           alt=""
           aria-hidden
           className={cn(
-            "absolute inset-0 size-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105",
+            "absolute inset-0 size-full object-cover transition-transform duration-700 ease-cinematic group-hover:scale-105",
             hasVideo && active && !prefersReduced && "opacity-0"
           )}
         />
@@ -108,7 +108,7 @@ function ProjectCard({
           <video
             ref={videoRef}
             className={cn(
-              "absolute inset-0 size-full object-cover transition-opacity duration-500",
+              "absolute inset-0 size-full object-cover transition-opacity duration-500 ease-cinematic",
               active ? "opacity-100" : "opacity-0"
             )}
             muted
@@ -121,7 +121,7 @@ function ProjectCard({
           </video>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
-        <span className="absolute bottom-4 end-4 inline-flex size-11 items-center justify-center rounded-full bg-accent text-accent-foreground opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+        <span className="absolute bottom-4 end-4 inline-flex size-12 items-center justify-center rounded-full bg-accent text-accent-foreground opacity-0 transition-opacity duration-500 ease-cinematic group-hover:opacity-100">
           <ArrowUpRight className="size-5" />
         </span>
       </a>
@@ -146,7 +146,7 @@ function ProjectCard({
         <a
           href={href}
           {...linkProps}
-          className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-accent"
+          className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors duration-300 ease-cinematic hover:text-accent"
         >
           {t("viewProject")}
           <ArrowUpRight className="size-4" />

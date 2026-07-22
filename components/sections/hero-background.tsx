@@ -62,7 +62,7 @@ export function HeroBackground() {
             className={cn(
               "absolute inset-0 size-full object-cover will-change-transform",
               !prefersReduced &&
-                "transition-[opacity,transform] duration-[1500ms,6000ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
+                "transition-[opacity,transform] duration-[1500ms,6000ms] ease-cinematic",
               isActive ? "opacity-100" : "opacity-0",
               videoReady && "opacity-0"
             )}
@@ -80,7 +80,7 @@ export function HeroBackground() {
         <video
           ref={videoRef}
           className={cn(
-            "absolute inset-0 size-full object-cover transition-opacity duration-1000",
+            "absolute inset-0 size-full object-cover transition-opacity duration-700 ease-cinematic",
             videoReady ? "opacity-100" : "opacity-0"
           )}
           poster="/videos/hero-poster.svg"

@@ -24,7 +24,7 @@ export function LanguageToggle({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "inline-flex items-center rounded-full border border-border bg-white/5 p-0.5 text-xs font-medium",
+        "inline-flex items-center rounded-full border border-border bg-white/5 p-0.5 text-xs font-medium transition-opacity duration-300 ease-cinematic",
         isPending && "opacity-60",
         className
       )}
@@ -38,7 +38,7 @@ export function LanguageToggle({ className }: { className?: string }) {
           onClick={() => switchTo(code)}
           aria-pressed={code === locale}
           className={cn(
-            "rounded-full px-3 py-1 uppercase transition-colors",
+            "rounded-full px-3 py-1 uppercase transition-colors duration-300 ease-cinematic",
             code === locale
               ? "bg-accent text-accent-foreground"
               : "text-muted-foreground hover:text-foreground"

@@ -100,7 +100,7 @@ export function Hero() {
       <motion.a
         href={`#${sectionIds.work}`}
         aria-label={t("scroll")}
-        className="absolute bottom-7 left-1/2 z-20 -translate-x-1/2 text-foreground/45 transition-colors hover:text-foreground"
+        className="absolute bottom-7 left-1/2 z-20 -translate-x-1/2 text-foreground/45 transition-colors duration-300 ease-cinematic hover:text-foreground"
         initial={prefersReduced ? undefined : { opacity: 0 }}
         animate={prefersReduced ? undefined : { opacity: 1 }}
         transition={{ delay: 1.2, ...transitions.slow }}

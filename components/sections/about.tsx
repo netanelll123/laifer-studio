@@ -71,7 +71,7 @@ export function About() {
               href={siteConfig.person.wikipedia}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors hover:text-accent"
+              className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors duration-300 ease-cinematic hover:text-accent"
             >
               {t("wiki")}
               <ArrowUpRight className="size-4" />

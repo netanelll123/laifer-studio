@@ -24,10 +24,10 @@ export function Contact() {
           </p>
           <a
             href={`mailto:${siteConfig.person.email}`}
-            className="inline-flex items-center gap-3 text-sm text-foreground/80 transition-colors hover:text-accent"
+            className="inline-flex items-center gap-3 text-sm text-foreground/80 transition-colors duration-300 ease-cinematic hover:text-accent"
           >
             <span className="inline-flex size-10 items-center justify-center rounded-full border border-border">
-              <Mail className="size-4" aria-hidden />
+              <Mail className="size-5" aria-hidden />
             </span>
             {siteConfig.person.email}
           </a>

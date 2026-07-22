@@ -24,8 +24,8 @@ export function Services() {
         >
           {services.map(({ slug, icon: Icon }) => (
             <Reveal key={slug} variants={scaleIn}>
-              <article className="group h-full rounded-2xl border border-border bg-card/60 p-7 transition-colors duration-500 hover:border-accent/40 hover:bg-card">
-                <span className="inline-flex size-12 items-center justify-center rounded-xl bg-accent-muted text-accent transition-transform duration-500 group-hover:scale-110">
+              <article className="group h-full rounded-2xl border border-border bg-card/60 p-7 transition-colors duration-500 ease-cinematic hover:border-accent/40 hover:bg-card">
+                <span className="inline-flex size-12 items-center justify-center rounded-full bg-accent-muted text-accent transition-transform duration-500 ease-cinematic group-hover:scale-110">
                   <Icon className="size-6" aria-hidden />
                 </span>
                 <h3 className="mt-6 font-display text-xl font-medium">

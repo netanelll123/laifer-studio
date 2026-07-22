@@ -19,7 +19,7 @@ export function Logo({
       src="/logo-header.png"
       alt={brand}
       className={cn(
-        "h-14 w-auto transition-opacity duration-300 hover:opacity-80 sm:h-16",
+        "h-14 w-auto transition-opacity duration-300 ease-cinematic hover:opacity-80 sm:h-16",
         className
       )}
     />
