@@ -33,23 +33,30 @@ export async function generateMetadata({
 
   const description = study.hero.subtitle;
   const url = `/${locale}/work/${slug}`;
+  const otherLocale = routing.locales.find((l) => l !== locale);
 
   return {
     title: `${study.hero.title} — ${siteConfig.person.name}`,
     description,
     alternates: {
       canonical: url,
-      languages: Object.fromEntries(
-        routing.locales.map((l) => [l, `/${l}/work/${slug}`])
-      ),
+      languages: {
+        ...Object.fromEntries(
+          routing.locales.map((l) => [l, `/${l}/work/${slug}`])
+        ),
+        "x-default": `/${routing.defaultLocale}/work/${slug}`,
+      },
     },
     openGraph: {
       type: "article",
       locale,
+      alternateLocale: otherLocale,
       url,
       title: study.hero.title,
       description,
-      images: [{ url: study.hero.poster, width: 1920, height: 1200 }],
+      images: [
+        { url: study.hero.poster, width: 1920, height: 1200, alt: study.hero.title },
+      ],
     },
     twitter: {
       card: "summary_large_image",
@@ -73,8 +80,27 @@ export default async function CaseStudyPage({
 
   const contactHref = `/${locale}#${sectionIds.contact}`;
 
+  // CreativeWork (not the stricter VideoObject) since we have no verified
+  // publish date to report — only reuses fields already in the content.
+  const creativeWorkJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: study.hero.title,
+    description: study.hero.subtitle,
+    image: `${siteConfig.url}${study.hero.poster}`,
+    url: `${siteConfig.url}/${locale}/work/${slug}`,
+    creator: study.credits.map((credit) => ({
+      "@type": "Person",
+      name: credit.name,
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(creativeWorkJsonLd) }}
+      />
       <Header />
       <main id="main-content" className="overflow-hidden">
         <CaseStudyHero hero={study.hero} />

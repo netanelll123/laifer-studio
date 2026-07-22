@@ -35,6 +35,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
+  const otherLocale = routing.locales.find((l) => l !== locale);
 
   return {
     metadataBase: new URL(siteConfig.url),
@@ -42,11 +43,12 @@ export async function generateMetadata({
     description: t("description"),
     alternates: {
       canonical: `/${locale}`,
-      languages: { he: "/he", en: "/en" },
+      languages: { he: "/he", en: "/en", "x-default": `/${routing.defaultLocale}` },
     },
     openGraph: {
       type: "website",
       locale,
+      alternateLocale: otherLocale,
       url: `/${locale}`,
       title: t("title"),
       description: t("description"),
