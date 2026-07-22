@@ -53,14 +53,15 @@
     "eyebrow": "Who I Am",
     "title": "Creativity comes before technology",
     "paragraphs": [
-      "Netanel Laifer, born in Jerusalem (1983). A journalist and music critic, a researcher of Jewish music and a composer — for over a decade I've lived inside the world of music: writing about it, researching it, and creating it.",
-      "Years as a writer and critic taught me one thing above all: before the technique, there's a story. Lately I translate that same eye into video and music clips, using AI as a new creative tool that lets me tell stories in ways that weren't possible before.",
-      "Alongside the work I occasionally host programs across various media, and I guide artists and projects from concept to final cut — with an ear for music, an eye for cinema and the mind of a storyteller."
+      "Netanel Laifer, born and based in Jerusalem. I've spent more than two decades inside the world of music and media — before I ever picked up a camera, I was a listener. A journalist and music critic who wrote and edited for years before directing anything.",
+      "Years of writing and criticism taught me one habit I never lost: listen before you judge. Reviewing an album means learning to find the real moment underneath the production — and that's exactly what I'm still looking for when I direct.",
+      "Today I direct video and music films, and increasingly work with newer tools like AI. I don't treat it as magic — it's another tool in the kit, the same as a camera or an editing timeline. What decides the result is always the same question: is there a real story here, or isn't there.",
+      "I live in Jerusalem, a father of three, and I still get a kick out of discovering a new song or a director I didn't know. When someone trusts me with their project, I bring everything I learned as a journalist and a creator: sit down, listen, and only then start shooting."
     ],
     "quote": "Technology creates pixels. Story creates emotion.",
     "wiki": "Read more on Wikipedia",
     "stats": {
-      "since": { "value": "2012", "label": "In music since" },
+      "since": { "value": "20+", "label": "Years in music & media" },
       "research": { "value": "M.A.", "label": "Jewish-music researcher" },
       "ai": { "value": "AI", "label": "Films & music, AI-crafted" }
     }
