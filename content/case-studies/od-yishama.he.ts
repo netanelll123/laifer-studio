@@ -4,9 +4,9 @@ const BASE = "/case-studies/od-yishama";
 
 /**
  * "עוד ישמע" — case study for Meir Kleiner's AI-filmed Balkan wedding music
- * video. Copy is verbatim from the client's brief. Media is placeholder
- * (see public/case-studies/od-yishama/README.md) pending real footage/stills
- * and the film's YouTube ID.
+ * video. Copy is verbatim from the client's brief. Real production stills
+ * throughout; still pending: the hero video clip and the film's real
+ * YouTube ID (see public/case-studies/od-yishama/README.md).
  */
 const caseStudy: CaseStudy = {
   slug: "od-yishama",
@@ -16,7 +16,7 @@ const caseStudy: CaseStudy = {
       "איך בונים עולם קולנועי שלא באמת קיים — ועדיין גורמים לצופה להאמין שהוא אמיתי.",
     tags: ["Music Video", "Creative Direction", "AI Filmmaking"],
     video: `${BASE}/hero.mp4`,
-    poster: `${BASE}/hero-poster.svg`,
+    poster: `${BASE}/hero-poster.jpg`,
   },
 
   openingQuote: [
@@ -45,8 +45,8 @@ const caseStudy: CaseStudy = {
     },
     {
       type: "image",
-      src: `${BASE}/scene-1.svg`,
-      alt: "פריים קולנועי מתוך הסרט",
+      src: `${BASE}/scene-1.jpg`,
+      alt: "החתן והכלה עומדים מול חופה בכיכר העיירה, כל התושבים סביבם",
     },
 
     {
@@ -85,11 +85,10 @@ const caseStudy: CaseStudy = {
     {
       type: "gallery",
       items: [
-        { src: `${BASE}/village-overview.svg`, alt: "העיירה", caption: "העיירה" },
-        { src: `${BASE}/village-square.svg`, alt: "הכיכר הראשית", caption: "הכיכר הראשית" },
-        { src: `${BASE}/groom-house.svg`, alt: "בית החתן", caption: "בית החתן" },
-        { src: `${BASE}/bride-house.svg`, alt: "בית הכלה", caption: "בית הכלה" },
-        { src: `${BASE}/village-streets.svg`, alt: "רחובות העיירה", caption: "רחובות העיירה" },
+        { src: `${BASE}/village-square.jpg`, alt: "הכיכר הראשית", caption: "הכיכר הראשית" },
+        { src: `${BASE}/groom-house.jpg`, alt: "בית החתן", caption: "בית החתן" },
+        { src: `${BASE}/bride-house.jpg`, alt: "בית הכלה", caption: "בית הכלה" },
+        { src: `${BASE}/village-streets.jpg`, alt: "רחובות העיירה", caption: "רחובות העיירה" },
       ],
     },
 
@@ -109,13 +108,28 @@ const caseStudy: CaseStudy = {
       ],
     },
     {
-      type: "gallery",
-      items: [
-        { src: `${BASE}/character-groom.svg`, alt: "החתן", caption: "החתן" },
-        { src: `${BASE}/character-bride.svg`, alt: "הכלה", caption: "הכלה" },
-        { src: `${BASE}/character-chiko.svg`, alt: "צ'יקו", caption: "צ'יקו" },
-        { src: `${BASE}/character-musicians.svg`, alt: "הנגנים", caption: "הנגנים" },
-      ],
+      type: "image",
+      src: `${BASE}/character-groom-board.jpg`,
+      alt: "גיליון דמות מלא של החתן — זוויות, ביטויים ומראה עקבי",
+      caption: "החתן",
+    },
+    {
+      type: "image",
+      src: `${BASE}/character-bride-board.jpg`,
+      alt: "גיליון דמות מלא של הכלה — זוויות, ביטויים ומראה עקבי",
+      caption: "הכלה",
+    },
+    {
+      type: "image",
+      src: `${BASE}/character-chiko-board.jpg`,
+      alt: "גיליון דמות מלא של צ'יקו — זוויות, ביטויים ותנועה",
+      caption: "צ'יקו",
+    },
+    {
+      type: "image",
+      src: `${BASE}/character-musicians-board.jpg`,
+      alt: "גיליון דמות של שניים מהנגנים",
+      caption: "הנגנים",
     },
 
     {
@@ -153,8 +167,8 @@ const caseStudy: CaseStudy = {
     },
     {
       type: "image",
-      src: `${BASE}/groom-door.svg`,
-      alt: "החתן פותח את דלת הבית",
+      src: `${BASE}/groom-door.jpg`,
+      alt: "החתן עומד בפתח ביתו, רואה את הנגנים ואת צ'יקו רוקד לפניו",
     },
 
     {
@@ -173,13 +187,9 @@ const caseStudy: CaseStudy = {
       ],
     },
     {
-      type: "gallery",
-      items: [
-        { src: `${BASE}/portrait-1.svg`, alt: "פורטרט תושב העיירה" },
-        { src: `${BASE}/portrait-2.svg`, alt: "פורטרט תושבת העיירה" },
-        { src: `${BASE}/portrait-3.svg`, alt: "פורטרט תושב העיירה" },
-        { src: `${BASE}/portrait-4.svg`, alt: "פורטרט תושבת העיירה" },
-      ],
+      type: "image",
+      src: `${BASE}/crowd-reference.jpg`,
+      alt: "גיליון דמויות רקע — גברים, נשים, ילדים וקשישים בלבוש בלקני מסורתי, בגילים ובמראות שונים",
     },
 
     {
@@ -198,6 +208,7 @@ const caseStudy: CaseStudy = {
     title: "הסרט",
     // TODO: replace with the real YouTube video ID for "עוד ישמע".
     youtubeId: "REPLACE_WITH_YOUTUBE_ID",
+    poster: `${BASE}/film-poster.jpg`,
   },
 
   reflection: {

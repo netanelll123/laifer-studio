@@ -12,13 +12,7 @@ import type { CaseStudy } from "@/content/types";
  * player) loads until the visitor clicks play — the poster is our own
  * placeholder image, so the section costs nothing on first paint.
  */
-export function CaseStudyVideoEmbed({
-  film,
-  poster,
-}: {
-  film: CaseStudy["film"];
-  poster: string;
-}) {
+export function CaseStudyVideoEmbed({ film }: { film: CaseStudy["film"] }) {
   const t = useTranslations("caseStudy");
   const [playing, setPlaying] = useState(false);
 
@@ -47,7 +41,7 @@ export function CaseStudyVideoEmbed({
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={poster}
+                src={film.poster}
                 alt=""
                 aria-hidden
                 loading="lazy"

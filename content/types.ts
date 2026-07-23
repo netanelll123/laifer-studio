@@ -100,6 +100,10 @@ export interface CaseStudy {
   film: {
     title: string;
     youtubeId: string;
+    /** Thumbnail shown before the visitor clicks play — deliberately its own
+     *  field rather than reusing hero.poster, so the hero and the video
+     *  embed can show two different, equally strong stills. */
+    poster: string;
   };
   reflection: {
     title?: string;

@@ -5,9 +5,9 @@ const BASE = "/case-studies/od-yishama";
 /**
  * "Od Yishama" — case study for Meir Kleiner's AI-filmed Balkan wedding music
  * video. English is a natural adaptation of the client's Hebrew brief, not a
- * literal translation. Media is placeholder (see
- * public/case-studies/od-yishama/README.md) pending real footage/stills and
- * the film's YouTube ID.
+ * literal translation. Real production stills throughout; still pending: the
+ * hero video clip and the film's real YouTube ID (see
+ * public/case-studies/od-yishama/README.md).
  */
 const caseStudy: CaseStudy = {
   slug: "od-yishama",
@@ -17,7 +17,7 @@ const caseStudy: CaseStudy = {
       "How you build a cinematic world that doesn't really exist — and still make the viewer believe it does.",
     tags: ["Music Video", "Creative Direction", "AI Filmmaking"],
     video: `${BASE}/hero.mp4`,
-    poster: `${BASE}/hero-poster.svg`,
+    poster: `${BASE}/hero-poster.jpg`,
   },
 
   openingQuote: [
@@ -46,8 +46,8 @@ const caseStudy: CaseStudy = {
     },
     {
       type: "image",
-      src: `${BASE}/scene-1.svg`,
-      alt: "Cinematic frame from the film",
+      src: `${BASE}/scene-1.jpg`,
+      alt: "The groom and bride stand facing each other under a chuppah in the village square, the whole village around them",
     },
 
     {
@@ -86,11 +86,10 @@ const caseStudy: CaseStudy = {
     {
       type: "gallery",
       items: [
-        { src: `${BASE}/village-overview.svg`, alt: "The village", caption: "The village" },
-        { src: `${BASE}/village-square.svg`, alt: "The main square", caption: "Main square" },
-        { src: `${BASE}/groom-house.svg`, alt: "The groom's house", caption: "Groom's house" },
-        { src: `${BASE}/bride-house.svg`, alt: "The bride's house", caption: "Bride's house" },
-        { src: `${BASE}/village-streets.svg`, alt: "Village streets", caption: "Village streets" },
+        { src: `${BASE}/village-square.jpg`, alt: "The main square", caption: "Main square" },
+        { src: `${BASE}/groom-house.jpg`, alt: "The groom's house", caption: "Groom's house" },
+        { src: `${BASE}/bride-house.jpg`, alt: "The bride's house", caption: "Bride's house" },
+        { src: `${BASE}/village-streets.jpg`, alt: "Village streets", caption: "Village streets" },
       ],
     },
 
@@ -110,13 +109,28 @@ const caseStudy: CaseStudy = {
       ],
     },
     {
-      type: "gallery",
-      items: [
-        { src: `${BASE}/character-groom.svg`, alt: "The groom", caption: "The groom" },
-        { src: `${BASE}/character-bride.svg`, alt: "The bride", caption: "The bride" },
-        { src: `${BASE}/character-chiko.svg`, alt: "Chiko", caption: "Chiko" },
-        { src: `${BASE}/character-musicians.svg`, alt: "The musicians", caption: "The musicians" },
-      ],
+      type: "image",
+      src: `${BASE}/character-groom-board.jpg`,
+      alt: "Full character reference sheet for the groom — angles, expressions and continuity notes",
+      caption: "The groom",
+    },
+    {
+      type: "image",
+      src: `${BASE}/character-bride-board.jpg`,
+      alt: "Full character reference sheet for the bride — angles, expressions and continuity notes",
+      caption: "The bride",
+    },
+    {
+      type: "image",
+      src: `${BASE}/character-chiko-board.jpg`,
+      alt: "Full character reference sheet for Chiko — angles, expressions and movement",
+      caption: "Chiko",
+    },
+    {
+      type: "image",
+      src: `${BASE}/character-musicians-board.jpg`,
+      alt: "Character reference sheet for two of the musicians",
+      caption: "The musicians",
     },
 
     {
@@ -154,8 +168,8 @@ const caseStudy: CaseStudy = {
     },
     {
       type: "image",
-      src: `${BASE}/groom-door.svg`,
-      alt: "The groom opening his front door",
+      src: `${BASE}/groom-door.jpg`,
+      alt: "The groom standing in his doorway, seeing the musicians and Chiko dancing in front of him",
     },
 
     {
@@ -174,13 +188,9 @@ const caseStudy: CaseStudy = {
       ],
     },
     {
-      type: "gallery",
-      items: [
-        { src: `${BASE}/portrait-1.svg`, alt: "Portrait of a village resident" },
-        { src: `${BASE}/portrait-2.svg`, alt: "Portrait of a village resident" },
-        { src: `${BASE}/portrait-3.svg`, alt: "Portrait of a village resident" },
-        { src: `${BASE}/portrait-4.svg`, alt: "Portrait of a village resident" },
-      ],
+      type: "image",
+      src: `${BASE}/crowd-reference.jpg`,
+      alt: "Background-character reference sheet — men, women, children and elders in traditional Balkan dress, a range of ages and faces",
     },
 
     {
@@ -199,6 +209,7 @@ const caseStudy: CaseStudy = {
     title: "The Film",
     // TODO: replace with the real YouTube video ID for "Od Yishama".
     youtubeId: "REPLACE_WITH_YOUTUBE_ID",
+    poster: `${BASE}/film-poster.jpg`,
   },
 
   reflection: {

@@ -108,7 +108,7 @@ export default async function CaseStudyPage({
         <div className="flex flex-col gap-20 py-20 sm:gap-28 sm:py-28">
           <CaseStudyQuote lines={study.openingQuote} />
           <CaseStudyBody blocks={study.blocks} />
-          <CaseStudyVideoEmbed film={study.film} poster={study.hero.poster} />
+          <CaseStudyVideoEmbed film={study.film} />
           <CaseStudySectionText
             title={study.reflection.title}
             paragraphs={study.reflection.paragraphs}
