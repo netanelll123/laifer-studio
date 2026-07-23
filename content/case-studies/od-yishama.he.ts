@@ -89,6 +89,7 @@ const caseStudy: CaseStudy = {
         { src: `${BASE}/groom-house.jpg`, alt: "בית החתן", caption: "בית החתן" },
         { src: `${BASE}/bride-house.jpg`, alt: "בית הכלה", caption: "בית הכלה" },
         { src: `${BASE}/village-streets.jpg`, alt: "רחובות העיירה", caption: "רחובות העיירה" },
+        { src: `${BASE}/village-alley.jpg`, alt: "סמטה בעיירה", caption: "סמטה בעיירה" },
       ],
     },
 
@@ -151,8 +152,9 @@ const caseStudy: CaseStudy = {
     },
     {
       type: "image",
-      src: `${BASE}/processions.svg`,
-      alt: "מפגש תהלוכת החתן ותהלוכת הכלה",
+      src: `${BASE}/consistency-lock-board.jpg`,
+      alt: "לוח ייחוס \"סצנה נעולה\" — אותה כיכר, אותו עץ, אותה חופה ואותן דמויות בכל שוט",
+      caption: "\"נעילת\" הסביבה והדמויות — כך נשמרה העקביות בין שוט לשוט",
     },
 
     {
@@ -169,6 +171,8 @@ const caseStudy: CaseStudy = {
       type: "image",
       src: `${BASE}/groom-door.jpg`,
       alt: "החתן עומד בפתח ביתו, רואה את הנגנים ואת צ'יקו רוקד לפניו",
+      caption:
+        "אחת הסקיצות המוקדמות — שימו לב שהחתן כאן עדיין לא לגמרי דומה \"לעצמו\".",
     },
 
     {

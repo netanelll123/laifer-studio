@@ -16,7 +16,11 @@ still needed to finish the page:
 - `screenplay.svg` — Section 2 ("It started with a script"). Swap for a real
   photo of the script/notebook if one exists, keeping the filename, or a new
   filename updated in both `od-yishama.*.ts` files.
-- `processions.svg` — Section 5 (the two processions meeting in the square).
+
+Section 5 (previously placeholder) is now `consistency-lock-board.jpg` — the
+client's "locked scene" reference board fits that section's actual point
+(environment/character consistency) better than the "two processions
+meeting" moment it was originally written around.
 
 ## Bonus stills (received, not currently used on the page)
 - `extra-groom-cinematic-board.jpg`, `extra-niko-peter-board.jpg` — two more

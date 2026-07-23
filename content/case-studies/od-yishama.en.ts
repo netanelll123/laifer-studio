@@ -90,6 +90,7 @@ const caseStudy: CaseStudy = {
         { src: `${BASE}/groom-house.jpg`, alt: "The groom's house", caption: "Groom's house" },
         { src: `${BASE}/bride-house.jpg`, alt: "The bride's house", caption: "Bride's house" },
         { src: `${BASE}/village-streets.jpg`, alt: "Village streets", caption: "Village streets" },
+        { src: `${BASE}/village-alley.jpg`, alt: "A village alley", caption: "A village alley" },
       ],
     },
 
@@ -152,8 +153,9 @@ const caseStudy: CaseStudy = {
     },
     {
       type: "image",
-      src: `${BASE}/processions.svg`,
-      alt: "The groom's and bride's processions meeting",
+      src: `${BASE}/consistency-lock-board.jpg`,
+      alt: "A \"locked scene\" reference board — the same square, tree, chuppah and characters held consistent across every shot",
+      caption: "\"Locking\" the environment and characters — how continuity was kept from shot to shot",
     },
 
     {
@@ -170,6 +172,8 @@ const caseStudy: CaseStudy = {
       type: "image",
       src: `${BASE}/groom-door.jpg`,
       alt: "The groom standing in his doorway, seeing the musicians and Chiko dancing in front of him",
+      caption:
+        "One of the early sketches — notice the groom here doesn't quite match his own reference yet.",
     },
 
     {
