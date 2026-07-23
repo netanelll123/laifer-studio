@@ -19,10 +19,22 @@ still needed to finish the page:
 - `processions.svg` — Section 5 (the two processions meeting in the square).
 
 ## Bonus stills (received, not currently used on the page)
-- `extra-groom-cinematic-board.jpg`, `extra-meir-clarinet-board.jpg` — two
-  more character reference boards. Swap either into the article (e.g.
-  replacing a section-4 board, or as a new gallery block) if you'd like more
-  variety — no other change needed beyond updating the `src` path.
+- `extra-groom-cinematic-board.jpg`, `extra-niko-peter-board.jpg` — two more
+  character reference boards. Note: `extra-niko-peter-board.jpg` uses the
+  light/cream documentation template (unlike every board actually on the
+  page, which are all the dark template) — if swapping it in, pair it with
+  another light-template image nearby, don't drop it next to a dark one.
+
+## A design decision worth knowing about
+The client's reference boards come in two visual templates: dark and
+light/cream. The musicians board originally slotted into Section 4 was the
+light one ("Niko & Peter") — sitting right next to three dark boards
+(groom, bride, Chiko), it would have looked like a mismatched, out-of-place
+card. Swapped it for the "Meir" board instead, which uses the same dark
+template as the other three, keeping Section 4 visually consistent.
+`crowd-reference.jpg` (Section 7) is also the light template, but it stands
+alone there rather than next to a dark board, so it reads as its own
+distinct reference card rather than a clash — left as is.
 
 Real stills can be any aspect ratio — the layout crops to `16:10` (single
 images) or a square (gallery items) via `object-cover`, so no pre-cropping is

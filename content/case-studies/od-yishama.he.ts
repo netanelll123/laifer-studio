@@ -128,7 +128,7 @@ const caseStudy: CaseStudy = {
     {
       type: "image",
       src: `${BASE}/character-musicians-board.jpg`,
-      alt: "גיליון דמות של שניים מהנגנים",
+      alt: "גיליון דמות של מאיר, נגן הקלרינט והסקסופון בתזמורת",
       caption: "הנגנים",
     },
 

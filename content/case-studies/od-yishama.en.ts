@@ -129,7 +129,7 @@ const caseStudy: CaseStudy = {
     {
       type: "image",
       src: `${BASE}/character-musicians-board.jpg`,
-      alt: "Character reference sheet for two of the musicians",
+      alt: "Character reference sheet for Meir, the band's clarinet and saxophone player",
       caption: "The musicians",
     },
 
