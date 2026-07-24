@@ -3,11 +3,16 @@ import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Frank_Ruhl_Libre, Assistant } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "sonner";
 import { routing, localeDirection, type Locale } from "@/i18n/routing";
 import { siteConfig } from "@/content/site";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
 import "../globals.css";
+
+// Google Analytics 4. Production only, so dev/preview traffic never pollutes
+// real analytics data.
+const GA_MEASUREMENT_ID = "G-8C7N5K8F14";
 
 // Display serif + body sans, each covering Hebrew and Latin for full bilingual support.
 const display = Frank_Ruhl_Libre({
@@ -77,16 +82,47 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "metadata" });
   const tCommon = await getTranslations({ locale, namespace: "common" });
+  const tNav = await getTranslations({ locale, namespace: "nav" });
 
-  const personJsonLd = {
+  const personId = `${siteConfig.url}/#person`;
+  const organizationId = `${siteConfig.url}/#organization`;
+  const websiteId = `${siteConfig.url}/#website`;
+  // Only include sameAs once real profile URLs exist — an empty array would
+  // otherwise fabricate "verified" social presence that isn't there yet.
+  const sameAs = siteConfig.social.map((s) => s.href);
+
+  const jsonLdGraph = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    name: siteConfig.person.name,
-    jobTitle: siteConfig.person.jobTitle,
-    email: siteConfig.person.email,
-    url: siteConfig.url,
-    description: t("description"),
-    sameAs: siteConfig.social.map((s) => s.href),
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": personId,
+        name: siteConfig.person.name,
+        jobTitle: siteConfig.person.jobTitle,
+        email: siteConfig.person.email,
+        url: siteConfig.url,
+        description: t("description"),
+        worksFor: { "@id": organizationId },
+        ...(sameAs.length > 0 ? { sameAs } : {}),
+      },
+      {
+        "@type": "Organization",
+        "@id": organizationId,
+        name: tNav("brand"),
+        url: siteConfig.url,
+        logo: `${siteConfig.url}/logo-full.png`,
+        founder: { "@id": personId },
+        ...(sameAs.length > 0 ? { sameAs } : {}),
+      },
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        name: tNav("brand"),
+        url: siteConfig.url,
+        inLanguage: routing.locales,
+        publisher: { "@id": organizationId },
+      },
+    ],
   };
 
   return (
@@ -105,7 +141,7 @@ export default async function LocaleLayout({
         </a>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
         />
         <NextIntlClientProvider>
           <SmoothScrollProvider>{children}</SmoothScrollProvider>
@@ -121,6 +157,9 @@ export default async function LocaleLayout({
             }}
           />
         </NextIntlClientProvider>
+        {process.env.NODE_ENV === "production" && (
+          <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
+        )}
       </body>
     </html>
   );
