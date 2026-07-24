@@ -157,6 +157,12 @@ const caseStudy: CaseStudy = {
       alt: "A \"locked scene\" reference board — the same square, tree, chuppah and characters held consistent across every shot",
       caption: "\"Locking\" the environment and characters — how continuity was kept from shot to shot",
     },
+    {
+      type: "image",
+      src: `${BASE}/bride-procession.jpg`,
+      alt: "The bride's procession moving through the village street, surrounded by family and musicians",
+      caption: "The bride's procession — one of the two that had to meet in the same square",
+    },
 
     {
       type: "text",
