@@ -4,9 +4,10 @@ const BASE = "/case-studies/od-yishama";
 
 /**
  * "Od Yishama" — case study for Meir Kleiner's AI-filmed Balkan wedding music
- * video. English is a natural adaptation of the client's Hebrew brief, not a
- * literal translation. Real production stills throughout; still pending: the
- * hero video clip and the film's real YouTube ID (see
+ * video. Revised per an editorial direction: read as a filmmaker's account of
+ * directing choices, not an AI-production log — AI is the tool, not the
+ * subject. Real production stills throughout; still pending: the hero video
+ * clip and the film's real YouTube ID (see
  * public/case-studies/od-yishama/README.md).
  */
 const caseStudy: CaseStudy = {
@@ -21,8 +22,8 @@ const caseStudy: CaseStudy = {
   },
 
   openingQuote: [
-    "The biggest mistake creators working with AI make is trying to impress the viewer with effects.",
-    "I tried to make them forget they were watching an AI production at all.",
+    "I don't build films around technology.",
+    "I build worlds people can believe in.",
   ],
 
   blocks: [
@@ -52,13 +53,13 @@ const caseStudy: CaseStudy = {
 
     {
       type: "text",
-      title: "It started with a script",
+      title: "It started with the screenplay",
       paragraphs: [
-        "Most AI creators start with a prompt.",
-        "I started with a script.",
-        "Before a single frame existed, I needed to understand the story.",
-        "Only once the script was complete did I start thinking about what this world would look like.",
-        "To me, the technology only shows up after the story already exists.",
+        "I didn't start with an image.",
+        "I started by listening to the song. Twice.",
+        "Then I wrote the screenplay.",
+        "I sat with Meir, we read it together, and agreed — this was the film we wanted to tell.",
+        "Only once the story was settled did I start thinking about what its world would look like.",
       ],
     },
     {
@@ -71,15 +72,12 @@ const caseStudy: CaseStudy = {
       type: "text",
       title: "Building the world before building the film",
       paragraphs: [
-        "Once the script was ready, I realized I didn't want to make decisions on the fly.",
-        "I wanted the entire world to already exist.",
-        "So I paused production.",
-        "And built the village.",
-        "The streets.",
-        "The architecture.",
-        "The houses.",
-        "The square.",
-        "Only then did I move on to the characters.",
+        "Once the screenplay existed, I didn't want to make decisions on the fly.",
+        "So before a single character existed, I built the town.",
+        "Not because I couldn't have used a real location — but because I wanted complete creative freedom, inside rules I set myself.",
+        "The streets. The architecture. The houses. The square.",
+        "People are shaped by their surroundings. The streets, the houses and the atmosphere define them as much as their faces do.",
+        "Only once the town existed did I move on to the people who live in it.",
         "And only then did the film begin.",
       ],
     },
@@ -95,18 +93,23 @@ const caseStudy: CaseStudy = {
     },
 
     {
+      type: "quote",
+      lines: [
+        "I never approached this as a film I was creating.",
+        "I approached it as a story that already existed,",
+        "and I simply arrived with a camera to document it.",
+      ],
+    },
+
+    {
       type: "text",
-      title: "Casting",
+      title: "Character creation",
       paragraphs: [
-        "Before creating a single shot, I cast the film.",
-        "I built all the central characters in advance.",
-        "The groom.",
-        "The bride.",
-        "Chiko.",
-        "The musicians.",
-        "And dozens of background characters.",
-        "The goal was for everyone on screen to feel like someone who actually lives in this village.",
-        "Not an AI model that happened to wander into frame.",
+        "This part became personal.",
+        "Before a single shot existed, I cast the film — the groom, the bride, Chiko, the musicians, and dozens of people in the background.",
+        "I wasn't looking for perfect faces.",
+        "I knew a character was finished the moment they felt like the neighbor's son — not a generated face, but someone I recognized.",
+        "Everyone on screen needed to feel like they actually lived in this village.",
       ],
     },
     {
@@ -138,17 +141,12 @@ const caseStudy: CaseStudy = {
       type: "text",
       title: "The biggest challenge",
       paragraphs: [
-        "The biggest challenge wasn't making pretty pictures.",
-        "It was maintaining believability.",
-        "I wanted the streets to connect to each other.",
-        "For the village to feel real.",
-        "For the viewer to feel that everything they see happens in the same place.",
-        "The most complex shot was the meeting of the groom's procession and the bride's procession.",
-        "Two processions.",
-        "Different streets.",
-        "The same square.",
-        "If the village's geography hadn't held together—",
-        "the viewer would have felt it instantly.",
+        "The challenge here wasn't making beautiful images.",
+        "It was making every shot feel like it belonged to the same physical place.",
+        "I wanted the streets to connect to each other. I wanted the town to hold together as one continuous world.",
+        "The most demanding scene was the meeting of two processions — the groom's and the bride's — arriving from different streets into the same square.",
+        "If the geography hadn't held, the viewer would have felt it instantly.",
+        "Consistency isn't a technical detail. It's what makes a world believable.",
       ],
     },
     {
@@ -168,10 +166,10 @@ const caseStudy: CaseStudy = {
       type: "text",
       title: "The moment I knew it worked",
       paragraphs: [
-        "Up to that moment, I was looking at shots.",
+        "Up to that moment, I'd been looking at shots.",
         "The moment the groom opened his door, saw the musicians, and Chiko dancing in front of him—",
-        "I felt like I was no longer looking at an AI experiment.",
-        "I was looking at a scene from a film.",
+        "I stopped looking at footage.",
+        "I was watching a scene from a film.",
       ],
     },
     {
@@ -184,17 +182,14 @@ const caseStudy: CaseStudy = {
 
     {
       type: "text",
-      title: "Why the characters aren't perfect",
+      title: "People before perfection",
       paragraphs: [
-        "I think we relate to people.",
-        "Not to perfection.",
-        "When a character looks like plastic,",
-        "it's hard to feel anything for them.",
-        "So I deliberately created ordinary people.",
-        "Faces with character.",
-        "A little asymmetry.",
-        "A little life.",
+        "Real communities aren't made of perfect faces.",
+        "When a character looks flawless, it's hard to feel anything for them.",
+        "So I built ordinary people.",
+        "Faces with character. A little asymmetry. A little life.",
         "People who could have been our neighbors.",
+        "The connection isn't about how polished a face looks. It's about how true it feels.",
       ],
     },
     {
@@ -207,10 +202,10 @@ const caseStudy: CaseStudy = {
       type: "quote",
       lines: [
         "The small details,",
-        "the ones most viewers don't even notice,",
+        "the ones most viewers never consciously notice,",
         "are exactly what create believability.",
-        "They're the difference between just another AI clip",
-        "and a piece of work you can actually believe.",
+        "They're the difference between a picture,",
+        "and a place someone could have grown up in.",
       ],
     },
   ],
@@ -225,21 +220,14 @@ const caseStudy: CaseStudy = {
   reflection: {
     title: "What I learned",
     paragraphs: [
-      "One of the things I enjoyed most about this project was working with an artist who arrived with such a clear musical identity.",
-      "When the musical vision is already formed,",
-      "you can take it one step further and build a visual world that expands the experience instead of competing with it.",
-      "This project sharpened something for me again: technology doesn't replace direction.",
-      "It doesn't replace writing.",
-      "It doesn't replace emotion.",
-      "You can generate thousands of stunning images.",
-      "But if there's no world you can believe in,",
-      "and no characters you can relate to,",
-      "the viewer stays at a distance.",
-      "I'm not trying to show off what AI can do.",
-      "I'm trying to tell a story.",
-      "With a camera.",
-      "With AI.",
-      "Or with a microphone.",
+      "The film was built long before a single frame was generated.",
+      "Every scene that worked, worked because of a decision made in preparation — in the screenplay, in the town, in the characters — long before production began.",
+      "When something doesn't feel right on screen, I don't try to fix the image.",
+      "I go back and rethink the decision that created it. The image is only ever a symptom.",
+      "If I had a full production budget, real actors and real locations, I would direct almost exactly the same film.",
+      "The story wouldn't change. The blocking wouldn't change. The way I'd guide a performance wouldn't change.",
+      "AI changed the process that got me there.",
+      "It didn't change the story I wanted to tell.",
     ],
   },
 
