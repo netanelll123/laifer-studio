@@ -14,9 +14,13 @@ export const siteConfig = {
     /** International format, no symbols — required by the wa.me link scheme. */
     whatsapp: "972507200495",
   },
-  // Real profile URLs only — no placeholder/generic homepage links. Populate
-  // with the actual YouTube/TikTok/LinkedIn profile URLs when available.
-  social: [] as { label: string; href: string }[],
+  // Real profile URLs only — no placeholder/generic homepage links.
+  social: [
+    { label: "Facebook", href: "https://www.facebook.com/netanel.laifer" },
+    { label: "Instagram", href: "https://www.instagram.com/netanellaifer/" },
+    { label: "TikTok", href: "https://www.tiktok.com/@netanellaifer" },
+    { label: "YouTube", href: "https://www.youtube.com/@netanelll123" },
+  ] as { label: string; href: string }[],
 } as const;
 
 /** In-page section anchors, shared by nav links and section elements. */
