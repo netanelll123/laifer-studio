@@ -12,10 +12,13 @@ still needed to finish the page:
   currently a placeholder (`REPLACE_WITH_YOUTUBE_ID`). Replace with the real
   video ID from the film's YouTube URL (the part after `v=`).
 
-## Still placeholder (no real match provided yet)
-- `screenplay.svg` — Section 2 ("It started with a script"). Swap for a real
-  photo of the script/notebook if one exists, keeping the filename, or a new
-  filename updated in both `od-yishama.*.ts` files.
+## Removed
+- `screenplay.svg` — was Section 2's placeholder ("It started with the
+  screenplay"). No real photo of the script/notebook exists, and the client
+  preferred dropping the image entirely over leaving a generic placeholder
+  live — so that section is now text-only. If a real photo shows up later,
+  add a new `image` block after that section's text in both `od-yishama.*.ts`
+  files.
 
 Section 5 (previously placeholder) is now `consistency-lock-board.jpg` — the
 client's "locked scene" reference board fits that section's actual point

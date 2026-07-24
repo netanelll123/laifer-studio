@@ -62,11 +62,6 @@ const caseStudy: CaseStudy = {
         "רק אחרי שהסיפור התבסס התחלתי לחשוב איך העולם שלו ייראה.",
       ],
     },
-    {
-      type: "image",
-      src: `${BASE}/screenplay.svg`,
-      alt: "מחברת תסריט",
-    },
 
     {
       type: "text",

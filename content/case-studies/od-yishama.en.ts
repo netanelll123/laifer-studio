@@ -62,11 +62,6 @@ const caseStudy: CaseStudy = {
         "Only once the story was settled did I start thinking about what its world would look like.",
       ],
     },
-    {
-      type: "image",
-      src: `${BASE}/screenplay.svg`,
-      alt: "Screenplay notebook",
-    },
 
     {
       type: "text",
