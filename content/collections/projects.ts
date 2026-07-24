@@ -21,6 +21,6 @@ export const projects: Project[] = [
   },
   {
     slug: "jerusalem-walls",
-    poster: "/projects/jerusalem-walls.svg",
+    poster: "/projects/jerusalem-walls.jpg",
   },
 ];
