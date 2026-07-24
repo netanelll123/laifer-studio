@@ -15,6 +15,10 @@ const loaders: Record<
     he: () => import("./od-yishama.he"),
     en: () => import("./od-yishama.en"),
   },
+  "avir-mevorach": {
+    he: () => import("./avir-mevorach.he"),
+    en: () => import("./avir-mevorach.en"),
+  },
 };
 
 export function getCaseStudySlugs(): string[] {

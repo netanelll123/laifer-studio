@@ -16,8 +16,8 @@ export const projects: Project[] = [
   },
   {
     slug: "air-mevorach",
-    poster: "/projects/air-mevorach.jpg",
-    youtubeId: "btAk8xtC0eo",
+    poster: "/case-studies/avir-mevorach/hero-poster.jpg",
+    caseStudySlug: "avir-mevorach",
   },
   {
     slug: "jerusalem-walls",
