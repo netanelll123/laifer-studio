@@ -73,11 +73,11 @@ const caseStudy: CaseStudy = {
       title: "Building the world before building the film",
       paragraphs: [
         "Once the screenplay existed, I didn't want to make decisions on the fly.",
-        "So before a single character existed, I built the town.",
+        "So before a single character existed, I built the town. I called it Kleinir.",
         "Not because I couldn't have used a real location — but because I wanted complete creative freedom, inside rules I set myself.",
         "The streets. The architecture. The houses. The square.",
         "People are shaped by their surroundings. The streets, the houses and the atmosphere define them as much as their faces do.",
-        "Only once the town existed did I move on to the people who live in it.",
+        "Only once Kleinir existed did I move on to the people who live there.",
         "And only then did the film begin.",
       ],
     },
@@ -109,7 +109,7 @@ const caseStudy: CaseStudy = {
         "Before a single shot existed, I cast the film — the groom, the bride, Chiko, the musicians, and dozens of people in the background.",
         "I wasn't looking for perfect faces.",
         "I knew a character was finished the moment they felt like the neighbor's son — not a generated face, but someone I recognized.",
-        "Everyone on screen needed to feel like they actually lived in this village.",
+        "Everyone on screen needed to feel like they actually lived in Kleinir.",
       ],
     },
     {
@@ -143,7 +143,7 @@ const caseStudy: CaseStudy = {
       paragraphs: [
         "The challenge here wasn't making beautiful images.",
         "It was making every shot feel like it belonged to the same physical place.",
-        "I wanted the streets to connect to each other. I wanted the town to hold together as one continuous world.",
+        "I wanted the streets to connect to each other. I wanted Kleinir to hold together as one continuous world.",
         "The most demanding scene was the meeting of two processions — the groom's and the bride's — arriving from different streets into the same square.",
         "If the geography hadn't held, the viewer would have felt it instantly.",
         "Consistency isn't a technical detail. It's what makes a world believable.",
@@ -221,7 +221,7 @@ const caseStudy: CaseStudy = {
     title: "What I learned",
     paragraphs: [
       "The film was built long before a single frame was generated.",
-      "Every scene that worked, worked because of a decision made in preparation — in the screenplay, in the town, in the characters — long before production began.",
+      "Every scene that worked, worked because of a decision made in preparation — in the screenplay, in Kleinir, in the characters — long before production began.",
       "When something doesn't feel right on screen, I don't try to fix the image.",
       "I go back and rethink the decision that created it. The image is only ever a symptom.",
       "If I had a full production budget, real actors and real locations, I would direct almost exactly the same film.",
