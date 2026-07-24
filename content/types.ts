@@ -28,10 +28,14 @@ export interface Project {
   poster: string;
   /** Optional looping preview clip revealed on hover (omit until a real clip exists). */
   video?: string;
-  /** Optional external link (e.g. YouTube), opened in a new tab. */
+  /** Optional external link, opened in a new tab. Ignored when `youtubeId` or
+   *  `caseStudySlug` is set — those keep the visitor on-site instead. */
   url?: string;
+  /** Optional YouTube video ID — opens in an in-page modal (nocookie embed,
+   *  click-to-load) instead of navigating away to YouTube. */
+  youtubeId?: string;
   /** Optional slug of an internal case-study page (see `content/case-studies/`).
-   *  Takes precedence over `url` when both are set. */
+   *  Takes precedence over `youtubeId`/`url` when set. */
   caseStudySlug?: string;
 }
 

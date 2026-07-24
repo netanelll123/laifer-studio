@@ -2,6 +2,7 @@
   "common": {
     "skipToContent": "Skip to main content",
     "opensInNewTab": "Opens in a new tab",
+    "close": "Close",
     "error": {
       "title": "Something went wrong",
       "description": "An unexpected error occurred. You can try again, and if it keeps happening, feel free to reach out directly.",
@@ -40,22 +41,24 @@
     "eyebrow": "Featured Work",
     "title": "Stories turned into image",
     "subtitle": "A selection of recent projects — each one a world of its own.",
-    "viewProject": "View project",
     "items": {
       "balkan-wedding": {
         "title": "Od Yishama — Meir Kleiner — My Balkan Wedding",
         "category": "Music Video",
-        "description": "A cinematic celebration of color, motion and tradition woven into a single story."
+        "description": "A cinematic celebration of color, motion and tradition woven into a single story.",
+        "cta": "Step inside to read and see behind the scenes"
       },
       "air-mevorach": {
         "title": "Avir Mevorach",
         "category": "Music Video",
-        "description": "A music video for Zvulun Natanob, crafted entirely with AI tools — proof that emotion and story come before the technology."
+        "description": "A music video for Zvulun Natanob, crafted entirely with AI tools — proof that emotion and story come before the technology.",
+        "cta": "Watch the full video on YouTube"
       },
       "jerusalem-walls": {
         "title": "Rachel and Dave Travel Through Time — 17th of Tammuz",
         "category": "Educational Animation for Kids",
-        "description": "A stunning animated lesson about the walls of Jerusalem, past and present."
+        "description": "A stunning animated lesson about the walls of Jerusalem, past and present.",
+        "cta": "Want to know more? Get in touch"
       }
     }
   },
@@ -70,7 +73,7 @@
       "In the end, people don't remember which technology you used. They remember how you made them feel. So every project I make starts at the same point my own journey did — with listening. Because a good film doesn't begin with pressing record. It begins with a story worth telling."
     ],
     "quote": "Technology creates pixels. Story creates emotion.",
-    "wiki": "Read more on Wikipedia",
+    "wiki": "Discover my full story on Wikipedia",
     "stats": {
       "since": { "value": "20+", "label": "Years in music & media" },
       "research": { "value": "M.A.", "label": "Jewish-music researcher" },
