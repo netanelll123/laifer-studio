@@ -3,12 +3,6 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
-const nextConfig: NextConfig = {
-  images: {
-    // Placeholder remote source for demo imagery; swap/remove when using
-    // local assets in `public/`.
-    remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
-  },
-};
+const nextConfig: NextConfig = {};
 
 export default withNextIntl(nextConfig);

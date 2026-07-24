@@ -2,7 +2,9 @@
 export const siteConfig = {
   /** Canonical production URL — used for metadata, OG and sitemap. */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://laifer.studio",
-  ogImage: "/images/og.svg",
+  // PNG, not SVG — WhatsApp/Facebook/LinkedIn crawlers don't reliably render
+  // SVG for og:image. Source design kept at images/og.svg for future edits.
+  ogImage: "/images/og.png",
   person: {
     name: "Netanel Laifer",
     email: "netanelll123@gmail.com",
@@ -12,12 +14,9 @@ export const siteConfig = {
     /** International format, no symbols — required by the wa.me link scheme. */
     whatsapp: "972507200495",
   },
-  social: [
-    { label: "Instagram", href: "https://instagram.com" },
-    { label: "YouTube", href: "https://youtube.com" },
-    { label: "Vimeo", href: "https://vimeo.com" },
-    { label: "LinkedIn", href: "https://linkedin.com" },
-  ],
+  // Real profile URLs only — no placeholder/generic homepage links. Populate
+  // with the actual YouTube/TikTok/LinkedIn profile URLs when available.
+  social: [] as { label: string; href: string }[],
 } as const;
 
 /** In-page section anchors, shared by nav links and section elements. */

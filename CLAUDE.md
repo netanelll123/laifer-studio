@@ -54,7 +54,7 @@ Next.js 16 (App Router, Turbopack) · React 19 · TypeScript · Tailwind CSS v4 
 
 ## Assets
 
-Real content in `public/`: `videos/hero.mp4` (real, compressed showreel, ~8.4MB), `projects/air-mevorach.jpg` (real YouTube poster), `images/about-portrait.jpg` (real portrait), `logo-mark.png`/`logo-full.png` (real logo, derived from source `לוגו.png` at repo root). Still-placeholder: `projects/balkan-wedding.svg` and `projects/jerusalem-walls.svg` posters, and their `.mp4` hover clips (empty files — components fall back to the poster). Swap files in place (keep filenames) to finish — no code changes needed. See `public/README.md` and `content/README.md`.
+Real content in `public/`: `videos/hero.mp4` (real, compressed showreel, ~8.4MB), `projects/air-mevorach.jpg` (real YouTube poster), `images/about-portrait.jpg` (real portrait), `logo-mark.png`/`logo-header.png`/`logo-full.png` (real logo, derived from source `לוגו.png` at repo root), `case-studies/od-yishama/*` (real production stills — see that folder's own `README.md`). The `balkan-wedding` homepage card now points at a real still (`case-studies/od-yishama/hero-poster.jpg`) since its case study has real media. Still-placeholder: `projects/jerusalem-walls.svg` poster and its `.mp4` hover clip (empty file — the component falls back to the poster). Swap files in place (keep filenames) to finish — no code changes needed. See `public/README.md` and `content/README.md`.
 
 ## Conventions
 

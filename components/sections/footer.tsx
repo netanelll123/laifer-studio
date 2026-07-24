@@ -45,26 +45,28 @@ export function Footer() {
             </ul>
           </nav>
 
-          <div>
-            <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-              {tf("socialTitle")}
-            </h2>
-            <ul className="mt-4 flex flex-col gap-2.5">
-              {siteConfig.social.map((social) => (
-                <li key={social.label}>
-                  <a
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-foreground/70 transition-colors duration-300 ease-cinematic hover:text-foreground"
-                  >
-                    {social.label}
-                    <span className="sr-only"> — {tCommon("opensInNewTab")}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {siteConfig.social.length > 0 ? (
+            <div>
+              <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+                {tf("socialTitle")}
+              </h2>
+              <ul className="mt-4 flex flex-col gap-2.5">
+                {siteConfig.social.map((social) => (
+                  <li key={social.label}>
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-foreground/70 transition-colors duration-300 ease-cinematic hover:text-foreground"
+                    >
+                      {social.label}
+                      <span className="sr-only"> — {tCommon("opensInNewTab")}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
         </div>
 
         <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-border pt-8 text-xs text-muted-foreground sm:flex-row">

@@ -11,7 +11,7 @@ import type { Project } from "@/content/types";
 export const projects: Project[] = [
   {
     slug: "balkan-wedding",
-    poster: "/projects/balkan-wedding.svg",
+    poster: "/case-studies/od-yishama/hero-poster.jpg",
     caseStudySlug: "od-yishama",
   },
   {

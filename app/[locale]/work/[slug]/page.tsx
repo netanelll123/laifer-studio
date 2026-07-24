@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getCaseStudy, getCaseStudySlugs } from "@/content/case-studies";
 import { routing, type Locale } from "@/i18n/routing";
 import { siteConfig, sectionIds } from "@/content/site";
@@ -31,12 +31,13 @@ export async function generateMetadata({
   const study = await getCaseStudy(slug, locale);
   if (!study) return {};
 
+  const t = await getTranslations({ locale, namespace: "metadata" });
   const description = study.hero.subtitle;
   const url = `/${locale}/work/${slug}`;
   const otherLocale = routing.locales.find((l) => l !== locale);
 
   return {
-    title: `${study.hero.title} — ${siteConfig.person.name}`,
+    title: `${study.hero.title} — ${t("personName")}`,
     description,
     alternates: {
       canonical: url,
@@ -93,6 +94,7 @@ export default async function CaseStudyPage({
       "@type": "Person",
       name: credit.name,
     })),
+    publisher: { "@id": `${siteConfig.url}/#organization` },
   };
 
   return (

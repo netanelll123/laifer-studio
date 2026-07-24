@@ -80,6 +80,7 @@ export function ProjectCard({
           src={project.poster}
           alt=""
           aria-hidden
+          loading="lazy"
           className={cn(
             "absolute inset-0 size-full object-cover transition-transform duration-700 ease-cinematic group-hover:scale-105",
             hasVideo && active && !prefersReduced && "opacity-0"

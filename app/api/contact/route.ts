@@ -44,7 +44,7 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         ...parsed.data,
-        _subject: `New inquiry from ${parsed.data.name} — Leifer Studio`,
+        _subject: `New inquiry from ${parsed.data.name} — Laifer Studio`,
       }),
     });
 

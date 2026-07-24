@@ -21,6 +21,7 @@ export function About() {
             <img
               src="/images/about-portrait.jpg"
               alt={siteConfig.person.name}
+              loading="lazy"
               className="aspect-[4/5] w-full object-cover"
             />
             <div
