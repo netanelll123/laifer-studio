@@ -1,7 +1,7 @@
 /** Global, non-localized site configuration. */
 export const siteConfig = {
   /** Canonical production URL — used for metadata, OG and sitemap. */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://laifer-studio.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://laifer.studio",
   ogImage: "/images/og.svg",
   person: {
     name: "Netanel Laifer",
