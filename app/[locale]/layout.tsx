@@ -4,6 +4,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Frank_Ruhl_Libre, Assistant } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 import { Toaster } from "sonner";
 import { routing, localeDirection, type Locale } from "@/i18n/routing";
 import { siteConfig } from "@/content/site";
@@ -13,6 +14,11 @@ import "../globals.css";
 // Google Analytics 4. Production only, so dev/preview traffic never pollutes
 // real analytics data.
 const GA_MEASUREMENT_ID = "G-8C7N5K8F14";
+
+// Microsoft Clarity (heatmaps/session recordings). No official Next.js
+// package exists for it, so this uses Clarity's own official loader snippet
+// via next/script — same production-only gating as GA above.
+const CLARITY_PROJECT_ID = "xrghc574zg";
 
 // Display serif + body sans, each covering Hebrew and Latin for full bilingual support.
 const display = Frank_Ruhl_Libre({
@@ -158,7 +164,16 @@ export default async function LocaleLayout({
           />
         </NextIntlClientProvider>
         {process.env.NODE_ENV === "production" && (
-          <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
+          <>
+            <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
+            <Script id="microsoft-clarity" strategy="afterInteractive">
+              {`(function(c,l,a,r,i,t,y){
+                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+              })(window, document, "clarity", "script", "${CLARITY_PROJECT_ID}");`}
+            </Script>
+          </>
         )}
       </body>
     </html>
