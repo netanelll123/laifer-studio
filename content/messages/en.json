@@ -1,7 +1,12 @@
 {
   "common": {
     "skipToContent": "Skip to main content",
-    "opensInNewTab": "Opens in a new tab"
+    "opensInNewTab": "Opens in a new tab",
+    "error": {
+      "title": "Something went wrong",
+      "description": "An unexpected error occurred. You can try again, and if it keeps happening, feel free to reach out directly.",
+      "retry": "Try again"
+    }
   },
   "metadata": {
     "title": "Netanel Laifer — Creative Director & Storyteller",
