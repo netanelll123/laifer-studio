@@ -6,7 +6,6 @@ import { FeaturedProjects } from "@/components/sections/featured-projects";
 import { About } from "@/components/sections/about";
 import { Services } from "@/components/sections/services";
 import { CreativeProcess } from "@/components/sections/creative-process";
-import { Testimonials } from "@/components/sections/testimonials";
 import { Contact } from "@/components/sections/contact";
 import { Footer } from "@/components/sections/footer";
 
@@ -27,7 +26,8 @@ export default async function HomePage({
         <About />
         <Services />
         <CreativeProcess />
-        <Testimonials />
+        {/* Testimonials hidden until real client quotes replace the
+            placeholder names — see components/sections/testimonials.tsx */}
         <Contact />
       </main>
       <Footer />

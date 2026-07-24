@@ -30,12 +30,12 @@ export const sectionIds = {
   contact: "contact",
 } as const;
 
-/** Nav items rendered in the header (label keys resolve against `nav.*`). */
+/** Nav items rendered in the header (label keys resolve against `nav.*`).
+ *  "testimonials" omitted while that section is hidden — see app/[locale]/page.tsx. */
 export const navItems = [
   { key: "work", href: `#${sectionIds.work}` },
   { key: "about", href: `#${sectionIds.about}` },
   { key: "services", href: `#${sectionIds.services}` },
   { key: "process", href: `#${sectionIds.process}` },
-  { key: "testimonials", href: `#${sectionIds.testimonials}` },
   { key: "contact", href: `#${sectionIds.contact}` },
 ] as const;
