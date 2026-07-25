@@ -11,7 +11,8 @@ export function FeaturedProjects() {
   const t = useTranslations("projects");
 
   return (
-    <section id={sectionIds.work} className="section-padding">
+    <section id={sectionIds.work} className="relative section-padding">
+      <div aria-hidden className="pointer-events-none absolute inset-0 cinematic-light-grid" />
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           eyebrow={t("eyebrow")}

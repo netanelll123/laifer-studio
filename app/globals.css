@@ -134,4 +134,24 @@
   .section-padding {
     padding-block: clamp(5rem, 12vh, 9rem);
   }
+
+  /*
+    Long-scroll depth cues — brightness only, no hue (same rgba(244,242,238,…)
+    foreground already used for --color-border/--color-input above). Each
+    section below picks one variant; values are tuned to be almost
+    imperceptible individually, felt only as calmer scrolling. Static, no
+    animation — nothing here needs a prefers-reduced-motion guard.
+  */
+  .cinematic-light-grid {
+    background: radial-gradient(80% 70% at 50% 0%, rgba(244, 242, 238, 0.04) 0%, transparent 70%);
+  }
+  .cinematic-light-top {
+    background: radial-gradient(60% 50% at 50% 0%, rgba(244, 242, 238, 0.03) 0%, transparent 70%);
+  }
+  .cinematic-light-bottom {
+    background: radial-gradient(70% 60% at 50% 100%, rgba(244, 242, 238, 0.03) 0%, transparent 70%);
+  }
+  .cinematic-light-soft {
+    background: radial-gradient(60% 50% at 50% 0%, rgba(244, 242, 238, 0.02) 0%, transparent 70%);
+  }
 }

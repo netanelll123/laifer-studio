@@ -12,7 +12,8 @@ export function Contact() {
   const whatsappHref = `https://wa.me/${siteConfig.person.whatsapp}?text=${encodeURIComponent(t("whatsappMessage"))}`;
 
   return (
-    <section id={sectionIds.contact} className="section-padding">
+    <section id={sectionIds.contact} className="relative section-padding">
+      <div aria-hidden className="pointer-events-none absolute inset-0 cinematic-light-soft" />
       <div className="mx-auto grid max-w-6xl gap-14 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <Reveal className="flex flex-col gap-6">
           <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-accent">

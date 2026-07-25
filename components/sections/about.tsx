@@ -12,7 +12,8 @@ export function About() {
   const stats = ["since", "research", "ai"] as const;
 
   return (
-    <section id={sectionIds.about} className="section-padding">
+    <section id={sectionIds.about} className="relative section-padding">
+      <div aria-hidden className="pointer-events-none absolute inset-0 cinematic-light-top" />
       <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_1.1fr] lg:items-center">
         {/* Portrait + pull-quote */}
         <Reveal className="order-2 lg:order-1">

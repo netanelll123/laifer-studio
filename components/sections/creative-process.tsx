@@ -10,7 +10,8 @@ export function CreativeProcess() {
   const t = useTranslations("process");
 
   return (
-    <section id={sectionIds.process} className="section-padding">
+    <section id={sectionIds.process} className="relative section-padding">
+      <div aria-hidden className="pointer-events-none absolute inset-0 cinematic-light-bottom" />
       <div className="mx-auto max-w-5xl px-5 sm:px-8">
         <SectionHeading
           eyebrow={t("eyebrow")}
