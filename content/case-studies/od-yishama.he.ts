@@ -207,8 +207,7 @@ const caseStudy: CaseStudy = {
 
   film: {
     title: "הסרט",
-    // TODO: replace with the real YouTube video ID for "עוד ישמע".
-    youtubeId: "REPLACE_WITH_YOUTUBE_ID",
+    youtubeId: "ZalPFa6oma8",
     poster: `${BASE}/film-poster.jpg`,
   },
 

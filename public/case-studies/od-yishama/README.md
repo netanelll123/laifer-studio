@@ -1,16 +1,13 @@
 # Od Yishama — case study assets
 
-Real production stills are in place throughout the article. Two things are
-still needed to finish the page:
+Real production stills are in place throughout the article. `youtubeId` is
+now real (`ZalPFa6oma8`). One thing is still needed to finish the page:
 
 ## Required to finish this page
 - **`hero.mp4`** — currently empty. A short (10–15s), muted, looping clip for
   the article's opening. Same compression approach as `public/videos/hero.mp4`
   (H.264, ~1080p, no audio needed) keeps it light. `hero-poster.jpg` (a real
   still) already covers the fallback/poster.
-- **`youtubeId`** in `content/case-studies/od-yishama.he.ts` and `.en.ts` —
-  currently a placeholder (`REPLACE_WITH_YOUTUBE_ID`). Replace with the real
-  video ID from the film's YouTube URL (the part after `v=`).
 
 ## Removed
 - `screenplay.svg` — was Section 2's placeholder ("It started with the

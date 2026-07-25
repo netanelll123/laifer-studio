@@ -207,8 +207,7 @@ const caseStudy: CaseStudy = {
 
   film: {
     title: "The Film",
-    // TODO: replace with the real YouTube video ID for "Od Yishama".
-    youtubeId: "REPLACE_WITH_YOUTUBE_ID",
+    youtubeId: "ZalPFa6oma8",
     poster: `${BASE}/film-poster.jpg`,
   },
 
