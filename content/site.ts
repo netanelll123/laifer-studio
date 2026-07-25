@@ -8,7 +8,7 @@ export const siteConfig = {
   person: {
     name: "Netanel Laifer",
     email: "netanelll123@gmail.com",
-    jobTitle: "Creative Director & Storyteller",
+    jobTitle: "Creative Director & Cinematic Storyteller",
     wikipedia:
       "https://he.wikipedia.org/wiki/%D7%A0%D7%AA%D7%A0%D7%90%D7%9C_%D7%9C%D7%99%D7%99%D7%A4%D7%A8",
     /** International format, no symbols — required by the wa.me link scheme. */

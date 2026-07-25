@@ -8,7 +8,7 @@ Work only within this project directory. Do not read, write, or modify files out
 
 ## Project
 
-Leifer Studio — a premium, cinematic single-page portfolio for Netanel Laifer (Creative Director / Storyteller / AI Filmmaker). It is **not** an AI-agency site: AI is framed as the tool, storytelling as the product. Bilingual (Hebrew RTL default, English LTR).
+Leifer Studio — a premium, cinematic single-page portfolio for Netanel Laifer (Creative Director / Cinematic Storyteller / AI Filmmaker). It is **not** an AI-agency site: AI is framed as the tool, storytelling as the product. Bilingual (Hebrew RTL default, English LTR).
 
 ## Commands
 
