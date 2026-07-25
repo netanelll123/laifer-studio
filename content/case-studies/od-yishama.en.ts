@@ -33,7 +33,7 @@ const caseStudy: CaseStudy = {
       paragraphs: [
         'When Meir Kleiner reached out, he wasn\'t asking for an "AI clip."',
         "He came with a very clear musical vision.",
-        '"Od Yishama" was written and produced out of a deep love for Balkan music.',
+        '"Od Yishama" is built on an old Skulener Hasidic melody, re-produced in a Balkan musical style.',
         "Not as an imitation.",
         "But as a piece that understands the musical language, the instruments and the distinct atmosphere of the Balkans.",
         "His request was simple:",
