@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
+import { useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { ArrowUpRight, Play, X } from "lucide-react";
+import { ArrowUpRight, Play } from "lucide-react";
 import { Reveal } from "@/components/reveal";
+import { VideoModal } from "@/components/video-modal";
 import { sectionIds } from "@/content/site";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 import type { Project } from "@/content/types";
@@ -58,20 +58,6 @@ export function ProjectCard({
       v.currentTime = 0;
     }
   };
-
-  // Escape-to-close + scroll lock while the video modal is open.
-  useEffect(() => {
-    if (!modalOpen) return;
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setModalOpen(false);
-    };
-    document.addEventListener("keydown", onKeyDown);
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = "";
-    };
-  }, [modalOpen]);
 
   const mediaInner = (
     <>
@@ -193,38 +179,14 @@ export function ProjectCard({
         </div>
       </Reveal>
 
-      {hasYoutube &&
-        modalOpen &&
-        createPortal(
-          <div
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-background/90 p-4 backdrop-blur-sm sm:p-8"
-            role="dialog"
-            aria-modal="true"
-            aria-label={title}
-            onClick={() => setModalOpen(false)}
-          >
-            <div className="relative w-full max-w-4xl" onClick={(e) => e.stopPropagation()}>
-              <button
-                type="button"
-                onClick={() => setModalOpen(false)}
-                aria-label={tCommon("close")}
-                className="absolute -top-11 end-0 inline-flex size-9 items-center justify-center rounded-full border border-border bg-white/5 text-foreground transition-colors duration-300 ease-cinematic hover:bg-white/10"
-              >
-                <X className="size-4" />
-              </button>
-              <div className="aspect-video overflow-hidden rounded-2xl border border-border bg-card">
-                <iframe
-                  src={`https://www.youtube-nocookie.com/embed/${project.youtubeId}?autoplay=1`}
-                  title={title}
-                  className="size-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-          </div>,
-          document.body
-        )}
+      {hasYoutube && project.youtubeId && (
+        <VideoModal
+          open={modalOpen}
+          onClose={() => setModalOpen(false)}
+          youtubeId={project.youtubeId}
+          title={title}
+        />
+      )}
     </>
   );
 }

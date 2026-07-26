@@ -62,6 +62,18 @@
       }
     }
   },
+  "ads": {
+    "eyebrow": "Ad Work",
+    "title": "Commercials that tell a story",
+    "items": {
+      "instant-coffee": {
+        "title": "Instant Coffee"
+      },
+      "lemon-waffle": {
+        "title": "Lemon Waffle"
+      }
+    }
+  },
   "about": {
     "eyebrow": "Who I Am",
     "title": "Creativity comes before technology",
@@ -144,6 +156,11 @@
         "role": "Marketing Director"
       }
     }
+  },
+  "reel": {
+    "eyebrow": "A quick introduction",
+    "title": "Laifer Studio",
+    "play": "Play video"
   },
   "contact": {
     "eyebrow": "Contact",

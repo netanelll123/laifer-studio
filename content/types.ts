@@ -20,6 +20,7 @@ export type ProcessSlug =
   | "production"
   | "delivery";
 export type TestimonialSlug = "t1" | "t2" | "t3";
+export type AdSlug = "instant-coffee" | "lemon-waffle";
 
 /** A featured portfolio piece. Text is resolved from i18n via `slug`. */
 export interface Project {
@@ -49,6 +50,17 @@ export interface Service {
 export interface ProcessStep {
   slug: ProcessSlug;
   icon: LucideIcon;
+}
+
+/** A short commercial/ad spot — a lighter-weight showcase than the main
+ *  featured projects, for brand work. Text resolved via `ads.items.<slug>`. */
+export interface Ad {
+  slug: AdSlug;
+  poster: string;
+  /** Optional looping preview clip revealed on hover. */
+  video?: string;
+  /** YouTube ID — opens in the same in-page modal used by featured projects. */
+  youtubeId?: string;
 }
 
 /** A client testimonial. Quote/name/role resolved from i18n via `slug`. */
