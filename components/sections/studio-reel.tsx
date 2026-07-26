@@ -18,7 +18,7 @@ export function StudioReel() {
   return (
     <section id={sectionIds.reel} className="section-padding">
       <div className="mx-auto max-w-3xl px-5 sm:px-8">
-        <SectionHeading eyebrow={t("eyebrow")} title={t("title")} />
+        <SectionHeading title={t("title")} />
 
         <Reveal variants={scaleIn} className="mt-12">
           <div className="relative aspect-video overflow-hidden rounded-2xl border border-border bg-card">

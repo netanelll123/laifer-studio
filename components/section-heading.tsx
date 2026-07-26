@@ -3,7 +3,7 @@ import { Reveal } from "@/components/reveal";
 import { stagger } from "@/lib/motion";
 
 interface SectionHeadingProps {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   subtitle?: string;
   align?: "start" | "center";
@@ -27,12 +27,14 @@ export function SectionHeading({
         className
       )}
     >
-      <Reveal>
-        <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-accent">
-          <span className="h-px w-6 bg-accent/60" aria-hidden />
-          {eyebrow}
-        </span>
-      </Reveal>
+      {eyebrow ? (
+        <Reveal>
+          <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-accent">
+            <span className="h-px w-6 bg-accent/60" aria-hidden />
+            {eyebrow}
+          </span>
+        </Reveal>
+      ) : null}
       <Reveal>
         <h2 className="font-display text-4xl font-medium leading-[1.1] text-balance sm:text-5xl">
           {title}
