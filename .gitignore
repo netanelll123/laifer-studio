@@ -40,3 +40,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# unrelated local tooling (not part of this site's codebase)
+AGENTS.md
