@@ -103,7 +103,13 @@ export interface CaseStudy {
   blocks: CaseStudyBlock[];
   film: {
     title: string;
-    youtubeId: string;
+    /** Real YouTube video ID. Omit while only a local stand-in exists (see
+     *  `video` below) — set this once the real upload is live. */
+    youtubeId?: string;
+    /** Local video file, used as a temporary stand-in when `youtubeId` isn't
+     *  set yet (e.g. a preview clip with real audio). Ignored if `youtubeId`
+     *  is present — YouTube takes priority once it exists. */
+    video?: string;
     /** Thumbnail shown before the visitor clicks play — deliberately its own
      *  field rather than reusing hero.poster, so the hero and the video
      *  embed can show two different, equally strong stills. */

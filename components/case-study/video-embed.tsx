@@ -8,9 +8,14 @@ import { scaleIn } from "@/lib/motion";
 import type { CaseStudy } from "@/content/types";
 
 /**
- * Click-to-load YouTube embed. Nothing from YouTube (script, thumbnail,
- * player) loads until the visitor clicks play — the poster is our own
- * placeholder image, so the section costs nothing on first paint.
+ * Click-to-load video embed. Nothing loads until the visitor clicks play —
+ * the poster is our own image, so the section costs nothing on first paint.
+ * Prefers a real YouTube embed (`film.youtubeId`); falls back to a local
+ * `<video>` (`film.video`) as a temporary stand-in — e.g. a preview clip
+ * with real audio — until the real upload exists. The local video isn't
+ * autoplaying background chrome like the hero: it only ever plays after a
+ * direct click, so an unmuted `<video controls>` here doesn't conflict with
+ * the muted-autoplay convention used elsewhere on the site.
  */
 export function CaseStudyVideoEmbed({ film }: { film: CaseStudy["film"] }) {
   const t = useTranslations("caseStudy");
@@ -23,7 +28,7 @@ export function CaseStudyVideoEmbed({ film }: { film: CaseStudy["film"] }) {
           {film.title}
         </h2>
         <div className="relative aspect-video overflow-hidden rounded-2xl border border-border bg-card">
-          {playing ? (
+          {playing && film.youtubeId ? (
             <iframe
               src={`https://www.youtube-nocookie.com/embed/${film.youtubeId}?autoplay=1`}
               title={film.title}
@@ -31,6 +36,15 @@ export function CaseStudyVideoEmbed({ film }: { film: CaseStudy["film"] }) {
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
+            />
+          ) : playing && film.video ? (
+            <video
+              src={film.video}
+              title={film.title}
+              className="size-full"
+              controls
+              autoPlay
+              playsInline
             />
           ) : (
             <button

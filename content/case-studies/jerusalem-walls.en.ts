@@ -145,8 +145,10 @@ const caseStudy: CaseStudy = {
 
   film: {
     title: "The Film",
-    // TODO: replace with the real YouTube video ID.
-    youtubeId: "REPLACE_WITH_YOUTUBE_ID",
+    // TODO: set youtubeId once the real upload is live — it'll take
+    // priority over `video` automatically. `video` is a temporary stand-in
+    // (looping intro clip + the real theme song) until then.
+    video: `${BASE}/film-preview.mp4`,
     poster: `${BASE}/film-poster.jpg`,
   },
 

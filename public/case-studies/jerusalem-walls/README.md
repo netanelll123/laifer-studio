@@ -18,18 +18,22 @@
 - `scene-kids-playing.jpg` — the exact "moment I knew it worked" scene the
   brief described (kids playing soccer in the market street).
 
+- `film-preview.mp4` — temporary stand-in for the film embed until the real
+  YouTube upload exists: the intro clip looped to match the real theme
+  song's length, muxed with real audio (`ffmpeg -stream_loop -1` on the
+  video + the client's MP3, `-shortest` to the audio's ~15s). Wired via the
+  new `film.video` field (see `content/types.ts` and
+  `components/case-study/video-embed.tsx`) — unlike the hero, this only
+  plays after a direct click, so it has native `<video controls>` and real
+  audio without conflicting with the site's muted-autoplay convention.
+
 ## Received but not used
 - `אבק.png` (not copied into public/) — client confirmed this doesn't
   belong to this project; discarded rather than guessed into a slot.
-- `רייצל ודייב נוסעים בזמן.mp3` (kept in `content/case-studies/`, not
-  copied into `public/`) — likely the film's theme song or narration. Not
-  wired in: the site has no audio-only playback surface for case studies,
-  and autoplaying audio would break the muted-autoplay convention used
-  everywhere else on the site. Flagged for the client rather than guessed
-  at.
 
 ## Still pending
-- `film.youtubeId` in both `jerusalem-walls.*.ts` files — still
-  `REPLACE_WITH_YOUTUBE_ID`. The project was adapted into six language
-  versions; confirm which one's video ID belongs here (presumably the
-  Hebrew original).
+- `film.youtubeId` in both `jerusalem-walls.*.ts` files. The project was
+  adapted into six language versions; confirm which one's video ID belongs
+  here (presumably the Hebrew original). Once set, it automatically takes
+  priority over `film.video` — no other change needed, and `film-preview.mp4`
+  can be deleted at that point.
