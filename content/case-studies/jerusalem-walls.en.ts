@@ -10,9 +10,9 @@ const BASE = "/case-studies/jerusalem-walls";
  * other two case studies: no AI-as-subject at all, and explicit care not to
  * imply the educational content or characters were invented in this work —
  * both pre-existed and were handed over with full creative freedom on the
- * execution. Still pending: hero.mp4, the film's real YouTube ID, a
- * distinct film-poster (currently a duplicate of hero-poster.jpg), and
- * confirmation of how to credit the organization.
+ * execution. Real hero video/poster, film-poster and production stills now
+ * in place. Still pending: the film's real YouTube ID (six language
+ * versions exist — confirm which one belongs here).
  */
 const caseStudy: CaseStudy = {
   slug: "jerusalem-walls",
@@ -82,6 +82,35 @@ const caseStudy: CaseStudy = {
         "Only once you feel the life inside the city can you understand what the walls were protecting.",
       ],
     },
+    {
+      type: "image",
+      src: `${BASE}/scene-temple-arrival.jpg`,
+      alt: "Rachel and Dave stand hand in hand facing the walls of Jerusalem and the Temple, lit by the setting sun",
+      caption: "The moment the city and the Temple are revealed for the first time",
+    },
+    {
+      type: "image",
+      src: `${BASE}/scene-city-gate.jpg`,
+      alt: "Rachel and Dave at the city gate, looking down a bustling market street toward the Temple",
+    },
+    {
+      type: "image",
+      src: `${BASE}/scene-market-artisan.jpg`,
+      alt: "Rachel and Dave watch a coppersmith at work in the market, a potter beside him at his wheel",
+      caption: "The streets, the people, the market — not just the walls",
+    },
+    {
+      type: "image",
+      src: `${BASE}/scene-destruction.jpg`,
+      alt: "Rachel and Dave look through a breach in the wall at a city in chaos, dust and debris in the air, crowds fleeing",
+      caption: "The 17th of Tammuz: the moment the walls were breached",
+    },
+    {
+      type: "image",
+      src: `${BASE}/scene-ruins.jpg`,
+      alt: "Rachel and Dave stand troubled among the ruins, smoke rising from the city behind them",
+      caption: "The quiet after",
+    },
 
     {
       type: "text",
@@ -90,6 +119,11 @@ const caseStudy: CaseStudy = {
         "One of the goals was to take the early versions of Rachel and Dave and give them depth and presence.",
         "Not to reinvent them, but to turn them into characters capable of leading the viewer through the story, and feeling natural inside the world that was built.",
       ],
+    },
+    {
+      type: "image",
+      src: `${BASE}/character-board.jpg`,
+      alt: "Full character reference sheet for Rachel and Dave — angles, facial features and full-body views from every side",
     },
 
     {
@@ -101,6 +135,11 @@ const caseStudy: CaseStudy = {
         "In that moment, the city stopped being a set.",
         "It became a place people live in.",
       ],
+    },
+    {
+      type: "image",
+      src: `${BASE}/scene-kids-playing.jpg`,
+      alt: "Rachel and Dave watch local children playing with a ball in the market street, sunlight streaming between the stalls",
     },
   ],
 
@@ -121,6 +160,7 @@ const caseStudy: CaseStudy = {
   },
 
   credits: [
+    { role: "Educational Content & Initiative", name: "Olam Shalem" },
     {
       role: "Direction · Screenplay · World Building · Editing",
       name: "Netanel Laifer",

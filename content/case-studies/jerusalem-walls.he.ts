@@ -9,9 +9,9 @@ const BASE = "/case-studies/jerusalem-walls";
  * case studies: no AI-as-subject at all, and explicit care not to imply the
  * educational content or characters were invented in this work — both
  * pre-existed and were handed over with full creative freedom on the
- * execution. Still pending: hero.mp4, the film's real YouTube ID, a
- * distinct film-poster (currently a duplicate of hero-poster.jpg), and
- * confirmation of how to credit the organization.
+ * execution. Real hero video/poster, film-poster and production stills now
+ * in place. Still pending: the film's real YouTube ID (six language
+ * versions exist — confirm which one belongs here).
  */
 const caseStudy: CaseStudy = {
   slug: "jerusalem-walls",
@@ -81,6 +81,35 @@ const caseStudy: CaseStudy = {
         "רק כשמרגישים את החיים שבתוך העיר, אפשר להבין על מה החומות שמרו.",
       ],
     },
+    {
+      type: "image",
+      src: `${BASE}/scene-temple-arrival.jpg`,
+      alt: "רייצ'ל ודייב עומדים יד ביד מול חומות ירושלים ובית המקדש, מוארים באור שקיעה",
+      caption: "הרגע שבו העיר ובית המקדש נגלים לראשונה",
+    },
+    {
+      type: "image",
+      src: `${BASE}/scene-city-gate.jpg`,
+      alt: "רייצ'ל ודייב בפתח שער העיר, מביטים לאורך רחוב שוק סואן לעבר בית המקדש",
+    },
+    {
+      type: "image",
+      src: `${BASE}/scene-market-artisan.jpg`,
+      alt: "רייצ'ל ודייב צופים באומן נחושת עובד בשוק, קדר ליד עובד בגלגל חרס",
+      caption: "הרחובות, האנשים והשוק — לא רק החומות",
+    },
+    {
+      type: "image",
+      src: `${BASE}/scene-destruction.jpg`,
+      alt: "רייצ'ל ודייב מביטים מבעד לפרצה בחומה על עיר בכאוס, אבק ורסיסים באוויר, המונים נמלטים",
+      caption: "י\"ז בתמוז: הרגע שהחומות נפרצו",
+    },
+    {
+      type: "image",
+      src: `${BASE}/scene-ruins.jpg`,
+      alt: "רייצ'ל ודייב עומדים מוטרדים בין הריסות, עשן עולה מהעיר ברקע",
+      caption: "השקט שאחרי",
+    },
 
     {
       type: "text",
@@ -89,6 +118,11 @@ const caseStudy: CaseStudy = {
         "אחת המטרות הייתה לקחת את הגרסאות הראשוניות של רייצ'ל ודייב ולהעניק להן עומק ונוכחות.",
         "לא להמציא אותן מחדש, אלא להפוך אותן לדמויות שמסוגלות להוביל את הצופה דרך הסיפור, ולהרגיש טבעיות בתוך העולם שנבנה.",
       ],
+    },
+    {
+      type: "image",
+      src: `${BASE}/character-board.jpg`,
+      alt: "לוח דמויות מלא של רייצ'ל ודייב — זוויות, תווי פנים וגוף מכל הכיוונים",
     },
 
     {
@@ -100,6 +134,11 @@ const caseStudy: CaseStudy = {
         "באותו רגע העיר הפסיקה להיות תפאורה.",
         "היא הפכה למקום שחיים בו.",
       ],
+    },
+    {
+      type: "image",
+      src: `${BASE}/scene-kids-playing.jpg`,
+      alt: "רייצ'ל ודייב צופים בילדי העיר משחקים כדור ברחוב השוק, אור שמש חודר מבין האוהלים",
     },
   ],
 
@@ -120,6 +159,7 @@ const caseStudy: CaseStudy = {
   },
 
   credits: [
+    { role: "תוכן חינוכי ויוזמה", name: "עולם שלם" },
     {
       role: "בימוי · תסריט · בניית עולם · עריכה",
       name: "נתנאל לייפר",

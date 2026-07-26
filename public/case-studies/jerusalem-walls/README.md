@@ -1,27 +1,35 @@
 # Rachel and Dave Travel Through Time — case study assets
 
 ## Real
-- `hero-poster.jpg` — the real key art (same file already used on the
-  homepage project card).
+- `hero.mp4` / `hero-poster.jpg` — the real title-card intro clip (re-encoded
+  H.264, muted, faststart) and its own first frame as poster.
+- `film-poster.jpg` — a distinct frame from the same clip (a few seconds
+  later), so it doesn't duplicate `hero-poster.jpg`.
+- `character-board.jpg` — full turnaround reference sheet for Rachel and
+  Dave.
+- `scene-temple-arrival.jpg` — Rachel and Dave first seeing the city and
+  Temple.
+- `scene-city-gate.jpg` / `scene-market-artisan.jpg` — the living city:
+  streets, market, an artisan at work.
+- `scene-destruction.jpg` / `scene-ruins.jpg` — used as a before/after pair:
+  the walls breached (chaos, dust, crowds fleeing), then the quiet
+  aftermath. Illustrates what the "Building Jerusalem" section's closing
+  line refers to ("what the walls were protecting").
+- `scene-kids-playing.jpg` — the exact "moment I knew it worked" scene the
+  brief described (kids playing soccer in the market street).
 
-## Still placeholder / pending
-- `hero.mp4` — currently an empty file. Drop a real short muted loop in and
-  the article's hero will pick it up automatically (poster already covers
-  the fallback).
-- `film-poster.jpg` — currently a duplicate of `hero-poster.jpg` as a
-  stopgap. Swap for a distinct still once one exists, so the hero and the
-  video embed don't show the exact same image.
-- `film.youtubeId` in `content/case-studies/jerusalem-walls.he.ts` and
-  `.en.ts` — currently `REPLACE_WITH_YOUTUBE_ID`. This project was adapted
-  into six language versions total — confirm which version's video ID
-  belongs here (the Hebrew original, presumably).
-- No production stills (world-building boards, character sheets, etc.)
-  have been provided yet for this case study, unlike the other two — the
-  article is currently text-only between the hero and the film embed.
+## Received but not used
+- `אבק.png` (not copied into public/) — client confirmed this doesn't
+  belong to this project; discarded rather than guessed into a slot.
+- `רייצל ודייב נוסעים בזמן.mp3` (kept in `content/case-studies/`, not
+  copied into `public/`) — likely the film's theme song or narration. Not
+  wired in: the site has no audio-only playback surface for case studies,
+  and autoplaying audio would break the muted-autoplay convention used
+  everywhere else on the site. Flagged for the client rather than guessed
+  at.
 
-## Open question
-`credits` currently lists only the director. The brief mentions "the
-organization" gave full creative freedom but doesn't name it, and the
-lesson plan / original Rachel & Dave designs pre-existed this work — need
-to confirm whether/how to credit the organization and/or original creators
-without implying they were part of this engagement.
+## Still pending
+- `film.youtubeId` in both `jerusalem-walls.*.ts` files — still
+  `REPLACE_WITH_YOUTUBE_ID`. The project was adapted into six language
+  versions; confirm which one's video ID belongs here (presumably the
+  Hebrew original).
