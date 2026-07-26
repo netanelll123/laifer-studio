@@ -19,6 +19,10 @@ const loaders: Record<
     he: () => import("./avir-mevorach.he"),
     en: () => import("./avir-mevorach.en"),
   },
+  "jerusalem-walls": {
+    he: () => import("./jerusalem-walls.he"),
+    en: () => import("./jerusalem-walls.en"),
+  },
 };
 
 export function getCaseStudySlugs(): string[] {
