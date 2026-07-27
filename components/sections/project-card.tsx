@@ -31,6 +31,7 @@ export function ProjectCard({
   const [modalOpen, setModalOpen] = useState(false);
 
   const title = t(`items.${project.slug}.title`);
+  const proof = t(`items.${project.slug}.proof`);
   const hasVideo = Boolean(project.video);
   const hasCaseStudy = Boolean(project.caseStudySlug);
   // A YouTube ID keeps the visitor on-site (in-page modal) instead of
@@ -156,6 +157,12 @@ export function ProjectCard({
           <p className="mt-4 max-w-md text-muted-foreground">
             {t(`items.${project.slug}.description`)}
           </p>
+          {proof ? (
+            <p className="mt-4 flex items-start gap-3 max-w-md text-sm italic leading-relaxed text-muted-foreground/80">
+              <span className="mt-1 h-px w-4 shrink-0 bg-accent/50" aria-hidden />
+              {proof}
+            </p>
+          ) : null}
           {hasYoutube ? (
             <button
               type="button"

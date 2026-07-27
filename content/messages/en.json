@@ -29,8 +29,8 @@
   },
   "hero": {
     "eyebrow": "Creative Director · Cinematic Storyteller",
-    "title": "Every film begins with a story",
-    "subtitle": "I begin by listening — to you and your audience — then build the story worth telling. Camera, edit and AI are only tools; the story is the work itself.",
+    "title": "20 years listening to music. Now I direct it.",
+    "subtitle": "Twenty years as a music journalist, critic and editor. An M.A. with a research thesis on Jewish music. Today I bring that same listening to directing film and music videos — because the story starts with the music, not the camera.",
     "ctaPrimary": "Selected Work",
     "ctaSecondary": "Let's Talk",
     "scroll": "Scroll to explore",
@@ -46,19 +46,22 @@
         "title": "Od Yishama — Meir Kleiner — My Balkan Wedding",
         "category": "Music Video",
         "description": "A cinematic celebration of color, motion and tradition woven into a single story.",
-        "cta": "Step inside to read and see behind the scenes"
+        "cta": "Step inside to read and see behind the scenes",
+        "proof": ""
       },
       "air-mevorach": {
         "title": "Avir Mevorach",
         "category": "Music Video",
         "description": "A music video built around one visual idea — a child who believes there's no air — told in one consistent cinematic language for story and music.",
-        "cta": "Step inside to see how the idea was born"
+        "cta": "Step inside to see how the idea was born",
+        "proof": ""
       },
       "jerusalem-walls": {
         "title": "Rachel and Dave Travel Through Time — 17th of Tammuz",
         "category": "Educational Animation for Kids",
         "description": "A stunning animated lesson about the walls of Jerusalem, past and present.",
-        "cta": "Step inside how this world was built"
+        "cta": "Step inside how this world was built",
+        "proof": ""
       }
     }
   },
@@ -78,7 +81,7 @@
     "eyebrow": "Who I Am",
     "title": "Creativity comes before technology",
     "paragraphs": [
-      "Before I ever picked up a camera, I was a listener.",
+      "Before I ever picked up a camera, I spent twenty years listening — to records, rehearsals, and the stories musicians were really trying to tell.",
       "For more than two decades I've lived inside the world of music and media. As a journalist, critic and music editor, I learned to listen before I judge — to look for the real moment beneath the production, to find the story hiding between the lines, and to understand what actually stays with an audience after the last note fades.",
       "That habit never left me when I moved into video. If anything, it deepened. When I sit down to direct a music video, a brand film or a commercial, I start in exactly the same place: listening. Understanding the person in front of me, the message they want to carry, and the story that's actually worth telling.",
       "Today I create and direct films and music videos, and the process now includes newer tools like AI. To me, it isn't magic and it isn't the point — it's simply another tool in the kit, the same as a camera, a lens or an editing timeline. What actually decides the result is the story, the emotion and the truth behind them.",
@@ -88,38 +91,38 @@
     "wiki": "Discover my full story on Wikipedia",
     "stats": {
       "since": { "value": "20+", "label": "Years in music & media" },
-      "research": { "value": "M.A.", "label": "Jewish-music researcher" },
+      "research": { "value": "M.A.", "label": "Research thesis on Jewish music" },
       "ai": { "value": "AI", "label": "Films & music, AI-crafted" }
     }
   },
   "services": {
     "eyebrow": "Services",
     "title": "From idea to screen",
-    "subtitle": "Full production capabilities under one creative roof.",
+    "subtitle": "Every discipline below starts the same way — listening, thinking and shaping a story before a single frame is shot.",
     "items": {
       "music-videos": {
         "title": "Music Videos",
-        "description": "Cinematic videos that translate music into a visual language."
+        "description": "Every video starts with the music itself — understanding its structure and emotion before a single shot is planned."
       },
       "commercials": {
         "title": "Commercials",
-        "description": "Short brand stories that connect emotion to a business message."
+        "description": "Distilling a brand's story down to the one idea worth telling in thirty seconds."
       },
       "corporate": {
         "title": "Corporate Videos",
-        "description": "Corporate video that conveys value and trust with precision."
+        "description": "Research and interviews come first — precision in the message only follows real understanding."
       },
       "animation": {
         "title": "Animation",
-        "description": "Animation and effects that bring any idea to life."
+        "description": "Concept and storyboard built frame by frame, so the idea reads clearly before it ever moves."
       },
       "voice-over": {
         "title": "Voice Over",
-        "description": "Voice, tone and breath that give a story its presence."
+        "description": "Direction before performance — finding the tone, pace and breath that make a story believable."
       },
       "music-production": {
         "title": "Music Production",
-        "description": "Original score built around the emotion of the project."
+        "description": "Composition shaped around the emotional arc of the film, never the other way around."
       }
     }
   },
@@ -166,6 +169,7 @@
     "title": "Let's create your next project",
     "subtitle": "Tell me about your idea — and I'll come back with a direction.",
     "whatsapp": "WhatsApp",
+    "whatsappCta": "Tell me about your project — on WhatsApp",
     "whatsappMessage": "Hi Netanel, I'd love to hear more about creating a film.",
     "form": {
       "name": "Full name",

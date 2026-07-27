@@ -13,6 +13,7 @@ import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
  *  headline mask-reveal and two CTAs. Restrained, premium, minimal. */
 export function Hero() {
   const t = useTranslations("hero");
+  const tMeta = useTranslations("metadata");
   const prefersReduced = usePrefersReducedMotion();
 
   const container = prefersReduced ? {} : "hidden";
@@ -45,12 +46,22 @@ export function Hero() {
         animate={animate}
         className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-5 text-center"
       >
-        <motion.span
+        <motion.div
           variants={fadeUp}
-          className="mb-8 text-[11px] font-medium uppercase tracking-[0.32em] text-foreground/60 sm:text-xs"
+          className="mb-8 flex items-center gap-3"
         >
-          {t("eyebrow")}
-        </motion.span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/about-portrait.jpg"
+            alt=""
+            aria-hidden
+            loading="eager"
+            className="size-9 rounded-full border border-white/20 object-cover sm:size-10"
+          />
+          <span className="text-[11px] font-medium uppercase tracking-[0.32em] text-foreground/60 sm:text-xs">
+            {tMeta("personName")} · {t("eyebrow")}
+          </span>
+        </motion.div>
 
         <h1 className="font-display text-[clamp(2.75rem,7.2vw,6rem)] font-medium leading-[1.03] tracking-[-0.02em] text-balance [text-shadow:0_2px_44px_rgba(0,0,0,0.5)]">
           {words.map((word, i) => (

@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Mail } from "lucide-react";
 import { Reveal } from "@/components/reveal";
+import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/sections/contact-form";
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon";
 import { sectionIds, siteConfig } from "@/content/site";
@@ -26,27 +27,20 @@ export function Contact() {
           <p className="max-w-md text-base text-muted-foreground sm:text-lg">
             {t("subtitle")}
           </p>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col items-start gap-5">
+            <Button asChild size="lg" className="w-full sm:w-auto">
+              <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
+                <WhatsAppIcon className="size-5" />
+                {t("whatsappCta")}
+                <span className="sr-only"> — {tCommon("opensInNewTab")}</span>
+              </a>
+            </Button>
             <a
               href={`mailto:${siteConfig.person.email}`}
-              className="inline-flex items-center gap-3 text-sm text-foreground/80 transition-colors duration-300 ease-cinematic hover:text-accent"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-300 ease-cinematic hover:text-accent"
             >
-              <span className="inline-flex size-10 items-center justify-center rounded-full border border-border">
-                <Mail className="size-5" aria-hidden />
-              </span>
+              <Mail className="size-4" aria-hidden />
               {siteConfig.person.email}
-            </a>
-            <a
-              href={whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 text-sm text-foreground/80 transition-colors duration-300 ease-cinematic hover:text-accent"
-            >
-              <span className="inline-flex size-10 items-center justify-center rounded-full border border-border">
-                <WhatsAppIcon className="size-5" />
-              </span>
-              {t("whatsapp")}
-              <span className="sr-only"> — {tCommon("opensInNewTab")}</span>
             </a>
           </div>
         </Reveal>
