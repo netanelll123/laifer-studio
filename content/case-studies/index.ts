@@ -23,6 +23,10 @@ const loaders: Record<
     he: () => import("./jerusalem-walls.he"),
     en: () => import("./jerusalem-walls.en"),
   },
+  "instant-coffee": {
+    he: () => import("./instant-coffee.he"),
+    en: () => import("./instant-coffee.en"),
+  },
 };
 
 export function getCaseStudySlugs(): string[] {

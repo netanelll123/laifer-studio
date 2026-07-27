@@ -27,7 +27,6 @@ export const siteConfig = {
 export const sectionIds = {
   hero: "hero",
   work: "work",
-  ads: "ads",
   about: "about",
   services: "services",
   process: "process",

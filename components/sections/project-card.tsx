@@ -11,9 +11,12 @@ import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 import type { Project } from "@/content/types";
 import { cn } from "@/lib/utils";
 
-/** One featured-project row: hover-to-play preview, alternating layout. The
- *  only interactive piece of the section, split out so the parent
- *  `FeaturedProjects` can stay a Server Component. */
+/** One featured-project row: hover-to-play preview, alternating layout.
+ *  Links straight to a case study when one exists; otherwise opens an
+ *  in-page modal (YouTube if set, else the local clip) so every piece is
+ *  watchable without a dedicated page. The only interactive piece of the
+ *  section, split out so the parent `FeaturedProjects` can stay a Server
+ *  Component. */
 export function ProjectCard({
   project,
   index,
@@ -38,10 +41,16 @@ export function ProjectCard({
   // A YouTube ID keeps the visitor on-site (in-page modal) instead of
   // navigating out — only relevant when there's no dedicated case study.
   const hasYoutube = Boolean(project.youtubeId) && !hasCaseStudy;
+  // A piece with no case study and no YouTube ID, but a real local clip,
+  // still deserves a proper "watch it" click — same in-page modal, just
+  // fed the local file instead of a YouTube ID (mirrors how ad spots
+  // without a dedicated page used to work).
+  const hasLocalWatch = hasVideo && !hasCaseStudy && !hasYoutube;
+  const isModal = hasYoutube || hasLocalWatch;
   const href = hasCaseStudy
     ? `/${locale}/work/${project.caseStudySlug}`
     : (project.url ?? `/${locale}#${sectionIds.contact}`);
-  const external = Boolean(project.url) && !hasCaseStudy && !hasYoutube;
+  const external = Boolean(project.url) && !hasCaseStudy && !isModal;
   const linkProps = external
     ? { target: "_blank" as const, rel: "noopener noreferrer" }
     : {};
@@ -92,7 +101,7 @@ export function ProjectCard({
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
       <span className="absolute bottom-4 end-4 inline-flex size-12 items-center justify-center rounded-full bg-accent text-accent-foreground opacity-0 transition-opacity duration-500 ease-cinematic group-hover:opacity-100">
-        {hasYoutube ? (
+        {isModal ? (
           <Play className="size-5 translate-x-0.5" fill="currentColor" />
         ) : (
           <ArrowUpRight className="size-5" />
@@ -112,7 +121,7 @@ export function ProjectCard({
         {/* Media — visual position alternates via `order`, independent of
             text direction, so RTL/LTR content is never affected by the
             layout. */}
-        {hasYoutube ? (
+        {isModal ? (
           <button
             type="button"
             onClick={() => setModalOpen(true)}
@@ -164,7 +173,7 @@ export function ProjectCard({
               {proof}
             </p>
           ) : null}
-          {hasYoutube ? (
+          {isModal ? (
             <button
               type="button"
               onClick={() => setModalOpen(true)}
@@ -187,11 +196,12 @@ export function ProjectCard({
         </div>
       </Reveal>
 
-      {hasYoutube && project.youtubeId && (
+      {isModal && (
         <VideoModal
           open={modalOpen}
           onClose={() => setModalOpen(false)}
-          youtubeId={project.youtubeId}
+          youtubeId={hasYoutube ? project.youtubeId : undefined}
+          videoSrc={hasLocalWatch ? project.video : undefined}
           title={title}
         />
       )}

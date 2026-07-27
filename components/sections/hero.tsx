@@ -49,17 +49,17 @@ export function Hero() {
       >
         <motion.div
           variants={fadeUp}
-          className="mb-8 flex items-center gap-3"
+          className="mb-8 flex items-center gap-4"
         >
           <Image
             src="/images/about-portrait.jpg"
             alt=""
             aria-hidden
-            width={40}
-            height={40}
-            className="size-9 rounded-full border border-white/20 object-cover sm:size-10"
+            width={96}
+            height={96}
+            className="size-16 rounded-full border border-white/20 object-cover sm:size-20"
           />
-          <span className="text-[11px] font-medium uppercase tracking-[0.32em] text-foreground/60 sm:text-xs">
+          <span className="text-xs font-medium uppercase tracking-[0.32em] text-foreground/60 sm:text-sm">
             {tMeta("personName")} · {t("eyebrow")}
           </span>
         </motion.div>

@@ -3,7 +3,6 @@ import type { Locale } from "@/i18n/routing";
 import { Header } from "@/components/sections/header";
 import { Hero } from "@/components/sections/hero";
 import { FeaturedProjects } from "@/components/sections/featured-projects";
-import { Commercials } from "@/components/sections/commercials";
 import { About } from "@/components/sections/about";
 import { Services } from "@/components/sections/services";
 import { CreativeProcess } from "@/components/sections/creative-process";
@@ -25,7 +24,6 @@ export default async function HomePage({
       <main id="main-content">
         <Hero />
         <FeaturedProjects />
-        <Commercials />
         <About />
         <Services />
         <CreativeProcess />

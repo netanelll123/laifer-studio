@@ -42,11 +42,25 @@
     "title": "Stories turned into image",
     "subtitle": "A selection of recent projects — each one a world of its own.",
     "items": {
+      "instant-coffee": {
+        "title": "Elite Instant Coffee",
+        "category": "Spec Commercial",
+        "description": "An independent spec commercial about the quiet moment a cup of coffee creates in the middle of a loud, busy day.",
+        "cta": "Step inside to see why I made this without a client",
+        "proof": ""
+      },
       "balkan-wedding": {
         "title": "Od Yishama — Meir Kleiner — My Balkan Wedding",
         "category": "Music Video",
         "description": "A cinematic celebration of color, motion and tradition woven into a single story.",
         "cta": "Step inside to read and see behind the scenes",
+        "proof": ""
+      },
+      "lemon-waffle": {
+        "title": "Lemon Waffle",
+        "category": "Commercial",
+        "description": "A short commercial turning an everyday dish into a cinematic, sensory moment.",
+        "cta": "Watch the video",
         "proof": ""
       },
       "air-mevorach": {
@@ -62,18 +76,6 @@
         "description": "A stunning animated lesson about the walls of Jerusalem, past and present.",
         "cta": "Step inside how this world was built",
         "proof": ""
-      }
-    }
-  },
-  "ads": {
-    "eyebrow": "Ad Work",
-    "title": "Commercials that tell a story",
-    "items": {
-      "instant-coffee": {
-        "title": "Instant Coffee"
-      },
-      "lemon-waffle": {
-        "title": "Lemon Waffle"
       }
     }
   },
