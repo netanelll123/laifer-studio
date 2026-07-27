@@ -29,8 +29,8 @@
   },
   "hero": {
     "eyebrow": "Creative Director · Cinematic Storyteller",
-    "title": "20 years listening to music. Now I direct it.",
-    "subtitle": "Twenty years as a music journalist, critic and editor. An M.A. with a research thesis on Jewish music. Today I bring that same listening to directing film and music videos — because the story starts with the music, not the camera.",
+    "title": "20 years discovering artists and hits. Now I direct stories.",
+    "subtitle": "Two decades as a music journalist, critic and editor — discovering what turns an artist into a name, and a song into a hit. An M.A. with a research thesis on Jewish music. Today I bring that same ability to read an audience to directing films, music videos and commercials.",
     "ctaPrimary": "Selected Work",
     "ctaSecondary": "Let's Talk",
     "scroll": "Scroll to explore",
@@ -81,7 +81,7 @@
     "eyebrow": "Who I Am",
     "title": "Creativity comes before technology",
     "paragraphs": [
-      "Before I ever picked up a camera, I spent twenty years listening — to records, rehearsals, and the stories musicians were really trying to tell.",
+      "Before I ever picked up a camera, I spent twenty years studying one thing: what makes an audience connect. Records, rehearsals, artists who became hits — and artists who didn't.",
       "For more than two decades I've lived inside the world of music and media. As a journalist, critic and music editor, I learned to listen before I judge — to look for the real moment beneath the production, to find the story hiding between the lines, and to understand what actually stays with an audience after the last note fades.",
       "That habit never left me when I moved into video. If anything, it deepened. When I sit down to direct a music video, a brand film or a commercial, I start in exactly the same place: listening. Understanding the person in front of me, the message they want to carry, and the story that's actually worth telling.",
       "Today I create and direct films and music videos, and the process now includes newer tools like AI. To me, it isn't magic and it isn't the point — it's simply another tool in the kit, the same as a camera, a lens or an editing timeline. What actually decides the result is the story, the emotion and the truth behind them.",
@@ -90,9 +90,9 @@
     "quote": "Technology creates pixels. Story creates emotion.",
     "wiki": "Discover my full story on Wikipedia",
     "stats": {
-      "since": { "value": "20+", "label": "Years in music & media" },
+      "since": { "value": "20+", "label": "Years reading what moves an audience" },
       "research": { "value": "M.A.", "label": "Research thesis on Jewish music" },
-      "ai": { "value": "AI", "label": "Films & music, AI-crafted" }
+      "ai": { "value": "AI", "label": "A tool in service of the story" }
     }
   },
   "services": {
