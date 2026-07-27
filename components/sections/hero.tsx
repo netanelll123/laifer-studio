@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { ArrowDown } from "lucide-react";
@@ -50,12 +51,12 @@ export function Hero() {
           variants={fadeUp}
           className="mb-8 flex items-center gap-3"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/images/about-portrait.jpg"
             alt=""
             aria-hidden
-            loading="eager"
+            width={40}
+            height={40}
             className="size-9 rounded-full border border-white/20 object-cover sm:size-10"
           />
           <span className="text-[11px] font-medium uppercase tracking-[0.32em] text-foreground/60 sm:text-xs">

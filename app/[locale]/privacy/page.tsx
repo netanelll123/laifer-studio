@@ -24,7 +24,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "privacy" });
+  const tMeta = await getTranslations({ locale, namespace: "metadata" });
   const url = `/${locale}/privacy`;
+  const otherLocale = routing.locales.find((l) => l !== locale);
 
   return {
     title: t("title"),
@@ -37,6 +39,21 @@ export async function generateMetadata({
         ),
         "x-default": `/${routing.defaultLocale}/privacy`,
       },
+    },
+    openGraph: {
+      type: "website",
+      locale,
+      alternateLocale: otherLocale,
+      url,
+      title: t("title"),
+      description: t("intro"),
+      images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: tMeta("ogAlt") }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("intro"),
+      images: [siteConfig.ogImage],
     },
   };
 }

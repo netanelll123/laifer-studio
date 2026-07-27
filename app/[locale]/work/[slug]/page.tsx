@@ -97,11 +97,41 @@ export default async function CaseStudyPage({
     publisher: { "@id": `${siteConfig.url}/#organization` },
   };
 
+  const tNav = await getTranslations({ locale, namespace: "nav" });
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: tNav("brand"),
+        item: `${siteConfig.url}/${locale}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: tNav("work"),
+        item: `${siteConfig.url}/${locale}#${sectionIds.work}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: study.hero.title,
+        item: `${siteConfig.url}/${locale}/work/${slug}`,
+      },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(creativeWorkJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Header />
       <main id="main-content" className="overflow-hidden">
