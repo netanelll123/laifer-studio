@@ -24,9 +24,6 @@ export function Contact() {
           <h2 className="font-display text-4xl font-medium leading-[1.1] text-balance sm:text-5xl">
             {t("title")}
           </h2>
-          <p className="max-w-md text-base text-muted-foreground sm:text-lg">
-            {t("subtitle")}
-          </p>
           <div className="flex flex-col items-start gap-5">
             <Button asChild size="lg" className="w-full sm:w-auto">
               <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
