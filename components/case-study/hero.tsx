@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { ArrowDown } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { fadeUp, stagger } from "@/lib/motion";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 import type { CaseStudy } from "@/content/types";
@@ -18,6 +19,7 @@ import type { CaseStudy } from "@/content/types";
 export function CaseStudyHero({ hero }: { hero: CaseStudy["hero"] }) {
   const prefersReduced = usePrefersReducedMotion();
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoReady, setVideoReady] = useState(false);
 
   useEffect(() => {
     if (prefersReduced) return;
@@ -27,21 +29,35 @@ export function CaseStudyHero({ hero }: { hero: CaseStudy["hero"] }) {
   return (
     <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden noise">
       <div className="absolute inset-0">
-        {prefersReduced ? (
-          <Image
-            src={hero.poster}
-            alt=""
-            aria-hidden
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
-        ) : (
+        {/* The poster always renders — server-rendered the same way for
+            every visitor, regardless of motion preference — so it's in the
+            initial HTML for the browser's preload scanner to discover
+            immediately, rather than only appearing after client JS resolves
+            `prefersReduced` post-hydration (which is how this used to work:
+            the video, with its poster as a raw un-optimized attribute, only
+            existed for visitors without reduced-motion, and only after
+            hydration). The video now layers on top and fades in once
+            playable; no separate `poster` attribute on it, since that would
+            just re-fetch the same image unoptimized. */}
+        <Image
+          src={hero.poster}
+          alt=""
+          aria-hidden
+          fill
+          priority
+          sizes="100vw"
+          className={cn(
+            "object-cover transition-opacity duration-700 ease-cinematic",
+            videoReady && "opacity-0"
+          )}
+        />
+        {!prefersReduced && (
           <video
             ref={videoRef}
-            className="size-full object-cover"
-            poster={hero.poster}
+            className={cn(
+              "absolute inset-0 size-full object-cover transition-opacity duration-700 ease-cinematic",
+              videoReady ? "opacity-100" : "opacity-0"
+            )}
             autoPlay
             muted
             loop
@@ -51,6 +67,9 @@ export function CaseStudyHero({ hero }: { hero: CaseStudy["hero"] }) {
             // project previews, which correctly use preload="none").
             preload="auto"
             aria-hidden
+            onCanPlay={(e) => {
+              if (e.currentTarget.duration > 0) setVideoReady(true);
+            }}
           >
             <source src={hero.video} type="video/mp4" />
           </video>
