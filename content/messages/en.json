@@ -214,12 +214,13 @@
   "accessibility": {
     "eyebrow": "Accessibility",
     "title": "Accessibility Statement",
-    "intro": "Laifer Studio is committed to providing an accessible experience for all visitors, including people with disabilities. The site was built with the aim of complying with the Israeli Standard (IS 5568), Level AA, based on the international WCAG 2.1 guidelines, and with the Israeli Equal Rights for Persons with Disabilities Regulations (Service Accessibility Adjustments), 2013.",
+    "intro": "Laifer Studio, run by Netanel Laifer, is a filmmaking and creative direction studio. We place real importance on making this site accessible to all visitors, including people with disabilities, and built it with the aim of complying with the Israeli Standard (IS 5568), Level AA, based on the international WCAG 2.1 guidelines, and with the Israeli Equal Rights for Persons with Disabilities Regulations (Service Accessibility Adjustments), 2013.",
     "sections": [
       {
         "title": "Accessibility measures on this site",
         "list": [
           "Full keyboard navigation",
+          "Compatibility with modern browsers and common assistive technologies, such as screen readers",
           "A \"Skip to main content\" link at the top of every page",
           "Descriptive alt text for meaningful images",
           "Semantic structure and hierarchical headings for screen readers",
@@ -231,14 +232,14 @@
       },
       {
         "title": "Known limitations",
-        "paragraph": "Some videos on this site (ambient, dialogue-free visual content) do not yet include captions or a full audio description. We are working to improve this over time."
+        "paragraph": "Some videos on this site (ambient, dialogue-free visual content) do not currently include captions or a full audio description. We're continuing to work on closing that gap."
       }
     ],
     "contactTitle": "Accessibility feedback",
-    "contact": "Found an accessibility issue on this site? Please reach out and we'll address it as soon as possible.",
+    "contact": "Netanel Laifer, the studio's founder, is personally responsible for accessibility on this site. Run into a difficulty, or have a suggestion? We'd love to hear from you and will address it as soon as possible, by email or WhatsApp.",
     "lastUpdated": "Last updated",
-    "lastUpdatedDate": "July 27, 2026",
-    "disclaimer": "This statement reflects the effort made while building this site and is not a formal certificate of conformance. For a complete professional review, we recommend consulting a certified accessibility auditor."
+    "lastUpdatedDate": "July 28, 2026",
+    "commitment": "We review this site's accessibility on an ongoing basis and keep improving it over time. Any feedback that helps us do that is welcome."
   },
   "privacy": {
     "eyebrow": "Privacy",

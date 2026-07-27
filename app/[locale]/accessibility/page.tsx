@@ -92,19 +92,29 @@ export default async function AccessibilityPage({
 
             <LegalSection title={t("contactTitle")}>
               <p>{t("contact")}</p>
-              <a
-                href={`mailto:${siteConfig.person.email}`}
-                className="mt-2 inline-block text-sm font-medium text-foreground transition-colors duration-300 ease-cinematic hover:text-accent"
-              >
-                {siteConfig.person.email}
-              </a>
+              <div className="mt-2 flex flex-col gap-1">
+                <a
+                  href={`mailto:${siteConfig.person.email}`}
+                  className="inline-block text-sm font-medium text-foreground transition-colors duration-300 ease-cinematic hover:text-accent"
+                >
+                  {siteConfig.person.email}
+                </a>
+                <a
+                  href={`https://wa.me/${siteConfig.person.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block text-sm font-medium text-foreground transition-colors duration-300 ease-cinematic hover:text-accent"
+                >
+                  WhatsApp
+                </a>
+              </div>
             </LegalSection>
 
             <p className="mt-12 text-sm text-muted-foreground">
               {t("lastUpdated")}: {t("lastUpdatedDate")}
             </p>
             <p className="mt-2 text-xs text-muted-foreground">
-              {t("disclaimer")}
+              {t("commitment")}
             </p>
           </div>
         </section>
