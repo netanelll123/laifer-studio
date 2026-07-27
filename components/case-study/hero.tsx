@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { motion } from "motion/react";
 import { ArrowDown } from "lucide-react";
 import { fadeUp, stagger } from "@/lib/motion";
@@ -27,12 +28,14 @@ export function CaseStudyHero({ hero }: { hero: CaseStudy["hero"] }) {
     <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden noise">
       <div className="absolute inset-0">
         {prefersReduced ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             src={hero.poster}
             alt=""
             aria-hidden
-            className="size-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
         ) : (
           <video

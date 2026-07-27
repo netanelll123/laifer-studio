@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Play } from "lucide-react";
 import { Reveal } from "@/components/reveal";
@@ -53,13 +54,13 @@ export function CaseStudyVideoEmbed({ film }: { film: CaseStudy["film"] }) {
               aria-label={t("playVideo")}
               className="group relative block size-full"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={film.poster}
                 alt=""
                 aria-hidden
-                loading="lazy"
-                className="size-full object-cover transition-transform duration-700 ease-cinematic group-hover:scale-105"
+                fill
+                sizes="(min-width: 1024px) 896px, 100vw"
+                className="object-cover transition-transform duration-700 ease-cinematic group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-background/30" aria-hidden />
               <span className="absolute inset-0 flex items-center justify-center">

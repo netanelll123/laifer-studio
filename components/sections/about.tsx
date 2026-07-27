@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/reveal";
@@ -17,13 +18,13 @@ export function About() {
       <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_1.1fr] lg:items-center">
         {/* Portrait + pull-quote */}
         <Reveal className="order-2 lg:order-1">
-          <figure className="relative overflow-hidden rounded-3xl border border-border">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+          <figure className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-border">
+            <Image
               src="/images/about-portrait.jpg"
               alt={siteConfig.person.name}
-              loading="lazy"
-              className="aspect-[4/5] w-full object-cover"
+              fill
+              sizes="(min-width: 1024px) 45vw, 100vw"
+              className="object-cover"
             />
             <div
               className="absolute inset-0 bg-gradient-to-t from-background via-background/45 to-transparent"

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 /**
@@ -14,10 +15,11 @@ export function Logo({
   className?: string;
 }) {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <Image
       src="/logo-header.png"
       alt={brand}
+      width={380}
+      height={330}
       className={cn(
         "h-14 w-auto transition-opacity duration-300 ease-cinematic hover:opacity-80 sm:h-16",
         className
@@ -38,10 +40,11 @@ export function LogoFull({
   className?: string;
 }) {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <Image
       src="/logo-full.png"
       alt={brand}
+      width={587}
+      height={357}
       className={cn("h-24 w-auto sm:h-28", className)}
     />
   );

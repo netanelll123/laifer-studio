@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { ArrowUpRight, Play } from "lucide-react";
 import { Reveal } from "@/components/reveal";
@@ -62,14 +63,14 @@ export function ProjectCard({
 
   const mediaInner = (
     <>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src={project.poster}
         alt=""
         aria-hidden
-        loading="lazy"
+        fill
+        sizes="(min-width: 1024px) 50vw, 100vw"
         className={cn(
-          "absolute inset-0 size-full object-cover transition-transform duration-700 ease-cinematic group-hover:scale-105",
+          "object-cover transition-transform duration-700 ease-cinematic group-hover:scale-105",
           hasVideo && active && !prefersReduced && "opacity-0"
         )}
       />

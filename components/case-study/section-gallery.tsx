@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Reveal } from "@/components/reveal";
 import { scaleIn, stagger } from "@/lib/motion";
 
@@ -16,13 +17,13 @@ export function CaseStudySectionGallery({
       >
         {items.map((item, i) => (
           <Reveal key={i} variants={scaleIn}>
-            <figure>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+            <figure className="relative aspect-square w-full overflow-hidden rounded-2xl border border-border">
+              <Image
                 src={item.src}
                 alt={item.alt}
-                loading="lazy"
-                className="aspect-square w-full rounded-2xl border border-border object-cover"
+                fill
+                sizes="(min-width: 640px) 33vw, 50vw"
+                className="object-cover"
               />
               {item.caption ? (
                 <figcaption className="mt-2 text-center text-sm text-muted-foreground">

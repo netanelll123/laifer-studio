@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
@@ -53,14 +54,17 @@ export function HeroBackground() {
       {REEL_FRAMES.map((src, i) => {
         const isActive = prefersReduced ? i === 0 : i === active;
         return (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             key={src}
             src={src}
             alt=""
             aria-hidden
+            fill
+            unoptimized
+            priority={i === 0}
+            sizes="100vw"
             className={cn(
-              "absolute inset-0 size-full object-cover will-change-transform",
+              "object-cover will-change-transform",
               !prefersReduced &&
                 "transition-[opacity,transform] duration-[1500ms,6000ms] ease-cinematic",
               isActive ? "opacity-100" : "opacity-0",
