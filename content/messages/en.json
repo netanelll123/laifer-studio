@@ -208,5 +208,130 @@
     "label": "Language",
     "he": "עברית",
     "en": "English"
+  },
+  "accessibility": {
+    "eyebrow": "Accessibility",
+    "title": "Accessibility Statement",
+    "intro": "Laifer Studio is committed to providing an accessible experience for all visitors, including people with disabilities. The site was built with the aim of complying with the Israeli Standard (IS 5568), Level AA, based on the international WCAG 2.1 guidelines, and with the Israeli Equal Rights for Persons with Disabilities Regulations (Service Accessibility Adjustments), 2013.",
+    "sections": [
+      {
+        "title": "Accessibility measures on this site",
+        "list": [
+          "Full keyboard navigation",
+          "A \"Skip to main content\" link at the top of every page",
+          "Descriptive alt text for meaningful images",
+          "Semantic structure and hierarchical headings for screen readers",
+          "Full support for \"reduce motion\" preferences across all animations",
+          "Color contrast checked against Level AA",
+          "Forms with clear labels and accessible error messages",
+          "Visible focus indicators on every interactive element"
+        ]
+      },
+      {
+        "title": "Known limitations",
+        "paragraph": "Some videos on this site (ambient, dialogue-free visual content) do not yet include captions or a full audio description. We are working to improve this over time."
+      }
+    ],
+    "contactTitle": "Accessibility feedback",
+    "contact": "Found an accessibility issue on this site? Please reach out and we'll address it as soon as possible.",
+    "lastUpdated": "Last updated",
+    "lastUpdatedDate": "July 27, 2026",
+    "disclaimer": "This statement reflects the effort made while building this site and is not a formal certificate of conformance. For a complete professional review, we recommend consulting a certified accessibility auditor."
+  },
+  "privacy": {
+    "eyebrow": "Privacy",
+    "title": "Privacy Policy",
+    "intro": "This privacy policy explains what data is collected on laifer.studio (\"the site\"), operated by Netanel Laifer (a sole proprietor / independent freelancer), how it's used, and what rights you have over it.",
+    "sections": [
+      {
+        "title": "Information you provide",
+        "paragraph": "When you submit the contact form or reach out on WhatsApp, you may provide your name, email address, phone number, company or project name, and the content of your message. This information is used solely to get back to you about your project."
+      },
+      {
+        "title": "Information collected automatically",
+        "paragraph": "The site uses Google Analytics and Microsoft Clarity to understand how visitors use it (e.g. pages viewed, time on site, device type), in order to improve the content and experience. These tools use cookies."
+      },
+      {
+        "title": "Cookies",
+        "paragraph": "On your first visit you'll be asked to accept the use of cookies for analytics. You can block cookies at any time through your browser settings, though this may affect some features of the site."
+      },
+      {
+        "title": "How the information is used",
+        "list": [
+          "Responding to inquiries received through the contact form or WhatsApp",
+          "Improving the site and its content based on aggregate usage data",
+          "The site is not used for marketing emails and personal details are never sold or passed to third parties for marketing purposes"
+        ]
+      },
+      {
+        "title": "Sharing with service providers",
+        "paragraph": "The site relies on the following third-party services: Formspree (handles contact-form submissions), Google Analytics and Microsoft Clarity (analytics), and Vercel (hosting). Each of these is governed by its own privacy policy, and their servers may be located outside Israel."
+      },
+      {
+        "title": "Data retention",
+        "paragraph": "Details submitted through the contact form are kept for as long as needed to respond and to follow up on the project, and are not automatically deleted after a fixed period. You may request to review, correct or delete your personal information at any time via the contact details at the bottom of this page."
+      },
+      {
+        "title": "Data security",
+        "paragraph": "The site runs over an encrypted connection (HTTPS) and reasonable measures are taken to protect submitted information, though no method can guarantee absolute protection against misuse or breach."
+      },
+      {
+        "title": "Policy updates",
+        "paragraph": "This policy may be updated from time to time. The version published on the site at the time of use is the binding one."
+      }
+    ],
+    "contactTitle": "Privacy questions",
+    "contact": "For questions or requests regarding this policy or your personal information, reach out directly:",
+    "lastUpdated": "Last updated",
+    "lastUpdatedDate": "July 27, 2026"
+  },
+  "terms": {
+    "eyebrow": "Terms of Use",
+    "title": "Terms of Use",
+    "intro": "Use of laifer.studio (\"the site\"), operated by Netanel Laifer (a sole proprietor / independent freelancer), is subject to the terms below. Browsing or using the site constitutes acceptance of these terms.",
+    "sections": [
+      {
+        "title": "About the site",
+        "paragraph": "The site serves as a brand and portfolio site presenting projects, services and contact details. The content shown — including videos, images and project descriptions — is for presentation purposes only and does not constitute a binding offer."
+      },
+      {
+        "title": "Intellectual property",
+        "paragraph": "All rights in the site's content — text, images, video, design and logo — belong to Netanel Laifer and/or the clients for whom the work was produced and who consented to its display, and are protected under copyright law. Copying, distributing or commercially using the site's content without prior written permission is prohibited."
+      },
+      {
+        "title": "Links to third-party sites",
+        "paragraph": "The site may include links to third-party services (such as YouTube, WhatsApp and social networks). Netanel Laifer has no control over the content of these sites or their privacy policies and bears no responsibility for them."
+      },
+      {
+        "title": "Fair use",
+        "paragraph": "Users agree not to use the site in any way that could harm its normal operation, including attempts at unauthorized access, artificially generating load, or any other unlawful use."
+      },
+      {
+        "title": "Limitation of liability",
+        "paragraph": "The site and its content are provided \"as is.\" Reasonable effort is made to keep information accurate, but there is no guarantee it is accurate, current or error-free at all times. Use of the site is at the user's own risk."
+      },
+      {
+        "title": "Inquiries and engagement",
+        "paragraph": "Reaching out via the contact form, WhatsApp or email does not create a binding commitment or engagement. The scope, timeline and payment for any project will be set out in a separate agreement between the parties."
+      },
+      {
+        "title": "Governing law and jurisdiction",
+        "paragraph": "These terms are governed solely by the laws of the State of Israel, and exclusive jurisdiction over any matter relating to them rests with the competent courts of Israel."
+      },
+      {
+        "title": "Changes to these terms",
+        "paragraph": "Netanel Laifer may update these terms from time to time. The version published on the site at the time of use is the binding one."
+      }
+    ],
+    "contactTitle": "Contact",
+    "contact": "For questions about these terms of use, reach out directly:",
+    "lastUpdated": "Last updated",
+    "lastUpdatedDate": "July 27, 2026"
+  },
+  "cookieConsent": {
+    "title": "Cookies",
+    "message": "This site uses cookies for analytics only, to understand how it's used and to improve it. More details in the",
+    "policyLinkLabel": "Privacy Policy",
+    "acceptLabel": "Accept"
   }
 }

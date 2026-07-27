@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
@@ -15,6 +16,10 @@ import { contactSchema, type ContactFormValues } from "@/lib/validations/contact
  *  loading/success/error states via Sonner. Posts to the `/api/contact` proxy. */
 export function ContactForm() {
   const t = useTranslations("contact.form");
+  // Honeypot: a field real users never see or reach (aria-hidden, off-screen,
+  // unreachable by Tab) but that simple bots fill in indiscriminately. Kept
+  // outside the RHF/Zod schema since it's never meant to hold real data.
+  const [honeypot, setHoneypot] = useState("");
 
   const {
     register,
@@ -27,11 +32,18 @@ export function ContactForm() {
   });
 
   const onSubmit = async (values: ContactFormValues) => {
+    if (honeypot) {
+      // A bot filled a field no real visitor can reach — pretend success
+      // without sending anything, rather than tipping it off.
+      toast.success(t("success"));
+      reset();
+      return;
+    }
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, website: honeypot }),
       });
       if (!res.ok) throw new Error("Request failed");
       toast.success(t("success"));
@@ -48,6 +60,16 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-5">
+      <input
+        type="text"
+        name="website"
+        value={honeypot}
+        onChange={(e) => setHoneypot(e.target.value)}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute left-[-9999px] top-0 h-0 w-0 overflow-hidden"
+      />
       <div className="grid gap-5 sm:grid-cols-2">
         <Field
           id="name"

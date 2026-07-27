@@ -1,9 +1,12 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { useTranslations } from "next-intl";
 import { X } from "lucide-react";
+
+const FOCUSABLE_SELECTOR =
+  'button, [href], input, select, textarea, iframe, video, [tabindex]:not([tabindex="-1"])';
 
 /**
  * Shared in-page video lightbox, rendered via a portal to `document.body`. A
@@ -31,17 +34,47 @@ export function VideoModal({
   title: string;
 }) {
   const tCommon = useTranslations("common");
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const triggerRef = useRef<Element | null>(null);
 
+  // Dialog focus management per the ARIA APG pattern: move focus in on open,
+  // trap Tab/Shift+Tab within the dialog's two focusable elements (close
+  // button + media), and return focus to whatever opened it on close —
+  // without this, keyboard/screen-reader users can tab straight through the
+  // modal into the page behind it (WCAG 2.4.3, 2.1.2).
   useEffect(() => {
     if (!open) return;
+    triggerRef.current = document.activeElement;
+    closeButtonRef.current?.focus();
+
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") {
+        onClose();
+        return;
+      }
+      if (e.key !== "Tab" || !dialogRef.current) return;
+      const focusable = dialogRef.current.querySelectorAll<HTMLElement>(
+        FOCUSABLE_SELECTOR
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
+
     document.addEventListener("keydown", onKeyDown);
     document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = "";
+      if (triggerRef.current instanceof HTMLElement) triggerRef.current.focus();
     };
   }, [open, onClose]);
 
@@ -56,6 +89,7 @@ export function VideoModal({
       onClick={onClose}
     >
       <div
+        ref={dialogRef}
         className={
           videoSrc
             ? "relative flex max-h-[80vh] w-auto items-center justify-center"
@@ -64,6 +98,7 @@ export function VideoModal({
         onClick={(e) => e.stopPropagation()}
       >
         <button
+          ref={closeButtonRef}
           type="button"
           onClick={onClose}
           aria-label={tCommon("close")}

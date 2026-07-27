@@ -2,11 +2,25 @@ import { useLocale, useTranslations } from "next-intl";
 import { LogoFull } from "@/components/logo";
 import { navItems, sectionIds, siteConfig } from "@/content/site";
 
+const legalLinks = [
+  { href: "accessibility", namespace: "accessibility" },
+  { href: "privacy", namespace: "privacy" },
+  { href: "terms", namespace: "terms" },
+] as const;
+
 /** Footer: brand, tagline, in-page nav, social links and legal line. */
 export function Footer() {
   const t = useTranslations("nav");
   const tf = useTranslations("footer");
   const tCommon = useTranslations("common");
+  const tAccessibility = useTranslations("accessibility");
+  const tPrivacy = useTranslations("privacy");
+  const tTerms = useTranslations("terms");
+  const legalTitles = {
+    accessibility: tAccessibility("title"),
+    privacy: tPrivacy("title"),
+    terms: tTerms("title"),
+  };
   const locale = useLocale();
   const year = new Date().getFullYear();
 
@@ -69,11 +83,22 @@ export function Footer() {
           ) : null}
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-border pt-8 text-xs text-muted-foreground sm:flex-row">
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-xs text-muted-foreground sm:flex-row">
           <p>
             © {year} {siteConfig.person.name}. {tf("rights")}
           </p>
-          <p>{tf("madeWith")}</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+            {legalLinks.map((link) => (
+              <a
+                key={link.href}
+                href={`/${locale}/${link.href}`}
+                className="transition-colors duration-300 ease-cinematic hover:text-foreground"
+              >
+                {legalTitles[link.namespace]}
+              </a>
+            ))}
+            <p>{tf("madeWith")}</p>
+          </div>
         </div>
       </div>
     </footer>

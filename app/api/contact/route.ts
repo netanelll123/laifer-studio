@@ -15,6 +15,18 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
+  // Honeypot: a "website" field the form never shows to real visitors. Bots
+  // that fill every field trip it; pretend success without forwarding
+  // anything, rather than signal that the submission was rejected.
+  if (
+    typeof data === "object" &&
+    data !== null &&
+    "website" in data &&
+    (data as Record<string, unknown>).website
+  ) {
+    return NextResponse.json({ ok: true });
+  }
+
   const parsed = contactSchema.safeParse(data);
   if (!parsed.success) {
     return NextResponse.json(

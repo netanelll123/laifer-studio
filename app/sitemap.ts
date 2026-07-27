@@ -19,6 +19,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     alternates: languageAlternates(""),
   }));
 
+  const legalEntries: MetadataRoute.Sitemap = ["accessibility", "privacy", "terms"].flatMap(
+    (slug) =>
+      routing.locales.map((locale) => ({
+        url: `${siteConfig.url}/${locale}/${slug}`,
+        lastModified: now,
+        changeFrequency: "yearly" as const,
+        priority: 0.3,
+        alternates: languageAlternates(`/${slug}`),
+      }))
+  );
+
   const caseStudyEntries: MetadataRoute.Sitemap = getCaseStudySlugs().flatMap(
     (slug) =>
       routing.locales.map((locale) => ({
@@ -30,5 +41,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }))
   );
 
-  return [...homeEntries, ...caseStudyEntries];
+  return [...homeEntries, ...legalEntries, ...caseStudyEntries];
 }
