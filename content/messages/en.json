@@ -11,7 +11,7 @@
   },
   "metadata": {
     "title": "Netanel Laifer — Creative Director & Cinematic Storyteller",
-    "description": "Netanel Laifer crafts cinematic experiences for singers, artists and brands. Every project starts with a story — technology is only the tool.",
+    "description": "Netanel Laifer directs music videos, commercials and brand films for singers, artists and brands. The story always comes first — technology is just the tool.",
     "ogAlt": "Laifer Studio — cinematic, story-driven filmmaking",
     "personName": "Netanel Laifer"
   },
@@ -140,6 +140,36 @@
       "production": { "title": "Production", "description": "Produce, create and refine." },
       "delivery": { "title": "Delivery", "description": "Deliver a polished result, ready for the world." }
     }
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Questions before you reach out",
+    "items": [
+      {
+        "question": "How long does it take to direct a music video or commercial?",
+        "answer": "It varies by project — a short music video can take a few weeks, a more involved piece longer. On our first call I can give a more precise estimate for your specific scope."
+      },
+      {
+        "question": "What does the process look like, from idea to screen?",
+        "answer": "Every project starts with listening — understanding you, your audience and the goal. From there: research and inspiration, building the story, creative direction, production and delivery of a polished result."
+      },
+      {
+        "question": "What kinds of projects do you specialize in?",
+        "answer": "Music videos, commercials, brand films and animation — for singers, brands, educational organizations and nonprofits. Every project is different, but they all start at the same point: a story worth telling."
+      },
+      {
+        "question": "How does AI fit into your creative process?",
+        "answer": "AI is a tool in my kit, the same as a camera or an editing timeline — not the point in itself. It lets me produce a cinematic vision even without budget for a full crew, but creative direction, story and emotion always come first."
+      },
+      {
+        "question": "Do you work with brands and nonprofits, not just artists?",
+        "answer": "Absolutely. Alongside music videos for artists, I create commercials and brand films for companies, and educational content for organizations and nonprofits. The approach is the same on every project — listening comes first."
+      },
+      {
+        "question": "Where can I see examples of past work?",
+        "answer": "The \"Featured Work\" section above has a selection of recent projects, including detailed case studies on the creative process behind each one."
+      }
+    ]
   },
   "testimonials": {
     "eyebrow": "Testimonials",

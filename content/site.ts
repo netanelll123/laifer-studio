@@ -31,6 +31,7 @@ export const sectionIds = {
   services: "services",
   process: "process",
   testimonials: "testimonials",
+  faq: "faq",
   reel: "reel",
   contact: "contact",
 } as const;
