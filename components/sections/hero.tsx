@@ -64,10 +64,14 @@ export function Hero() {
           </span>
         </motion.div>
 
-        <h1 className="font-display text-[clamp(2.75rem,7.2vw,6rem)] font-medium leading-[1.03] tracking-[-0.02em] text-balance [text-shadow:0_2px_44px_rgba(0,0,0,0.5)]">
+        <h1
+          aria-label={t("title")}
+          className="font-display text-[clamp(2.75rem,7.2vw,6rem)] font-medium leading-[1.03] tracking-[-0.02em] text-balance [text-shadow:0_2px_44px_rgba(0,0,0,0.5)]"
+        >
           {words.map((word, i) => (
             <span
               key={`${word}-${i}`}
+              aria-hidden="true"
               className="inline-block overflow-hidden py-[0.05em] align-bottom"
             >
               <motion.span

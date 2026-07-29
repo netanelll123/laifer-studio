@@ -213,7 +213,7 @@
   "accessibility": {
     "eyebrow": "Accessibility",
     "title": "Accessibility Statement",
-    "intro": "Laifer Studio, run by Netanel Laifer, is a filmmaking and creative direction studio. We place real importance on making this site accessible to all visitors, including people with disabilities, and built it with the aim of complying with the Israeli Standard (IS 5568), Level AA, based on the international WCAG 2.1 guidelines, and with the Israeli Equal Rights for Persons with Disabilities Regulations (Service Accessibility Adjustments), 2013.",
+    "intro": "Laifer Studio, run by Netanel Laifer, is a filmmaking and creative direction studio. We place real importance on making this site accessible to all visitors, including people with disabilities, and built it with the aim of complying with the Israeli Standard (IS 5568), Level AA, based mainly on the international WCAG 2.0 guidelines (with additional adjustments from later updates to the standard), and with the Israeli Equal Rights for Persons with Disabilities Regulations (Service Accessibility Adjustments), 2013.",
     "sections": [
       {
         "title": "Accessibility measures on this site",
@@ -237,7 +237,9 @@
     "contactTitle": "Accessibility feedback",
     "contact": "Netanel Laifer, the studio's founder, is personally responsible for accessibility on this site. Run into a difficulty, or have a suggestion? We'd love to hear from you and will address it as soon as possible, by email or WhatsApp.",
     "lastUpdated": "Last updated",
-    "lastUpdatedDate": "July 28, 2026",
+    "lastUpdatedDate": "July 30, 2026",
+    "lastReviewed": "Last internal accessibility review",
+    "lastReviewedDate": "July 30, 2026",
     "commitment": "We review this site's accessibility on an ongoing basis and keep improving it over time. Any feedback that helps us do that is welcome."
   },
   "privacy": {

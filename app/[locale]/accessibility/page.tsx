@@ -113,6 +113,9 @@ export default async function AccessibilityPage({
             <p className="mt-12 text-sm text-muted-foreground">
               {t("lastUpdated")}: {t("lastUpdatedDate")}
             </p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              {t("lastReviewed")}: {t("lastReviewedDate")}
+            </p>
             <p className="mt-2 text-xs text-muted-foreground">
               {t("commitment")}
             </p>
