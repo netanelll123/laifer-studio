@@ -13,7 +13,7 @@ export function CaseStudySectionImage({
   caption?: string;
 }) {
   return (
-    <div className="mx-auto max-w-5xl px-5 sm:px-8">
+    <div className="mx-auto w-full max-w-5xl px-5 sm:px-8">
       <Reveal variants={scaleIn}>
         <figure className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-border">
           <Image

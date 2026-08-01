@@ -10,7 +10,7 @@ export function CaseStudySectionGallery({
   items: { src: string; alt: string; caption?: string }[];
 }) {
   return (
-    <div className="mx-auto max-w-6xl px-5 sm:px-8">
+    <div className="mx-auto w-full max-w-6xl px-5 sm:px-8">
       <Reveal
         variants={stagger(0.08)}
         className="grid grid-cols-2 gap-4 sm:grid-cols-3"

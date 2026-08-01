@@ -23,7 +23,7 @@ export function CaseStudyVideoEmbed({ film }: { film: CaseStudy["film"] }) {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <div className="mx-auto max-w-4xl px-5 sm:px-8">
+    <div className="mx-auto w-full max-w-4xl px-5 sm:px-8">
       <Reveal variants={scaleIn}>
         <h2 className="mb-6 text-center font-display text-3xl font-medium leading-[1.15] text-balance sm:text-4xl">
           {film.title}
