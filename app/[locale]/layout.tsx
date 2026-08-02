@@ -5,10 +5,10 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Frank_Ruhl_Libre, Assistant } from "next/font/google";
 import { Toaster } from "sonner";
 import { routing, localeDirection, type Locale } from "@/i18n/routing";
-import { siteConfig, sectionIds } from "@/content/site";
+import { siteConfig } from "@/content/site";
 import { services } from "@/content/collections/services";
 import { projects } from "@/content/collections/projects";
-import { siteIds, absoluteUrl, caseStudyUrl } from "@/lib/json-ld";
+import { siteIds, absoluteUrl, caseStudyId } from "@/lib/json-ld";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
 import { AnalyticsGate } from "@/components/analytics-gate";
 import { CookieConsent } from "@/components/cookie-consent";
@@ -95,13 +95,13 @@ export default async function LocaleLayout({
   // Literal service names already on the site — not a claim beyond what's
   // published in the Services section.
   const knowsAbout = services.map((s) => tServices(`items.${s.slug}.title`));
-  // Every case study that has a real dedicated page — the same URLs (and
-  // @id values) that page's own CreativeWork node uses, so WebSite.hasPart
-  // resolves to the identical entity rather than a new stub.
-  const caseStudyUrls = projects
+  // Every case study that has a real dedicated page — the same
+  // locale-invariant @id that page's own CreativeWork node uses, so
+  // WebSite.hasPart resolves to the identical entity on every locale's
+  // rendering of this layout, not a different id per language.
+  const caseStudyIds = projects
     .filter((p) => p.caseStudySlug)
-    .map((p) => caseStudyUrl(locale, p.caseStudySlug!));
-  const faqPageId = absoluteUrl(`/${locale}#${sectionIds.faq}`);
+    .map((p) => caseStudyId(p.caseStudySlug!));
 
   const jsonLdGraph = {
     "@context": "https://schema.org",
@@ -134,7 +134,7 @@ export default async function LocaleLayout({
         },
         // The homepage FAQ answers questions about Netanel and the studio —
         // the inverse of that same FAQPage's own `about` pointing back here.
-        subjectOf: { "@type": "FAQPage", "@id": faqPageId },
+        subjectOf: { "@type": "FAQPage", "@id": siteIds.faq },
         ...(socialSameAs.length > 0 ? { sameAs: socialSameAs } : {}),
       },
       {
@@ -144,9 +144,9 @@ export default async function LocaleLayout({
         url: siteConfig.url,
         inLanguage: routing.locales,
         publisher: { "@id": organizationId },
-        hasPart: caseStudyUrls.map((url) => ({
+        hasPart: caseStudyIds.map((id) => ({
           "@type": "CreativeWork",
-          "@id": url,
+          "@id": id,
         })),
       },
     ],

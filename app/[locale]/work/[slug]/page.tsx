@@ -4,7 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getCaseStudy, getCaseStudySlugs } from "@/content/case-studies";
 import { routing, type Locale } from "@/i18n/routing";
 import { siteConfig, sectionIds } from "@/content/site";
-import { siteIds, absoluteUrl, caseStudyUrl } from "@/lib/json-ld";
+import { siteIds, absoluteUrl, caseStudyUrl, caseStudyId } from "@/lib/json-ld";
 import { Header } from "@/components/sections/header";
 import { Footer } from "@/components/sections/footer";
 import { CaseStudyHero } from "@/components/case-study/hero";
@@ -102,7 +102,10 @@ export default async function CaseStudyPage({
   const creativeWorkJsonLd = {
     "@context": "https://schema.org",
     "@type": isPublishedVideo ? ["CreativeWork", "VideoObject"] : "CreativeWork",
-    "@id": pageUrl,
+    // Locale-invariant identity — the video is one entity whether this page
+    // renders in Hebrew or English. `url` below is this specific document's
+    // own address, which correctly does differ per locale.
+    "@id": caseStudyId(slug),
     name: study.hero.title,
     description: study.hero.subtitle,
     image: absoluteUrl(study.hero.poster),
