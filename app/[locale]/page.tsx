@@ -1,5 +1,10 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
+import { sectionIds } from "@/content/site";
+import { siteIds, absoluteUrl } from "@/lib/json-ld";
+import { projects } from "@/content/collections/projects";
+import { services } from "@/content/collections/services";
+import { getCaseStudy } from "@/content/case-studies";
 import { Header } from "@/components/sections/header";
 import { Hero } from "@/components/sections/hero";
 import { FeaturedProjects } from "@/components/sections/featured-projects";
@@ -22,7 +27,6 @@ export default async function HomePage({
   const t = await getTranslations({ locale, namespace: "faq" });
   const faqItems = t.raw("items") as { question: string; answer: string }[];
   const faqJsonLd = {
-    "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: faqItems.map((item) => ({
       "@type": "Question",
@@ -31,11 +35,52 @@ export default async function HomePage({
     })),
   };
 
+  // One list entry per project that has a real dedicated case-study page —
+  // the title comes from that page's own content, not the shorter homepage
+  // card copy, since it's the definitive name for the linked URL.
+  const tProjects = await getTranslations({ locale, namespace: "projects" });
+  const caseStudyProjects = projects.filter((p) => p.caseStudySlug);
+  const portfolioItemListJsonLd = {
+    "@type": "ItemList",
+    name: tProjects("title"),
+    itemListElement: (
+      await Promise.all(
+        caseStudyProjects.map(async (project, i) => {
+          const study = await getCaseStudy(project.caseStudySlug!, locale);
+          return {
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "CreativeWork",
+              name: study?.hero.title,
+              url: absoluteUrl(`/${locale}/work/${project.caseStudySlug}`),
+              image: absoluteUrl(project.poster),
+            },
+          };
+        })
+      )
+    ).filter((entry) => Boolean(entry.item.name)),
+  };
+
+  const tServices = await getTranslations({ locale, namespace: "services" });
+  const servicesJsonLd = services.map((service) => ({
+    "@type": "Service",
+    name: tServices(`items.${service.slug}.title`),
+    description: tServices(`items.${service.slug}.description`),
+    url: absoluteUrl(`/${locale}#${sectionIds.services}`),
+    provider: { "@id": siteIds.organization },
+  }));
+
+  const homeJsonLdGraph = {
+    "@context": "https://schema.org",
+    "@graph": [faqJsonLd, portfolioItemListJsonLd, ...servicesJsonLd],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLdGraph) }}
       />
       <Header />
       <main id="main-content">

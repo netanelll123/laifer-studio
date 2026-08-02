@@ -6,6 +6,8 @@ import { Frank_Ruhl_Libre, Assistant } from "next/font/google";
 import { Toaster } from "sonner";
 import { routing, localeDirection, type Locale } from "@/i18n/routing";
 import { siteConfig } from "@/content/site";
+import { services } from "@/content/collections/services";
+import { siteIds, absoluteUrl } from "@/lib/json-ld";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
 import { AnalyticsGate } from "@/components/analytics-gate";
 import { CookieConsent } from "@/components/cookie-consent";
@@ -80,13 +82,15 @@ export default async function LocaleLayout({
   const t = await getTranslations({ locale, namespace: "metadata" });
   const tCommon = await getTranslations({ locale, namespace: "common" });
   const tNav = await getTranslations({ locale, namespace: "nav" });
+  const tServices = await getTranslations({ locale, namespace: "services" });
 
-  const personId = `${siteConfig.url}/#person`;
-  const organizationId = `${siteConfig.url}/#organization`;
-  const websiteId = `${siteConfig.url}/#website`;
+  const { person: personId, organization: organizationId, website: websiteId } = siteIds;
   // Only include sameAs once real profile URLs exist — an empty array would
   // otherwise fabricate "verified" social presence that isn't there yet.
   const sameAs = siteConfig.social.map((s) => s.href);
+  // Literal service names already on the site — not a claim beyond what's
+  // published in the Services section.
+  const knowsAbout = services.map((s) => tServices(`items.${s.slug}.title`));
 
   const jsonLdGraph = {
     "@context": "https://schema.org",
@@ -98,7 +102,9 @@ export default async function LocaleLayout({
         jobTitle: siteConfig.person.jobTitle,
         email: siteConfig.person.email,
         url: siteConfig.url,
+        image: absoluteUrl("/images/about-portrait.jpg"),
         description: t("description"),
+        knowsAbout,
         worksFor: { "@id": organizationId },
         ...(sameAs.length > 0 ? { sameAs } : {}),
       },
@@ -107,8 +113,14 @@ export default async function LocaleLayout({
         "@id": organizationId,
         name: tNav("brand"),
         url: siteConfig.url,
-        logo: `${siteConfig.url}/logo-full.png`,
+        logo: absoluteUrl("/logo-full.png"),
         founder: { "@id": personId },
+        contactPoint: {
+          "@type": "ContactPoint",
+          email: siteConfig.person.email,
+          contactType: "customer service",
+          availableLanguage: ["Hebrew", "English"],
+        },
         ...(sameAs.length > 0 ? { sameAs } : {}),
       },
       {

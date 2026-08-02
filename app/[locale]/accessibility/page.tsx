@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing, type Locale } from "@/i18n/routing";
 import { siteConfig } from "@/content/site";
+import { breadcrumbJsonLd } from "@/lib/json-ld";
 import { Header } from "@/components/sections/header";
 import { Footer } from "@/components/sections/footer";
 import {
@@ -66,10 +67,19 @@ export default async function AccessibilityPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "accessibility" });
+  const tNav = await getTranslations({ locale, namespace: "nav" });
   const sections = t.raw("sections") as LegalSectionContent[];
+  const breadcrumb = breadcrumbJsonLd([
+    { name: tNav("brand"), path: `/${locale}` },
+    { name: t("title"), path: `/${locale}/accessibility` },
+  ]);
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <Header />
       <main id="main-content" className="overflow-hidden">
         <section className="section-padding">
