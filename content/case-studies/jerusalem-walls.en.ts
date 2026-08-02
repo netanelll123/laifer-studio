@@ -162,7 +162,7 @@ const caseStudy: CaseStudy = {
   },
 
   credits: [
-    { role: "Educational Content & Initiative", name: "Olam Shalem" },
+    { role: "Educational Content & Initiative", name: "Olam Shalem", type: "Organization" },
     {
       role: "Direction · Screenplay · World Building · Editing",
       name: "Netanel Laifer",

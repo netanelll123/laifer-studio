@@ -113,7 +113,7 @@ export default async function CaseStudyPage({
     creator: study.credits.map((credit) =>
       credit.name === personName
         ? { "@id": siteIds.person }
-        : { "@type": "Person", name: credit.name }
+        : { "@type": credit.type ?? "Person", name: credit.name }
     ),
     publisher: { "@id": siteIds.organization },
     isPartOf: { "@id": siteIds.website },

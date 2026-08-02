@@ -161,7 +161,7 @@ const caseStudy: CaseStudy = {
   },
 
   credits: [
-    { role: "תוכן חינוכי ויוזמה", name: "עולם שלם" },
+    { role: "תוכן חינוכי ויוזמה", name: "עולם שלם", type: "Organization" },
     {
       role: "בימוי · תסריט · בניית עולם · עריכה",
       name: "נתנאל לייפר",

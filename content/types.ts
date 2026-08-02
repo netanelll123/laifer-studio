@@ -124,7 +124,9 @@ export interface CaseStudy {
     title?: string;
     paragraphs: string[];
   };
-  credits: { role: string; name: string }[];
+  // `type` defaults to Person when omitted — only set it for credits that
+  // are actually a brand/organization/initiative, not an individual.
+  credits: { role: string; name: string; type?: "Person" | "Organization" }[];
   cta: {
     title: string;
     text: string;
