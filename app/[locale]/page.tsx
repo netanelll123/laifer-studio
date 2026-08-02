@@ -1,7 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
 import { sectionIds } from "@/content/site";
-import { siteIds, absoluteUrl } from "@/lib/json-ld";
+import { siteIds, absoluteUrl, caseStudyUrl } from "@/lib/json-ld";
 import { projects } from "@/content/collections/projects";
 import { services } from "@/content/collections/services";
 import { getCaseStudy } from "@/content/case-studies";
@@ -28,6 +28,10 @@ export default async function HomePage({
   const faqItems = t.raw("items") as { question: string; answer: string }[];
   const faqJsonLd = {
     "@type": "FAQPage",
+    // Matches the Organization node's `subjectOf` reference in the root
+    // layout — same entity, same @id, on both ends of the relationship.
+    "@id": absoluteUrl(`/${locale}#${sectionIds.faq}`),
+    about: { "@id": siteIds.organization },
     mainEntity: faqItems.map((item) => ({
       "@type": "Question",
       name: item.question,
@@ -47,13 +51,18 @@ export default async function HomePage({
       await Promise.all(
         caseStudyProjects.map(async (project, i) => {
           const study = await getCaseStudy(project.caseStudySlug!, locale);
+          const url = caseStudyUrl(locale, project.caseStudySlug!);
           return {
             "@type": "ListItem",
             position: i + 1,
             item: {
               "@type": "CreativeWork",
+              // Same @id as this work's own page node (see work/[slug]/page.tsx)
+              // and the WebSite's `hasPart` entry — one entity, referenced
+              // consistently everywhere it appears.
+              "@id": url,
               name: study?.hero.title,
-              url: absoluteUrl(`/${locale}/work/${project.caseStudySlug}`),
+              url,
               image: absoluteUrl(project.poster),
             },
           };

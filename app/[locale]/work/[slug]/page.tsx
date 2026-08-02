@@ -4,7 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getCaseStudy, getCaseStudySlugs } from "@/content/case-studies";
 import { routing, type Locale } from "@/i18n/routing";
 import { siteConfig, sectionIds } from "@/content/site";
-import { siteIds, absoluteUrl } from "@/lib/json-ld";
+import { siteIds, absoluteUrl, caseStudyUrl } from "@/lib/json-ld";
 import { Header } from "@/components/sections/header";
 import { Footer } from "@/components/sections/footer";
 import { CaseStudyHero } from "@/components/case-study/hero";
@@ -90,19 +90,30 @@ export default async function CaseStudyPage({
   // recommended (not required) VideoObject field and is deliberately
   // omitted since we have no verified date to report.
   const isPublishedVideo = Boolean(study.film.youtubeId);
+  const pageUrl = caseStudyUrl(locale, slug);
+
+  // Credits list Netanel by his localized display name (metadata.personName)
+  // alongside collaborators. Matching that exact string lets his own credit
+  // resolve to the site's one canonical Person node instead of being
+  // restated as a second, anonymous "Netanel Laifer" entity.
+  const tMeta = await getTranslations({ locale, namespace: "metadata" });
+  const personName = tMeta("personName");
 
   const creativeWorkJsonLd = {
     "@context": "https://schema.org",
     "@type": isPublishedVideo ? ["CreativeWork", "VideoObject"] : "CreativeWork",
+    "@id": pageUrl,
     name: study.hero.title,
     description: study.hero.subtitle,
     image: absoluteUrl(study.hero.poster),
-    url: `${siteConfig.url}/${locale}/work/${slug}`,
-    creator: study.credits.map((credit) => ({
-      "@type": "Person",
-      name: credit.name,
-    })),
+    url: pageUrl,
+    creator: study.credits.map((credit) =>
+      credit.name === personName
+        ? { "@id": siteIds.person }
+        : { "@type": "Person", name: credit.name }
+    ),
     publisher: { "@id": siteIds.organization },
+    isPartOf: { "@id": siteIds.website },
     ...(isPublishedVideo
       ? {
           thumbnailUrl: absoluteUrl(study.film.poster),
@@ -133,7 +144,7 @@ export default async function CaseStudyPage({
         "@type": "ListItem",
         position: 3,
         name: study.hero.title,
-        item: `${siteConfig.url}/${locale}/work/${slug}`,
+        item: pageUrl,
       },
     ],
   };

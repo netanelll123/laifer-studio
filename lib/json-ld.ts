@@ -15,6 +15,14 @@ export function absoluteUrl(path: string): string {
   return `${siteConfig.url}${path}`;
 }
 
+/** Canonical URL of a case-study page — also used as that page's
+ *  CreativeWork `@id`, so every reference to the same work (the homepage
+ *  ItemList, the WebSite's `hasPart`, the page's own node) resolves to one
+ *  identical entity instead of several look-alike stubs. */
+export function caseStudyUrl(locale: string, slug: string): string {
+  return absoluteUrl(`/${locale}/work/${slug}`);
+}
+
 /** BreadcrumbList for a simple Home > Page trail (legal pages, etc). Case
  *  studies build their own three-level trail inline since the middle step
  *  links to an in-page anchor rather than a route. */
