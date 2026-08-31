@@ -42,6 +42,10 @@ export function serviceId(slug: string): string {
   return `${siteConfig.url}/#service-${slug}`;
 }
 
+export function youtubeWatchUrl(youtubeId: string): string {
+  return `https://www.youtube.com/watch?v=${youtubeId}`;
+}
+
 type FilmForSchema = {
   youtubeId?: string;
   poster: string;
@@ -61,7 +65,7 @@ export function publishedVideoObjectFields(film: FilmForSchema) {
     thumbnailUrl: absoluteUrl(film.poster),
     uploadDate: film.uploadDate,
     embedUrl: `https://www.youtube-nocookie.com/embed/${film.youtubeId}`,
-    contentUrl: `https://www.youtube.com/watch?v=${film.youtubeId}`,
+    contentUrl: youtubeWatchUrl(film.youtubeId),
     ...(film.duration ? { duration: film.duration } : {}),
   };
 }

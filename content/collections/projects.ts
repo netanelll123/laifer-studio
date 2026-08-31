@@ -19,6 +19,13 @@ export const projects: Project[] = [
     slug: "dear-child",
     poster: "/projects/dear-child-poster.jpg",
     youtubeId: "A85Tv3ufwLc",
+    // Verified against the YouTube watch page's own datePublished/duration
+    // metadata (same approach used for od-yishama/avir-mevorach's film dates).
+    youtubeUploadDate: "2026-08-31T03:10:26-07:00",
+    youtubeDuration: "PT4M8S",
+    // 16:9 poster with baked-in title text reaching both edges — the
+    // card's default 4:3 cover-crop clipped the title and the faces.
+    fit: "contain",
   },
   {
     slug: "instant-coffee",

@@ -79,7 +79,8 @@ export function ProjectCard({
         fill
         sizes="(min-width: 1024px) 50vw, 100vw"
         className={cn(
-          "object-cover transition-transform duration-700 ease-cinematic group-hover:scale-105",
+          "transition-transform duration-700 ease-cinematic group-hover:scale-105",
+          project.fit === "contain" ? "object-contain" : "object-cover",
           hasVideo && active && !prefersReduced && "opacity-0"
         )}
       />

@@ -43,6 +43,20 @@ export interface Project {
   /** Optional slug of an internal case-study page (see `content/case-studies/`).
    *  Takes precedence over `youtubeId`/`url` when set. */
   caseStudySlug?: string;
+  /** ISO 8601 date-time of the YouTube first publish, and ISO 8601 duration
+   *  (e.g. PT4M8S). Only relevant when `youtubeId` is set and there's no
+   *  `caseStudySlug` — case studies carry their own upload date/duration on
+   *  `CaseStudy.film` instead. Required by Google for VideoObject markup;
+   *  omit until verified against the actual YouTube upload. */
+  youtubeUploadDate?: string;
+  youtubeDuration?: string;
+  /** How the poster fills its 4:3 card frame. Defaults to "cover" (fills
+   *  edge to edge, cropping evenly on the long axis) — set "contain" for a
+   *  poster whose composition already reaches its own edges (e.g. a 16:9
+   *  YouTube thumbnail with baked-in title text), so nothing gets clipped;
+   *  the card's own dark background shows as the letterbox, matching the
+   *  site's existing letterbox-bar motif rather than looking like a bug. */
+  fit?: "cover" | "contain";
 }
 
 /** A service offering. Title/description resolved from i18n via `slug`. */
