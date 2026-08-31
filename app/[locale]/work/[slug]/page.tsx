@@ -4,7 +4,13 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getCaseStudy, getCaseStudySlugs } from "@/content/case-studies";
 import { routing, type Locale } from "@/i18n/routing";
 import { siteConfig, sectionIds } from "@/content/site";
-import { siteIds, absoluteUrl, caseStudyUrl, caseStudyId } from "@/lib/json-ld";
+import {
+  siteIds,
+  absoluteUrl,
+  caseStudyUrl,
+  caseStudyId,
+  publishedVideoObjectFields,
+} from "@/lib/json-ld";
 import { Header } from "@/components/sections/header";
 import { Footer } from "@/components/sections/footer";
 import { CaseStudyHero } from "@/components/case-study/hero";
@@ -82,14 +88,12 @@ export default async function CaseStudyPage({
 
   const contactHref = `/${locale}#${sectionIds.contact}`;
 
-  // CreativeWork covers every case study uniformly. Pages whose film embed
-  // is a real, published YouTube upload (not the temporary local stand-in
-  // some case studies use until the real edit is live) also get VideoObject
-  // merged into the same node's @type — one entity describing one page,
-  // rather than a second, overlapping schema block. `uploadDate` is a
-  // recommended (not required) VideoObject field and is deliberately
-  // omitted since we have no verified date to report.
-  const isPublishedVideo = Boolean(study.film.youtubeId);
+  // CreativeWork covers every case study uniformly. Pages whose film is a
+  // real YouTube upload *with* Google's required VideoObject fields
+  // (thumbnailUrl + uploadDate + embed/content URL) also get VideoObject
+  // merged into the same node's @type. Never declare VideoObject on a stub.
+  const videoFields = publishedVideoObjectFields(study.film);
+  const isPublishedVideo = Boolean(videoFields);
   const pageUrl = caseStudyUrl(locale, slug);
 
   // Credits list Netanel by his localized display name (metadata.personName)
@@ -117,13 +121,7 @@ export default async function CaseStudyPage({
     ),
     publisher: { "@id": siteIds.organization },
     isPartOf: { "@id": siteIds.website },
-    ...(isPublishedVideo
-      ? {
-          thumbnailUrl: absoluteUrl(study.film.poster),
-          embedUrl: `https://www.youtube-nocookie.com/embed/${study.film.youtubeId}`,
-          contentUrl: `https://www.youtube.com/watch?v=${study.film.youtubeId}`,
-        }
-      : {}),
+    ...(videoFields ?? {}),
   };
 
   const tNav = await getTranslations({ locale, namespace: "nav" });

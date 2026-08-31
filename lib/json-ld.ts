@@ -42,6 +42,30 @@ export function serviceId(slug: string): string {
   return `${siteConfig.url}/#service-${slug}`;
 }
 
+type FilmForSchema = {
+  youtubeId?: string;
+  poster: string;
+  uploadDate?: string;
+  duration?: string;
+};
+
+/**
+ * Google Search requires `name`, `thumbnailUrl`, and `uploadDate` on every
+ * VideoObject (and at least one of `contentUrl` / `embedUrl`). Never emit a
+ * VideoObject until a real YouTube upload date is on the film — a stub
+ * `@type` without those fields is what Search Console reports as invalid.
+ */
+export function publishedVideoObjectFields(film: FilmForSchema) {
+  if (!film.youtubeId || !film.uploadDate) return null;
+  return {
+    thumbnailUrl: absoluteUrl(film.poster),
+    uploadDate: film.uploadDate,
+    embedUrl: `https://www.youtube-nocookie.com/embed/${film.youtubeId}`,
+    contentUrl: `https://www.youtube.com/watch?v=${film.youtubeId}`,
+    ...(film.duration ? { duration: film.duration } : {}),
+  };
+}
+
 /** BreadcrumbList for a simple Home > Page trail (legal pages, etc). Case
  *  studies build their own three-level trail inline since the middle step
  *  links to an in-page anchor rather than a route. */
