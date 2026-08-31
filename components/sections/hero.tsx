@@ -1,5 +1,6 @@
 "use client";
 
+import { Fragment } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
@@ -66,20 +67,19 @@ export function Hero() {
 
         <h1 className="font-display text-[clamp(2.75rem,7.2vw,6rem)] font-medium leading-[1.03] tracking-[-0.02em] text-balance [text-shadow:0_2px_44px_rgba(0,0,0,0.5)]">
           {words.map((word, i) => (
-            <span
-              key={`${word}-${i}`}
-              className="inline-block overflow-hidden py-[0.05em] align-bottom"
-            >
-              <motion.span
-                variants={maskReveal}
-                className={`inline-block ${
-                  i === lastIndex ? "text-gradient" : ""
-                }`}
-              >
-                {word}
-                {i < lastIndex ? " " : null}
-              </motion.span>
-            </span>
+            <Fragment key={`${word}-${i}`}>
+              <span className="inline-block overflow-hidden py-[0.05em] align-bottom">
+                <motion.span
+                  variants={maskReveal}
+                  className={`inline-block ${
+                    i === lastIndex ? "text-gradient" : ""
+                  }`}
+                >
+                  {word}
+                </motion.span>
+              </span>
+              {i < lastIndex ? " " : null}
+            </Fragment>
           ))}
         </h1>
 
