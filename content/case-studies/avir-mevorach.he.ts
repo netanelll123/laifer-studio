@@ -126,6 +126,9 @@ const caseStudy: CaseStudy = {
   film: {
     title: "הסרט",
     youtubeId: "btAk8xtC0eo",
+    // YouTube watch-page publishDate for this video id.
+    uploadDate: "2026-06-06T12:32:03-07:00",
+    duration: "PT2M38S",
     poster: `${BASE}/film-poster.jpg`,
   },
 
