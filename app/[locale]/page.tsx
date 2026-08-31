@@ -1,7 +1,14 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
 import { sectionIds } from "@/content/site";
-import { siteIds, absoluteUrl, caseStudyUrl, caseStudyId, serviceId } from "@/lib/json-ld";
+import {
+  siteIds,
+  absoluteUrl,
+  caseStudyUrl,
+  caseStudyId,
+  serviceId,
+  publishedVideoObjectFields,
+} from "@/lib/json-ld";
 import { projects } from "@/content/collections/projects";
 import { services } from "@/content/collections/services";
 import { getCaseStudy } from "@/content/case-studies";
@@ -58,20 +65,28 @@ export default async function HomePage({
           // Same condition as work/[slug]/page.tsx — keep this entry's
           // @type in sync with the fuller node declared on that page, since
           // they share one @id and shouldn't disagree about what it is.
-          const isPublishedVideo = Boolean(study?.film.youtubeId);
+          // Only VideoObject when Google's required fields are present.
+          const videoFields = study
+            ? publishedVideoObjectFields(study.film)
+            : null;
+          const isPublishedVideo = Boolean(videoFields);
           return {
             "@type": "ListItem",
             position: i + 1,
             item: {
-              "@type": isPublishedVideo ? ["CreativeWork", "VideoObject"] : "CreativeWork",
+              "@type": isPublishedVideo
+                ? ["CreativeWork", "VideoObject"]
+                : "CreativeWork",
               // Locale-invariant identity, matching this work's own page
               // node (work/[slug]/page.tsx) and the WebSite's `hasPart`
               // entry — one entity, referenced consistently everywhere.
               // `url` still points at this locale's own rendering of it.
               "@id": caseStudyId(project.caseStudySlug!),
               name: study?.hero.title,
+              description: study?.hero.subtitle,
               url: caseStudyUrl(locale, project.caseStudySlug!),
               image: absoluteUrl(project.poster),
+              ...(videoFields ?? {}),
             },
           };
         })
