@@ -119,6 +119,11 @@ export interface CaseStudy {
      *  field rather than reusing hero.poster, so the hero and the video
      *  embed can show two different, equally strong stills. */
     poster: string;
+    /** ISO 8601 date-time of the YouTube first publish. Required for
+     *  VideoObject markup — omit until a real YouTube upload exists. */
+    uploadDate?: string;
+    /** ISO 8601 duration of the published film (e.g. PT4M1S). */
+    duration?: string;
   };
   reflection: {
     title?: string;
