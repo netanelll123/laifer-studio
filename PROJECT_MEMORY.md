@@ -117,7 +117,7 @@ For spec/independent (non-commissioned) work, the disclosure requirement in **Wr
 ## Completed Features
 
 - Full bilingual (he/en) single-page portfolio: Header, Hero, FeaturedProjects, About, Services, CreativeProcess, StudioReel, FAQ, Contact, Footer.
-- Unified `FeaturedProjects` list (5 pieces: instant-coffee, balkan-wedding, lemon-waffle, jerusalem-walls, air-mevorach) replacing the old separate Ad Work section.
+- Unified `FeaturedProjects` list (6 pieces, in this order: dear-child, instant-coffee, balkan-wedding, lemon-waffle, jerusalem-walls, air-mevorach) replacing the old separate Ad Work section. `dear-child` (real YouTube video, no case study yet) leads the list — added deliberately at the top per an explicit request to feature it first.
 - Three full case studies with real production media (`od-yishama`, `avir-mevorach`/air-mevorach, `jerusalem-walls`) plus one spec/independent case study (`instant-coffee`, clearly disclosed as non-commissioned).
 - Contact flow: RHF + Zod form → `/api/contact` route → forwards to `CONTACT_ENDPOINT_URL` (Formspree), graceful 501 when unset. WhatsApp CTA simplified to a plain, direct invitation (no "tell me about your project" framing).
 - Cookie consent gating for GA4/Clarity.

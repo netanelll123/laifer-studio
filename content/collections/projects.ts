@@ -16,6 +16,11 @@ import type { Project } from "@/content/types";
  */
 export const projects: Project[] = [
   {
+    slug: "dear-child",
+    poster: "/projects/dear-child-poster.jpg",
+    youtubeId: "A85Tv3ufwLc",
+  },
+  {
     slug: "instant-coffee",
     poster: "/commercials/instant-coffee-poster.jpg",
     caseStudySlug: "instant-coffee",

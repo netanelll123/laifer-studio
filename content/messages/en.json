@@ -42,6 +42,13 @@
     "title": "Stories turned into image",
     "subtitle": "A selection of recent projects — each one a world of its own.",
     "items": {
+      "dear-child": {
+        "title": "Dear Child - Yonatan Shachar",
+        "category": "Music Video",
+        "description": "A personal, from-the-heart music video — a father-and-son story built end to end: script, visuals, composition and editing.",
+        "cta": "Watch the video",
+        "proof": ""
+      },
       "instant-coffee": {
         "title": "Elite Instant Coffee",
         "category": "Spec Commercial",

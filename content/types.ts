@@ -5,6 +5,7 @@ import type { LucideIcon } from "lucide-react";
  * `items.${slug}.title` resolve to real, type-checked message keys.
  */
 export type ProjectSlug =
+  | "dear-child"
   | "instant-coffee"
   | "balkan-wedding"
   | "lemon-waffle"
