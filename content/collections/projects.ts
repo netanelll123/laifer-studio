@@ -43,13 +43,22 @@ export const projects: Project[] = [
     video: "/commercials/lemon-waffle.mp4",
   },
   {
+    slug: "air-mevorach",
+    poster: "/case-studies/avir-mevorach/hero-poster.jpg",
+    caseStudySlug: "avir-mevorach",
+  },
+  {
     slug: "jerusalem-walls",
     poster: "/case-studies/jerusalem-walls/hero-poster.jpg",
     caseStudySlug: "jerusalem-walls",
   },
   {
-    slug: "air-mevorach",
-    poster: "/case-studies/avir-mevorach/hero-poster.jpg",
-    caseStudySlug: "avir-mevorach",
+    slug: "hashiveinu",
+    // Same 16:9-with-baked-in-title situation as dear-child's poster — see
+    // its comment above. The case-study hero uses a clean crop of the same
+    // photo instead, since it has its own separate HTML title overlaying it.
+    poster: "/case-studies/hashiveinu/full-poster.jpg",
+    caseStudySlug: "hashiveinu",
+    fit: "contain",
   },
 ];

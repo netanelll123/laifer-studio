@@ -27,6 +27,10 @@ const loaders: Record<
     he: () => import("./instant-coffee.he"),
     en: () => import("./instant-coffee.en"),
   },
+  hashiveinu: {
+    he: () => import("./hashiveinu.he"),
+    en: () => import("./hashiveinu.en"),
+  },
 };
 
 export function getCaseStudySlugs(): string[] {

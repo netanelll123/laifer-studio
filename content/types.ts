@@ -10,7 +10,8 @@ export type ProjectSlug =
   | "balkan-wedding"
   | "lemon-waffle"
   | "air-mevorach"
-  | "jerusalem-walls";
+  | "jerusalem-walls"
+  | "hashiveinu";
 export type ServiceSlug =
   | "music-videos"
   | "commercials"
