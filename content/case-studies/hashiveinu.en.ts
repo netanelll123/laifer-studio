@@ -4,8 +4,11 @@ const BASE = "/case-studies/hashiveinu";
 
 /**
  * "Hashiveinu" — an AI-vocal cover of Hanan Ben Ari's hit, under the ongoing
- * "Netanel and the Machines" channel. See hashiveinu.he.ts for the shared
- * production notes (poster crop, placeholder hero video).
+ * "Netanel and the Machines" channel. The film follows a gradual spiritual
+ * return that ends in a personal one too — reconciling with the father — as
+ * a gentle (not literal) metaphor for returning to our Father in Heaven.
+ * See hashiveinu.he.ts for the shared production notes (poster crop,
+ * placeholder hero video).
  */
 const caseStudy: CaseStudy = {
   slug: "hashiveinu",
@@ -24,17 +27,16 @@ const caseStudy: CaseStudy = {
       type: "text",
       title: "Netanel and the Machines",
       paragraphs: [
-        "\"Netanel and the Machines\" is my ongoing channel — a place where I use AI to produce vocal performances of songs that move me, and wrap each one in a film that tells the idea behind it.",
-        "\"Hashiveinu\" is the newest chapter in that series — an AI cover of Hanan Ben Ari's hit.",
+        "\"Netanel and the Machines\" is a channel I've been running for a while: I use AI to produce vocal performances of songs that move me, and build a short film around each one.",
+        "\"Hashiveinu\" is the latest chapter — a cover of a song by Hanan Ben Ari.",
       ],
     },
     {
       type: "text",
       title: "Why this song, why now",
       paragraphs: [
-        "I chose this moving song right during the Selichot period, ahead of the High Holidays.",
-        "I wanted to carry one message: \"Hashiveinu\" (bring us back) isn't repentance starting from zero, as if nothing came before.",
-        "It's growing closer — one step nearer to God, from someone who's already there, not only from someone who drifted all the way away.",
+        "I chose this song during the Selichot period, right before the High Holidays.",
+        "The word \"Hashiveinu\" — bring us back — caught me at a particular angle: not as a call to start over from zero, but as a description of growing closer.",
       ],
     },
     {
@@ -45,16 +47,18 @@ const caseStudy: CaseStudy = {
       type: "text",
       title: "The visual idea",
       paragraphs: [
-        "I wanted the image to say it without a word: an embrace at the front door, not a confrontation. Someone coming back, and someone waiting for them at the door.",
-        "I created the entire animation myself using AI — from the first idea to the final frame.",
+        "The film opens on a process of returning.",
+        "The main character moves closer, step by step, toward the spiritual world — toward faith, toward prayer, toward the place he'd drifted from. It isn't repentance in the classic sense, but a gentle process of growing closer and stronger in faith.",
+        "As the film goes on, that spiritual return takes on a more personal, earthly meaning too.",
+        "By the end, the character reconciles with his father.",
+        "That meeting is also a metaphor: returning to a father on earth echoes returning to a Father in Heaven. The bond between father and son becomes a tangible picture of longing, reconciliation and closeness — between a person and his father, and between a person and his Father in Heaven.",
+        "So \"Hashiveinu\" isn't only a story about returning to a place we'd drifted from — it's about how growing closer, spiritually, can reopen bonds that seemed already lost.",
       ],
     },
     {
       type: "text",
       title: "The voice",
-      paragraphs: [
-        "The vocal performance was generated using Suno. That's the tool, not the singer — the same approach behind every project I make: AI produces, I direct.",
-      ],
+      paragraphs: ["I created the vocal performance using Suno — the tool, not the singer."],
     },
   ],
 
@@ -70,8 +74,8 @@ const caseStudy: CaseStudy = {
   reflection: {
     title: "Looking Back",
     paragraphs: [
-      "\"Netanel and the Machines\" will keep growing, song after song.",
-      "But \"Hashiveinu\" will stay especially close — because it's not just a cover. It's a reminder, to me too.",
+      "\"Netanel and the Machines\" will keep going, song after song.",
+      "\"Hashiveinu\" will stay especially close to me — a story about returning, and about a father and a son.",
     ],
   },
 
