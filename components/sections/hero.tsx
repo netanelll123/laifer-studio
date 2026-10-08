@@ -136,9 +136,16 @@ export function Hero() {
             elastic motion; a fade breathes calmly instead of jumping. */}
         <motion.span
           className="flex items-center justify-center"
-          animate={prefersReduced ? undefined : { opacity: [1, 0.4, 1] }}
-          transition={
+          // The background pause toggle also stops this pulse (WCAG 2.2.2).
+          animate={
             prefersReduced
+              ? undefined
+              : bgPaused
+                ? { opacity: 1 }
+                : { opacity: [1, 0.4, 1] }
+          }
+          transition={
+            prefersReduced || bgPaused
               ? undefined
               : { duration: 2, repeat: Infinity, ease: "easeInOut" }
           }

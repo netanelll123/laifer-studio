@@ -134,9 +134,16 @@ export function CaseStudyHero({ hero }: { hero: CaseStudy["hero"] }) {
       <div className="absolute bottom-7 left-1/2 z-20 -translate-x-1/2 text-foreground/45">
         <motion.span
           className="flex items-center justify-center"
-          animate={prefersReduced ? undefined : { opacity: [1, 0.4, 1] }}
-          transition={
+          // The background pause toggle also stops this pulse (WCAG 2.2.2).
+          animate={
             prefersReduced
+              ? undefined
+              : paused
+                ? { opacity: 1 }
+                : { opacity: [1, 0.4, 1] }
+          }
+          transition={
+            prefersReduced || paused
               ? undefined
               : { duration: 2, repeat: Infinity, ease: "easeInOut" }
           }
