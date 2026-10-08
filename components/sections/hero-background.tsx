@@ -23,9 +23,11 @@ const FRAME_DURATION = 5000; // ms each frame holds before crossfading
  * Hero background. Renders a muted, looping showreel video when `hero.mp4` is a
  * real file; until then (or on load failure) it plays a slow Ken Burns montage
  * of cinematic frames so the hero always reads as a filmmaker's reel. Under
- * reduced-motion everything freezes to a single still.
+ * reduced-motion everything freezes to a single still. `paused` (the hero's
+ * WCAG 2.2.2 toggle) holds both the video and the montage on their current
+ * frame.
  */
-export function HeroBackground() {
+export function HeroBackground({ paused = false }: { paused?: boolean }) {
   const prefersReduced = usePrefersReducedMotion();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoReady, setVideoReady] = useState(false);
@@ -33,20 +35,22 @@ export function HeroBackground() {
 
   // Advance the montage while the real video isn't playing.
   useEffect(() => {
-    if (prefersReduced || videoReady) return;
+    if (prefersReduced || videoReady || paused) return;
     const id = setInterval(
       () => setActive((i) => (i + 1) % REEL_FRAMES.length),
       FRAME_DURATION
     );
     return () => clearInterval(id);
-  }, [prefersReduced, videoReady]);
+  }, [prefersReduced, videoReady, paused]);
 
-  // Attempt playback; keep the video hidden until it can actually play.
+  // Attempt playback (or hold it while paused); the video stays hidden until
+  // it can actually play.
   useEffect(() => {
     const video = videoRef.current;
     if (!video || prefersReduced) return;
-    void video.play().catch(() => {});
-  }, [prefersReduced]);
+    if (paused) video.pause();
+    else void video.play().catch(() => {});
+  }, [prefersReduced, paused]);
 
   return (
     <div className="absolute inset-0 overflow-hidden bg-background">
@@ -88,7 +92,7 @@ export function HeroBackground() {
             videoReady ? "opacity-100" : "opacity-0"
           )}
           poster="/videos/hero-poster.svg"
-          autoPlay
+          autoPlay={!paused}
           muted
           loop
           playsInline

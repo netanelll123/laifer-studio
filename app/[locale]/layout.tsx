@@ -171,8 +171,10 @@ export default async function LocaleLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
         />
         <NextIntlClientProvider>
-          <SmoothScrollProvider>{children}</SmoothScrollProvider>
+          {/* Early in the DOM so it's reached within a couple of Tab presses;
+              it stays visually pinned to the bottom (fixed bottom-0). */}
           <CookieConsent />
+          <SmoothScrollProvider>{children}</SmoothScrollProvider>
           <Toaster
             position="top-center"
             theme="dark"

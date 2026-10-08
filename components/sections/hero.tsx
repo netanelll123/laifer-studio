@@ -1,12 +1,13 @@
 "use client";
 
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HeroBackground } from "@/components/sections/hero-background";
+import { BackgroundVideoToggle } from "@/components/background-video-toggle";
 import { sectionIds } from "@/content/site";
 import { maskReveal, fadeUp, stagger, transitions } from "@/lib/motion";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
@@ -17,6 +18,7 @@ export function Hero() {
   const t = useTranslations("hero");
   const tMeta = useTranslations("metadata");
   const prefersReduced = usePrefersReducedMotion();
+  const [bgPaused, setBgPaused] = useState(false);
 
   const container = prefersReduced ? {} : "hidden";
   const animate = prefersReduced ? {} : "show";
@@ -30,7 +32,7 @@ export function Hero() {
       id={sectionIds.hero}
       className="relative flex min-h-[100svh] items-center justify-center overflow-hidden noise"
     >
-      <HeroBackground />
+      <HeroBackground paused={bgPaused} />
 
       {/* Cinematic letterbox bars */}
       <div
@@ -103,17 +105,29 @@ export function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Filmmaker cue: a single, quiet showreel mark (desktop only) */}
-      <span className="pointer-events-none absolute bottom-8 z-20 hidden items-center gap-2.5 text-[11px] font-medium uppercase tracking-[0.28em] text-foreground/50 sm:inline-flex ltr:left-8 rtl:right-8">
-        <span className="h-px w-6 bg-accent/60" aria-hidden />
-        {t("reel")}
-      </span>
+      {/* Bottom-start corner: background pause control (WCAG 2.2.2 — only
+          when there is motion to pause) + the filmmaker cue, a single quiet
+          showreel mark (desktop only). */}
+      <div className="above-cookie-bar absolute bottom-5 start-5 z-30 flex items-center gap-4 sm:start-8">
+        {!prefersReduced && (
+          <BackgroundVideoToggle
+            paused={bgPaused}
+            onToggle={() => setBgPaused((p) => !p)}
+          />
+        )}
+        <span className="pointer-events-none hidden items-center gap-2.5 text-[11px] font-medium uppercase tracking-[0.28em] text-foreground/50 sm:inline-flex">
+          <span className="h-px w-6 bg-accent/60" aria-hidden />
+          {t("reel")}
+        </span>
+      </div>
 
       {/* Scroll cue */}
       <motion.a
         href={`#${sectionIds.work}`}
         aria-label={t("scroll")}
-        className="absolute bottom-7 left-1/2 z-20 -translate-x-1/2 text-foreground/45 transition-colors duration-300 ease-cinematic hover:text-foreground"
+        // 44×44 hit area around the 16px icon; bottom offset compensates so
+        // the icon itself sits where it always did (bottom-7).
+        className="absolute bottom-[14px] left-1/2 z-20 inline-flex size-11 -translate-x-1/2 items-center justify-center rounded-full text-foreground/45 transition-colors duration-300 ease-cinematic hover:text-foreground"
         initial={prefersReduced ? undefined : { opacity: 0 }}
         animate={prefersReduced ? undefined : { opacity: 1 }}
         transition={{ delay: 1.2, ...transitions.slow }}

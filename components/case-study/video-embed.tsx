@@ -28,7 +28,7 @@ export function CaseStudyVideoEmbed({ film }: { film: CaseStudy["film"] }) {
         <h2 className="mb-6 text-center font-display text-3xl font-medium leading-[1.15] text-balance sm:text-4xl">
           {film.title}
         </h2>
-        <div className="relative aspect-video overflow-hidden rounded-2xl border border-border bg-card">
+        <div className="relative aspect-video overflow-hidden rounded-2xl border border-border bg-card [@media(max-height:600px)]:max-h-[40svh]">
           {playing && film.youtubeId ? (
             <iframe
               src={`https://www.youtube-nocookie.com/embed/${film.youtubeId}?autoplay=1`}

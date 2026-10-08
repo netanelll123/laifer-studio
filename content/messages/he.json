@@ -3,6 +3,8 @@
     "skipToContent": "דלג לתוכן הראשי",
     "opensInNewTab": "נפתח בכרטיסייה חדשה",
     "close": "סגור",
+    "pauseBackgroundVideo": "עצירת וידאו רקע",
+    "playBackgroundVideo": "הפעלת וידאו רקע",
     "error": {
       "title": "משהו השתבש",
       "description": "קרתה תקלה בלתי צפויה. אפשר לנסות שוב, ואם זה נמשך — ליצור איתי קשר ישירות.",

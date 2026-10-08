@@ -7,6 +7,7 @@ import { ArrowDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { fadeUp, stagger } from "@/lib/motion";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
+import { BackgroundVideoToggle } from "@/components/background-video-toggle";
 import type { CaseStudy } from "@/content/types";
 
 /**
@@ -20,11 +21,14 @@ export function CaseStudyHero({ hero }: { hero: CaseStudy["hero"] }) {
   const prefersReduced = usePrefersReducedMotion();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoReady, setVideoReady] = useState(false);
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
-    if (prefersReduced) return;
-    void videoRef.current?.play().catch(() => {});
-  }, [prefersReduced]);
+    const video = videoRef.current;
+    if (!video || prefersReduced) return;
+    if (paused) video.pause();
+    else void video.play().catch(() => {});
+  }, [prefersReduced, paused]);
 
   return (
     <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden noise">
@@ -58,7 +62,7 @@ export function CaseStudyHero({ hero }: { hero: CaseStudy["hero"] }) {
               "absolute inset-0 size-full object-cover transition-opacity duration-700 ease-cinematic",
               videoReady ? "opacity-100" : "opacity-0"
             )}
-            autoPlay
+            autoPlay={!paused}
             muted
             loop
             playsInline
@@ -117,6 +121,15 @@ export function CaseStudyHero({ hero }: { hero: CaseStudy["hero"] }) {
           ))}
         </motion.div>
       </motion.div>
+
+      {/* WCAG 2.2.2: the looping hero clip gets a pause control. */}
+      {!prefersReduced && (
+        <BackgroundVideoToggle
+          paused={paused}
+          onToggle={() => setPaused((p) => !p)}
+          className="above-cookie-bar absolute bottom-5 start-5 z-30 sm:start-8"
+        />
+      )}
 
       <div className="absolute bottom-7 left-1/2 z-20 -translate-x-1/2 text-foreground/45">
         <motion.span

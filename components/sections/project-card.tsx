@@ -112,7 +112,9 @@ export function ProjectCard({
   );
 
   const mediaClassName = cn(
-    "group relative block aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-card [direction:ltr]",
+    // Height cap on short viewports (e.g. 200% zoom, landscape phones) so
+    // the focused card's outline fits between the header and cookie bar.
+    "group relative block aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-card [direction:ltr] [@media(max-height:600px)]:max-h-[40svh]",
     reversed ? "lg:order-2" : "lg:order-1"
   );
 
@@ -174,10 +176,15 @@ export function ProjectCard({
               {proof}
             </p>
           ) : null}
+          {/* Secondary CTA duplicates the media link/button above (same
+              destination), so it's mouse-only: out of the Tab order and
+              hidden from screen readers, leaving one stop per card. */}
           {isModal ? (
             <button
               type="button"
               onClick={() => setModalOpen(true)}
+              tabIndex={-1}
+              aria-hidden="true"
               className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors duration-300 ease-cinematic hover:text-accent"
             >
               {t(`items.${project.slug}.cta`)}
@@ -187,6 +194,8 @@ export function ProjectCard({
             <a
               href={href}
               {...linkProps}
+              tabIndex={-1}
+              aria-hidden="true"
               className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors duration-300 ease-cinematic hover:text-accent"
             >
               {t(`items.${project.slug}.cta`)}

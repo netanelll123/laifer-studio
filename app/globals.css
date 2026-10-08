@@ -14,7 +14,10 @@
   --color-muted-foreground: #9d9a93;
 
   --color-border: rgba(244, 242, 238, 0.08);
-  --color-input: rgba(244, 242, 238, 0.12);
+  /* Form-field borders: 0.4 alpha ≈ 3.4:1 against the background and the
+     field fill (WCAG 1.4.11 non-text contrast needs ≥ 3:1). Only used by
+     ui/input + ui/textarea. */
+  --color-input: rgba(244, 242, 238, 0.4);
   --color-ring: #c2a06a;
 
   --color-accent: #c2a06a;
@@ -43,8 +46,11 @@
   /* scroll-padding keeps keyboard focus (and anchor jumps) clear of the
      fixed header (h-20 / sm:h-24) and, while it's shown, the bottom
      cookie bar — WCAG 2.4.11 Focus Not Obscured. */
+  /* No `scroll-behavior: smooth` here: it would also animate focus-driven
+     scrolling, leaving the focused element off-screen mid-scroll. Smooth
+     scrolling is applied only to in-page anchor clicks, in
+     SmoothScrollProvider. */
   html {
-    scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
     scroll-padding-top: 6.5rem;
   }
@@ -100,6 +106,12 @@
     transform: none !important;
   }
 
+  /* Sections that receive focus after an in-page anchor click
+     (SmoothScrollProvider) are landing points, not controls — no ring. */
+  section[tabindex="-1"]:focus {
+    outline: none;
+  }
+
   :focus-visible {
     outline: 2px solid var(--color-ring);
     outline-offset: 3px;
@@ -116,15 +128,20 @@
     background: #2a2a2e;
     border-radius: 9999px;
   }
-
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
-  }
 }
 
 @layer utilities {
+  /* Bottom-pinned hero controls (background pause toggle) rise above the
+     cookie bar while it's shown, so mouse/touch users can reach them on
+     first visit. Heights match the bar: ~133px stacked, ~77px from sm. */
+  html:has([data-cookie-consent]) .above-cookie-bar {
+    bottom: 9.5rem;
+  }
+  @media (min-width: 40rem) {
+    html:has([data-cookie-consent]) .above-cookie-bar {
+      bottom: 6rem;
+    }
+  }
   .font-display {
     font-family: var(--font-display);
   }

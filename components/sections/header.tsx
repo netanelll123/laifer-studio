@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,6 +16,7 @@ export function Header() {
   const locale = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -30,6 +31,18 @@ export function Header() {
     return () => {
       document.body.style.overflow = "";
     };
+  }, [open]);
+
+  // Escape closes the open drawer and returns focus to its toggle.
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      setOpen(false);
+      toggleRef.current?.focus();
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
   return (
@@ -69,10 +82,12 @@ export function Header() {
         <div className="flex items-center gap-2 lg:hidden">
           <LanguageToggle />
           <button
+            ref={toggleRef}
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? t("closeMenu") : t("openMenu")}
             aria-expanded={open}
+            aria-controls="mobile-menu"
             className="inline-flex size-11 items-center justify-center rounded-full border border-border text-foreground"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
@@ -84,6 +99,7 @@ export function Header() {
           collapse transition, but must not be keyboard-tabbable or exposed to
           screen readers while visually hidden. */}
       <div
+        id="mobile-menu"
         className={cn(
           "overflow-hidden border-t border-border bg-background/95 backdrop-blur-xl transition-[max-height,opacity] duration-500 ease-cinematic lg:hidden",
           open ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"

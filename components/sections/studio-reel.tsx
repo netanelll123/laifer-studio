@@ -22,7 +22,7 @@ export function StudioReel() {
         <SectionHeading title={t("title")} />
 
         <Reveal variants={scaleIn} className="mt-12">
-          <div className="relative aspect-video overflow-hidden rounded-2xl border border-border bg-card">
+          <div className="relative aspect-video overflow-hidden rounded-2xl border border-border bg-card [@media(max-height:600px)]:max-h-[40svh]">
             {playing ? (
               <video
                 src="/commercials/studio-intro.mp4"
