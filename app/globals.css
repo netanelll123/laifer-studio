@@ -142,6 +142,26 @@
       bottom: 6rem;
     }
   }
+
+  /* Hero safe area: content (CTAs, paragraph) never extends under the
+     fixed header or into the bottom strip holding the scroll cue and the
+     pause toggle. Toggle top edge: 64px normally; with the cookie bar,
+     196px stacked / 140px from sm (9.5rem / 6rem + 44px). */
+  .hero-safe-area {
+    padding-top: 6rem;
+    padding-bottom: 5.5rem;
+  }
+  html:has([data-cookie-consent]) .hero-safe-area {
+    padding-bottom: 13rem;
+  }
+  @media (min-width: 40rem) {
+    .hero-safe-area {
+      padding-top: 7rem;
+    }
+    html:has([data-cookie-consent]) .hero-safe-area {
+      padding-bottom: 9.75rem;
+    }
+  }
   .font-display {
     font-family: var(--font-display);
   }

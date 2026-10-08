@@ -31,7 +31,7 @@ export function CaseStudyHero({ hero }: { hero: CaseStudy["hero"] }) {
   }, [prefersReduced, paused]);
 
   return (
-    <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden noise">
+    <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden noise hero-safe-area">
       <div className="absolute inset-0">
         {/* The poster always renders — server-rendered the same way for
             every visitor, regardless of motion preference — so it's in the

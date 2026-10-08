@@ -30,7 +30,7 @@ export function Hero() {
   return (
     <section
       id={sectionIds.hero}
-      className="relative flex min-h-[100svh] items-center justify-center overflow-hidden noise"
+      className="relative flex min-h-[100svh] items-center justify-center overflow-hidden noise hero-safe-area"
     >
       <HeroBackground paused={bgPaused} />
 
