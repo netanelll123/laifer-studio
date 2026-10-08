@@ -16,13 +16,17 @@ export function CaseStudyCredits({
         className="flex flex-col divide-y divide-border border-y border-border"
       >
         {credits.map((credit) => (
-          <Reveal key={credit.name + credit.role} variants={fadeUp}>
-            <div className="flex flex-col gap-1 py-6 text-center">
-              <dt className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-                {credit.role}
-              </dt>
-              <dd className="font-display text-xl">{credit.name}</dd>
-            </div>
+          // The Reveal *is* the dt/dd group div — a valid <dl> allows only
+          // one wrapper level between it and its dt/dd pairs.
+          <Reveal
+            key={credit.name + credit.role}
+            variants={fadeUp}
+            className="flex flex-col gap-1 py-6 text-center"
+          >
+            <dt className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+              {credit.role}
+            </dt>
+            <dd className="font-display text-xl">{credit.name}</dd>
           </Reveal>
         ))}
       </Reveal>

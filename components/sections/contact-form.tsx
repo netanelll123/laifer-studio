@@ -60,16 +60,19 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-5">
-      <input
-        type="text"
-        name="website"
-        value={honeypot}
-        onChange={(e) => setHoneypot(e.target.value)}
-        tabIndex={-1}
-        autoComplete="off"
-        aria-hidden="true"
-        className="absolute left-[-9999px] top-0 h-0 w-0 overflow-hidden"
-      />
+      {/* Honeypot. `inert` on the wrapper makes it unfocusable and hidden
+          from assistive tech (tabIndex/aria-hidden alone still left a
+          focusable off-screen field); bots filling the DOM still hit it. */}
+      <div inert className="absolute left-[-9999px] top-0 h-0 w-0 overflow-hidden">
+        <input
+          type="text"
+          name="website"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
       <div className="grid gap-5 sm:grid-cols-2">
         <Field
           id="name"

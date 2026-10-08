@@ -26,6 +26,7 @@ export function CookieConsent() {
     <div
       role="region"
       aria-label={t("title")}
+      data-cookie-consent
       className="fixed inset-x-0 bottom-0 z-[90] border-t border-border bg-background/95 backdrop-blur-xl"
     >
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 px-5 py-5 sm:flex-row sm:justify-between sm:px-8">

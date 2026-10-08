@@ -101,7 +101,7 @@ export function ProjectCard({
         </video>
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
-      <span className="absolute bottom-4 end-4 inline-flex size-12 items-center justify-center rounded-full bg-accent text-accent-foreground opacity-0 transition-opacity duration-500 ease-cinematic group-hover:opacity-100">
+      <span className="absolute bottom-4 end-4 inline-flex size-12 items-center justify-center rounded-full bg-accent text-accent-foreground opacity-0 transition-opacity duration-500 ease-cinematic group-hover:opacity-100 group-focus-visible:opacity-100">
         {isModal ? (
           <Play className="size-5 translate-x-0.5" fill="currentColor" />
         ) : (

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion, type Variants } from "motion/react";
 import { fadeUp, viewportOnce } from "@/lib/motion";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
@@ -25,6 +26,10 @@ export function Reveal({
   as = "div",
 }: RevealProps) {
   const prefersReduced = usePrefersReducedMotion();
+  // Keyboard focus landing inside a not-yet-revealed block (e.g. tabbed to
+  // just below the viewport's -12% trigger margin) must reveal it at once —
+  // otherwise focus sits on an invisible element.
+  const [focused, setFocused] = useState(false);
   const MotionTag = motion[as];
 
   if (prefersReduced) {
@@ -34,10 +39,13 @@ export function Reveal({
 
   return (
     <MotionTag
+      data-reveal
       className={className}
       variants={variants}
       initial="hidden"
       whileInView="show"
+      animate={focused ? "show" : undefined}
+      onFocusCapture={focused ? undefined : () => setFocused(true)}
       viewport={viewportOnce}
       transition={{ delay }}
     >

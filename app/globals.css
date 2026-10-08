@@ -40,9 +40,34 @@
     border-color: var(--color-border);
   }
 
+  /* scroll-padding keeps keyboard focus (and anchor jumps) clear of the
+     fixed header (h-20 / sm:h-24) and, while it's shown, the bottom
+     cookie bar — WCAG 2.4.11 Focus Not Obscured. */
   html {
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
+    scroll-padding-top: 6.5rem;
+  }
+  @media (min-width: 40rem) {
+    html {
+      scroll-padding-top: 7.5rem;
+    }
+  }
+  /* Matching body padding so the page's last row (footer legal links) can
+     scroll clear of the cookie bar instead of ending underneath it. */
+  html:has([data-cookie-consent]) {
+    scroll-padding-bottom: 10rem;
+  }
+  html:has([data-cookie-consent]) body {
+    padding-bottom: 10rem;
+  }
+  @media (min-width: 40rem) {
+    html:has([data-cookie-consent]) {
+      scroll-padding-bottom: 6.5rem;
+    }
+    html:has([data-cookie-consent]) body {
+      padding-bottom: 6.5rem;
+    }
   }
 
   /* Let Lenis own scrolling; disable native smooth to avoid double-easing. */
@@ -66,6 +91,13 @@
   ::selection {
     background: var(--color-accent);
     color: var(--color-accent-foreground);
+  }
+
+  /* Instant safety net for <Reveal>: a block holding keyboard focus is
+     never left mid-fade or invisible (overrides Motion's inline styles). */
+  [data-reveal]:focus-within {
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   :focus-visible {

@@ -21,12 +21,18 @@ export function FAQ() {
           {items.map((item, i) => (
             <Reveal key={i} variants={scaleIn}>
               <details className="group rounded-2xl border border-border bg-card/60 p-6 transition-colors duration-500 ease-cinematic open:border-accent/40 open:bg-card">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-medium [&::-webkit-details-marker]:hidden">
-                  {item.question}
-                  <Plus
-                    className="size-5 shrink-0 text-accent transition-transform duration-300 ease-cinematic group-open:rotate-45"
-                    aria-hidden
-                  />
+                {/* The summary itself stays display:list-item (marker hidden via
+                    ::marker) — flex on <summary> strips its disclosure role in
+                    WebKit, so screen readers stop announcing it as an
+                    expandable control. The flex layout lives on an inner span. */}
+                <summary className="cursor-pointer rounded-lg font-display text-lg font-medium marker:content-none [&::-webkit-details-marker]:hidden">
+                  <span className="flex items-center justify-between gap-4">
+                    {item.question}
+                    <Plus
+                      className="size-5 shrink-0 text-accent transition-transform duration-300 ease-cinematic group-open:rotate-45"
+                      aria-hidden
+                    />
+                  </span>
                 </summary>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
                   {item.answer}
