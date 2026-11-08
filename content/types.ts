@@ -11,7 +11,8 @@ export type ProjectSlug =
   | "lemon-waffle"
   | "air-mevorach"
   | "jerusalem-walls"
-  | "hashiveinu";
+  | "hashiveinu"
+  | "mellifant";
 export type ServiceSlug =
   | "music-videos"
   | "commercials"
@@ -118,6 +119,8 @@ export interface CaseStudy {
     tags: string[];
     video: string;
     poster: string;
+    /** Optional brand logo shown above the title (transparent PNG, ~4:1). */
+    logo?: string;
   };
   openingQuote: string[];
   /** The body of the article — sections 1 through 8 of the brief, in order. */
@@ -140,6 +143,8 @@ export interface CaseStudy {
     uploadDate?: string;
     /** ISO 8601 duration of the published film (e.g. PT4M1S). */
     duration?: string;
+    /** Optional external link shown under the video (e.g. the YouTube channel). */
+    link?: { label: string; url: string };
   };
   reflection: {
     title?: string;

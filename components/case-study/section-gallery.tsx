@@ -13,7 +13,13 @@ export function CaseStudySectionGallery({
     <div className="mx-auto w-full max-w-6xl px-5 sm:px-8">
       <Reveal
         variants={stagger(0.08)}
-        className="grid grid-cols-2 gap-4 sm:grid-cols-3"
+        className={
+          // Pick a column count that divides the item count, so the last
+          // row is never left with gaps.
+          items.length % 3 !== 0 && items.length % 4 === 0
+            ? "grid grid-cols-2 gap-4 sm:grid-cols-4"
+            : "grid grid-cols-2 gap-4 sm:grid-cols-3"
+        }
       >
         {items.map((item, i) => (
           <Reveal key={i} variants={scaleIn}>

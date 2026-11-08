@@ -61,4 +61,9 @@ export const projects: Project[] = [
     caseStudySlug: "hashiveinu",
     fit: "contain",
   },
+  {
+    slug: "mellifant",
+    poster: "/case-studies/mellifant/hero-poster.jpg",
+    caseStudySlug: "mellifant",
+  },
 ];

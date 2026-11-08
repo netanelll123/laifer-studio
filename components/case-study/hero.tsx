@@ -96,6 +96,18 @@ export function CaseStudyHero({ hero }: { hero: CaseStudy["hero"] }) {
         animate={prefersReduced ? undefined : "show"}
         className="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-5 text-center"
       >
+        {hero.logo && (
+          <motion.div variants={fadeUp} className="mb-8">
+            <Image
+              src={hero.logo}
+              alt=""
+              aria-hidden
+              width={792}
+              height={204}
+              className="h-auto w-[clamp(11rem,28vw,17rem)] drop-shadow-[0_8px_30px_rgba(0,0,0,0.45)]"
+            />
+          </motion.div>
+        )}
         <motion.h1
           variants={fadeUp}
           className="font-display text-[clamp(2.5rem,6.5vw,5.25rem)] font-medium leading-[1.05] text-balance [text-shadow:0_2px_44px_rgba(0,0,0,0.55)]"

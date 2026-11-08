@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Play } from "lucide-react";
 import { Reveal } from "@/components/reveal";
+import { Button } from "@/components/ui/button";
 import { scaleIn } from "@/lib/motion";
 import type { CaseStudy } from "@/content/types";
 
@@ -71,6 +72,20 @@ export function CaseStudyVideoEmbed({ film }: { film: CaseStudy["film"] }) {
             </button>
           )}
         </div>
+        {film.link && (
+          <div className="mt-8 flex justify-center">
+            <Button
+              asChild
+              size="lg"
+              className="h-16 gap-3 px-10 text-lg font-semibold [&_svg]:size-6 shadow-[0_0_50px_-12px_var(--color-accent)]"
+            >
+              <a href={film.link.url} target="_blank" rel="noopener noreferrer">
+                <Play className="size-6" fill="currentColor" />
+                {film.link.label}
+              </a>
+            </Button>
+          </div>
+        )}
       </Reveal>
     </div>
   );

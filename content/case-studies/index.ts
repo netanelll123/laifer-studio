@@ -31,6 +31,10 @@ const loaders: Record<
     he: () => import("./hashiveinu.he"),
     en: () => import("./hashiveinu.en"),
   },
+  mellifant: {
+    he: () => import("./mellifant.he"),
+    en: () => import("./mellifant.en"),
+  },
 };
 
 export function getCaseStudySlugs(): string[] {
