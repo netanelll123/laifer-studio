@@ -7,8 +7,10 @@ import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
 /** Cinematic showreel frames (textless "shots"). Swapped for real footage the
  *  moment a valid `hero.mp4` loads. */
+// First frame is a real still from hero.mp4, so the first paint already shows
+// the showreel scene and the video crossfades in on the same image.
 const REEL_FRAMES = [
-  "/videos/reel-1.svg",
+  "/videos/hero-poster.jpg",
   "/videos/reel-2.svg",
   "/videos/reel-3.svg",
   "/videos/reel-4.svg",
@@ -91,7 +93,7 @@ export function HeroBackground({ paused = false }: { paused?: boolean }) {
             "absolute inset-0 size-full object-cover transition-opacity duration-700 ease-cinematic",
             videoReady ? "opacity-100" : "opacity-0"
           )}
-          poster="/videos/hero-poster.svg"
+          poster="/videos/hero-poster.jpg"
           autoPlay={!paused}
           muted
           loop

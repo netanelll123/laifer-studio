@@ -4,6 +4,7 @@ import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/sections/contact-form";
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon";
+import { TrackedLink } from "@/components/tracked-link";
 import { sectionIds, siteConfig } from "@/content/site";
 
 /** Contact section: minimal intro + the form. */
@@ -26,19 +27,20 @@ export function Contact() {
           </h2>
           <div className="flex flex-col items-start gap-5">
             <Button asChild size="lg" className="w-full sm:w-auto">
-              <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
+              <TrackedLink lead="whatsapp" href={whatsappHref} target="_blank" rel="noopener noreferrer">
                 <WhatsAppIcon className="size-5" />
                 {t("whatsappCta")}
                 <span className="sr-only"> — {tCommon("opensInNewTab")}</span>
-              </a>
+              </TrackedLink>
             </Button>
-            <a
+            <TrackedLink
+              lead="email"
               href={`mailto:${siteConfig.person.email}`}
               className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-300 ease-cinematic hover:text-accent"
             >
               <Mail className="size-4" aria-hidden />
               {siteConfig.person.email}
-            </a>
+            </TrackedLink>
           </div>
         </Reveal>
 

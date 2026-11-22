@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { contactSchema, type ContactFormValues } from "@/lib/validations/contact";
+import { trackLead } from "@/lib/track";
 
 /** Accessible contact form: RHF + Zod validation, locale-aware error messages,
  *  loading/success/error states via Sonner. Posts to the `/api/contact` proxy. */
@@ -46,6 +47,7 @@ export function ContactForm() {
         body: JSON.stringify({ ...values, website: honeypot }),
       });
       if (!res.ok) throw new Error("Request failed");
+      trackLead("form");
       toast.success(t("success"));
       reset();
     } catch {
