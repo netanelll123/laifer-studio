@@ -46,6 +46,7 @@ export async function generateMetadata({
   return {
     title: `${study.hero.title} — ${t("personName")}`,
     description,
+    robots: study.unlisted ? { index: false, follow: false } : undefined,
     alternates: {
       canonical: url,
       languages: {
@@ -168,10 +169,12 @@ export default async function CaseStudyPage({
           <CaseStudyQuote lines={study.openingQuote} />
           <CaseStudyBody blocks={study.blocks} />
           <CaseStudyVideoEmbed film={study.film} />
-          <CaseStudySectionText
-            title={study.reflection.title}
-            paragraphs={study.reflection.paragraphs}
-          />
+          {(study.reflection.title || study.reflection.paragraphs.length > 0) && (
+            <CaseStudySectionText
+              title={study.reflection.title}
+              paragraphs={study.reflection.paragraphs}
+            />
+          )}
           <CaseStudyCredits credits={study.credits} />
           <CaseStudyCta cta={study.cta} href={contactHref} />
         </div>

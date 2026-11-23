@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { SectionHeading } from "@/components/section-heading";
 import { ProjectCard } from "@/components/sections/project-card";
-import { projects } from "@/content/collections/projects";
+import { listedProjects } from "@/content/collections/projects";
 import { sectionIds } from "@/content/site";
 
 /** Exactly three featured projects as large cinematic rows. Hover reveals a
@@ -21,7 +21,7 @@ export function FeaturedProjects() {
         />
 
         <div className="mt-16 flex flex-col gap-16 sm:gap-24">
-          {projects.map((project, index) => (
+          {listedProjects.map((project, index) => (
             <ProjectCard
               key={project.slug}
               project={project}

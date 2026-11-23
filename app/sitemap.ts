@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/content/site";
-import { getCaseStudySlugs } from "@/content/case-studies";
+import { getListedCaseStudySlugs } from "@/content/case-studies";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -30,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }))
   );
 
-  const caseStudyEntries: MetadataRoute.Sitemap = getCaseStudySlugs().flatMap(
+  const caseStudyEntries: MetadataRoute.Sitemap = getListedCaseStudySlugs().flatMap(
     (slug) =>
       routing.locales.map((locale) => ({
         url: `${siteConfig.url}/${locale}/work/${slug}`,

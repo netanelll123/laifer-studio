@@ -59,6 +59,9 @@ export interface Project {
    *  the card's own dark background shows as the letterbox, matching the
    *  site's existing letterbox-bar motif rather than looking like a bug. */
   fit?: "cover" | "contain";
+  /** Hidden from the public portfolio grid, sitemap, nav and JSON-LD lists.
+   *  The work stays reachable by direct URL so it can be shared privately. */
+  unlisted?: boolean;
 }
 
 /** A service offering. Title/description resolved from i18n via `slug`. */
@@ -113,6 +116,9 @@ export type CaseStudyBlock =
 
 export interface CaseStudy {
   slug: string;
+  /** Same meaning as `Project.unlisted` — the page stays up at its URL,
+   *  but is omitted from public listings and served with noindex. */
+  unlisted?: boolean;
   hero: {
     title: string;
     subtitle: string;
