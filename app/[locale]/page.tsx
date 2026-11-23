@@ -10,7 +10,7 @@ import {
   publishedVideoObjectFields,
   youtubeWatchUrl,
 } from "@/lib/json-ld";
-import { projects } from "@/content/collections/projects";
+import { listedProjects } from "@/content/collections/projects";
 import { services } from "@/content/collections/services";
 import { getCaseStudy } from "@/content/case-studies";
 import { Header } from "@/components/sections/header";
@@ -54,7 +54,7 @@ export default async function HomePage({
   // poster-only card (no video at all) doesn't get an entry here, since
   // there's nothing schema-worthy to say about it beyond the visual card.
   const tProjects = await getTranslations({ locale, namespace: "projects" });
-  const schemaProjects = projects.filter((p) => p.caseStudySlug || p.youtubeId);
+  const schemaProjects = listedProjects.filter((p) => p.caseStudySlug || p.youtubeId);
   const portfolioItemListJsonLd = {
     "@type": "ItemList",
     // Locale-invariant — it's the same list of featured work either way.

@@ -31,6 +31,7 @@ export const projects: Project[] = [
     slug: "instant-coffee",
     poster: "/commercials/instant-coffee-poster.jpg",
     caseStudySlug: "instant-coffee",
+    unlisted: true,
   },
   {
     slug: "balkan-wedding",
@@ -41,6 +42,8 @@ export const projects: Project[] = [
     slug: "lemon-waffle",
     poster: "/commercials/lemon-waffle-poster.jpg",
     video: "/commercials/lemon-waffle.mp4",
+    caseStudySlug: "lemon-waffle",
+    unlisted: true,
   },
   {
     slug: "air-mevorach",
@@ -67,3 +70,6 @@ export const projects: Project[] = [
     caseStudySlug: "mellifant",
   },
 ];
+
+/** Public portfolio entries — unlisted work is omitted from the grid. */
+export const listedProjects = projects.filter((project) => !project.unlisted);

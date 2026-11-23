@@ -13,6 +13,7 @@ const BASE = "/commercials";
  */
 const caseStudy: CaseStudy = {
   slug: "instant-coffee",
+  unlisted: true,
   hero: {
     title: "Elite Instant Coffee",
     subtitle:

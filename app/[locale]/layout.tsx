@@ -7,7 +7,7 @@ import { Toaster } from "sonner";
 import { routing, localeDirection, type Locale } from "@/i18n/routing";
 import { siteConfig } from "@/content/site";
 import { services } from "@/content/collections/services";
-import { projects } from "@/content/collections/projects";
+import { listedProjects } from "@/content/collections/projects";
 import { siteIds, absoluteUrl, caseStudyId } from "@/lib/json-ld";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
 import { AnalyticsGate } from "@/components/analytics-gate";
@@ -99,7 +99,7 @@ export default async function LocaleLayout({
   // locale-invariant @id that page's own CreativeWork node uses, so
   // WebSite.hasPart resolves to the identical entity on every locale's
   // rendering of this layout, not a different id per language.
-  const caseStudyIds = projects
+  const caseStudyIds = listedProjects
     .filter((p) => p.caseStudySlug)
     .map((p) => caseStudyId(p.caseStudySlug!));
 

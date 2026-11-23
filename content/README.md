@@ -71,6 +71,8 @@ export type ProjectSlug = "balkan-wedding" | "air-mevorach" | "jerusalem-walls" 
 
 **להסיר פרויקט** — פשוט להפוך את התהליך: למחוק את האובייקט מ-`projects.ts`, את המפתח משני קבצי ה-messages, ואת ה-slug מ-`types.ts`.
 
+**להסתיר פרויקט בלי למחוק אותו** — להוסיף `unlisted: true` לערך ב-`projects.ts` וגם לרשומה ב-`content/case-studies/index.ts`. העמוד נשאר בכתובת הישירה (כדי שאפשר יהיה לשלוח אותו), אבל לא מופיע בגריד, ב-sitemap או ברשימות JSON-LD, ומקבל `noindex, nofollow`.
+
 **להעלות מדיה** — קבצי תמונה/וידאו נכנסים לתיקיית `public/projects/`. ראו גם `public/README.md`.
 
 ---
